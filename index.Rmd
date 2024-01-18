@@ -1,0 +1,83 @@
+--- 
+title: "PSYCH 2126: Research Methods"
+author: "S.Heron"
+date: "`r Sys.Date()`"
+site: bookdown::bookdown_site
+documentclass: book
+bibliography: [book.bib, packages.bib]
+# url: your book url like https://bookdown.org/yihui/bookdown
+# cover-image: path to the social sharing image like images/cover.jpg
+description: |
+  Writing reproducible research.
+link-citations: yes
+github-repo: rstudio/bookdown-demo
+---
+
+# Introduction
+
+This guidebook will walk you through all of the steps necessary to complete your term assignment. The steps involve:
+
+Phase 1:
+
+1. Downloading and installing R Statistical Software
+
+2. Downloading and installing R Studio for your specific platform (Windows or Mac)
+
+3. Setting up R and getting comfy with the basics
+
+Phase 2:
+
+1. Design your study
+
+2. Generate your data
+
+3. Visualize your data
+
+4. Test your results
+
+5. Write up your results
+
+6. Knit your R document into a lovely APA formatted pdf for handing in (don't worry, you'll learn how to do this part!)
+
+## Why R? 
+
+A key goal for any psychology researcher is not only to design and execute experiments, but to *communicate* your results to other people. As Psychologists the main way that we do this is through journal publication. is reproducible. 
+
+
+Each **bookdown** chapter is an .Rmd file, and each .Rmd file can contain one (and only one) chapter. A chapter *must* start with a first-level heading: `# A good chapter`, and can contain one (and only one) first-level heading.
+
+Use second-level and higher headings within chapters like: `## A short section` or `### An even shorter section`.
+
+The `index.Rmd` file is required, and is also your first book chapter. It will be the homepage when you render the book.
+
+## What you will learn
+
+You can render the HTML version of this example book without changing anything:
+
+1. Find the **Build** pane in the RStudio IDE, and
+
+1. Click on **Build Book**, then select your output format, or select "All formats" if you'd like to use multiple formats from the same book source files.
+
+Or build the book from the R console:
+
+```{r, eval=FALSE}
+bookdown::render_book()
+```
+
+To render this example to PDF as a `bookdown::pdf_book`, you'll need to install XeLaTeX. You are recommended to install TinyTeX (which includes XeLaTeX): <https://yihui.org/tinytex/>.
+
+## Preview book
+
+As you work, you may start a local server to live preview this HTML book. This preview will update as you edit the book when you save individual .Rmd files. You can start the server in a work session by using the RStudio add-in "Preview book", or from the R console:
+
+```{r eval=FALSE}
+bookdown::serve_book()
+```
+
+
+```{r include=FALSE}
+# automatically create a bib database for R packages
+knitr::write_bib(c(
+  .packages(), 'bookdown', 'knitr', 'rmarkdown'
+), 'packages.bib')
+```

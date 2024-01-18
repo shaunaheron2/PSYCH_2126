@@ -1,0 +1,29 @@
+# Installing R and R Studio
+
+All chapters start with a first-level heading followed by your chapter title, like the line above. There should be only one first-level heading (`#`) per .Rmd file.
+
+## Installing R
+
+All chapter sections start with a second-level (`##`) or higher heading followed by your section title, like the sections above and below here. You can have as many as you want within a chapter.
+
+## Installing R Studio
+
+There are some great detailed walkthrough videos by Danielle Narvarro on YouTube re: how to install R on both Windows and Mac.
+
+### Windows
+
+1.  [R and R Studio](https://posit.co/download/rstudio-desktop/)
+
+You will first click "Install R". From the next page, you will choose one of the top links–either R for Windows or R for macOS, depending on your laptop.
+
+Use the default install settings if at all possible.
+
+Once R is installed, click the link above again and this time go to step 2: Install R Studio
+
+### Mac
+
+Chapters and sections are numbered by default. To un-number a heading, add a `{.unnumbered}` or the shorter `{-}` at the end of the heading, like in this section.
+
+R Markdown Cheatsheet
+
+<https://www.rstudio.com/wp-content/uploads/2015/02/rmarkdown-cheatsheet.pdf>
