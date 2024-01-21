@@ -1,4 +1,4 @@
-# Getting started with R {#Intro}
+# R Tutorials {#Intro}
 
 ## Installing R and R Studio
 
@@ -25,6 +25,10 @@ For a Mac install scroll down a little on the same page and you'll see the Mac O
 [![Mac Install](images/macinstall.JPG)](https://posit.co/download/rstudio-desktop/)
 
 ## Opening R Studio 
+
+:::lightbulb
+It is important to remember that R is CASE SENSITIVE. This is something you need to get used to. If you call a file df and then later refer to it as Df, R will throw an error. 
+:::
 
 1.  Open R Studio by clicking on it it's icon and once you have your first package, you will open via the cube icon in your project folder (see below).
 
@@ -58,7 +62,9 @@ Text [Tutorial](https://support.posit.co/hc/en-us/articles/200549016-Customizing
 
 ## Install Packages
 
-On its own, R is great but
+:::lightbulb
+R does not like variable or object names with spaces. E.g. the name Red Group would have to be RedGroup or Red_Group or `Red Group` or R will throw your errors. 
+:::
 
 In the console window of R, copy and paste this code into the command line then hit return:
 

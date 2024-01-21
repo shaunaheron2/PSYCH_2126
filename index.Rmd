@@ -1,6 +1,6 @@
---- 
-title: "PSYCH 2126: Research Methods"
-author: "S.Heron"
+---
+title: "PSYCH 2126: Term Assignment"
+author: "S. Heron for Dr. Emond's Psych Class"
 date: "`r Sys.Date()`"
 site: bookdown::bookdown_site
 documentclass: html
@@ -15,41 +15,41 @@ github-repo: rstudio/bookdown-demo
 
 # Introduction
 
-This guidebook will walk you through all of the steps necessary to complete your term assignment. The steps involve:
+This guidebook will walk you through all of the steps necessary to complete your term assignment. Get ready, because you are embarking on a journey... from the safe GUI point-and-click world of SPSS to the code-based Thunderdome of R.
 
-Phase 1:
+**Where we're going...**
 
-1. Downloading and installing R Statistical Software
-
-2. Downloading and installing R Studio for your specific platform (Windows or Mac)
-
-3. Customizing R and getting comfy with the basics
-
-Phase 2:
-
-1. Design your study
-
-2. Generate your data
-
-3. Visualize your data
-
-4. Test your results
-
-5. Write up your results
-
-6. Knit your R document into a lovely APA formatted pdf for handing in (don't worry, you'll learn how to do this part!)
-
-## Why R? 
-
-A key goal of any psychology researcher is to not only design and execute reproducible experiments, but to *communicate* those results to other people. Today, researchers are moving away from using multiple pieces of software to conduct and communicate their research. Each step that a researcher takes from importing their data to Excel, moving it to SPSS for analyses and then copy-pasting tables and visualizations into Word, is a step that must be remembered and done all over again when re-doing the analysis. As you can imagine, it is very easy to forget a step, not to mention disguise data funny business along the way.
-
-```{r, echo=FALSE, out.width="100%"}
+```{r, echo=FALSE, out.width="100%", fig.align="center"}
 knitr::include_graphics("images/WhyR.jpg")
 ```
 
-With R, Rather than having to use multiple pieces of software you use one piece of FREE software. With one project which includes a record of everything you've done. This means if you or another researcher wants to rerun the analysis with new data, its a simple matter of putting the data in a project folder and voila, rerun the same code. When you're ready to publish? Your entire manuscript can be written in R along with your analysis and eventually publish the data--everything is there to easily and exactly replicate every step of the process.
+## Goals
 
-This quick guide is meant as a companion to your assignment. It is not meant to teach you all the ins and outs of R, as that would be several courses on its own, instead, you will get a small taste of R and its capabilities in hopes that it might ignite the spark of curiosity to learn more. As, the other great thing about R is there is a WEALTH of free resources available on the internet where you can find the answer to any analysis question. I will share lots of handy resources in the Resource section. R is where it's at.
+The goal of the assignment is twofold: First, to give you the opportunity to flex what you are learning in class, and two, to introduce you R Statistical Software; a game-changer in any future research endeavors.
+
+**This guide is meant as a companion to your assignment.** It is not meant to be an in depth course on R, as that would be several entire courses on its own, but by the end you *will* have had a small taste of R and its capabilities. And who knows, it might ignite a spark of curiosity that jump starts a desire to learn more.
+
+**By the end of this assignment**, you will have read a bunch of interesting research papers, designed a mini study based on a theory of your choice and completed some analyses and a full write up in R that you will hand in. Your paper will include everything a person would need to reproduce your experiment from start to finish. Don’t worry about HOW we’ll do this yet, **just know that you will**.
+
+## What can R do?
+
+Disclaimer: I do NOT work for R. I just love it.
+
+-   Advanced statistical analyses without paying for packages (it's open source!)
+-   The best [data visualization](https://r-graph-gallery.com/) capabilities of ANY statistical software
+-   Reproducible research is made easy, an integral partner of [Open Science research](https://www.apa.org/monitor/2021/11/career-open-science)
+-   Thousands of [free online resources](https://bookdown.org/mikemahoney218/IDEAR/introduction-to-r.html) to learn anything you don't know
+-   Did I say its open source.. ?
+-   Make gorgeous [publication-ready papers](https://rmarkdown.rstudio.com/gallery.html) and books with inline analyses
+-   Make gorgeous slideshows with analyses and text all in one document
+-   Make gorgeous websites (This website you're reading is made 100% in R)
+-   Juice up your resume (researchers with R skills are a HUGE asset and hard to come by)
+-   Help you understand data better because the analysis isn't happening behind a graphic user interface
+-   Ramp up your street cred 1000%.
+
+```{r, echo=FALSE, out.width="95%", fig.align='center'}
+knitr::include_graphics("images/WhyR2.jpg")
+```
 
 ```{r include=FALSE}
 # automatically create a bib database for R packages
