@@ -3,7 +3,7 @@ title: "PSYCH 2126: Research Methods"
 author: "S.Heron"
 date: "`r Sys.Date()`"
 site: bookdown::bookdown_site
-documentclass: book
+documentclass: html
 bibliography: [book.bib, packages.bib]
 # url: your book url like https://bookdown.org/yihui/bookdown
 # cover-image: path to the social sharing image like images/cover.jpg
@@ -23,7 +23,7 @@ Phase 1:
 
 2. Downloading and installing R Studio for your specific platform (Windows or Mac)
 
-3. Setting up R and getting comfy with the basics
+3. Customizing R and getting comfy with the basics
 
 Phase 2:
 
@@ -41,39 +41,15 @@ Phase 2:
 
 ## Why R? 
 
-A key goal for any psychology researcher is not only to design and execute experiments, but to *communicate* your results to other people. As Psychologists the main way that we do this is through journal publication. is reproducible. 
+A key goal of any psychology researcher is to not only design and execute reproducible experiments, but to *communicate* those results to other people. Today, researchers are moving away from using multiple pieces of software to conduct and communicate their research. Each step that a researcher takes from importing their data to Excel, moving it to SPSS for analyses and then copy-pasting tables and visualizations into Word, is a step that must be remembered and done all over again when re-doing the analysis. As you can imagine, it is very easy to forget a step, not to mention disguise data funny business along the way.
 
-
-Each **bookdown** chapter is an .Rmd file, and each .Rmd file can contain one (and only one) chapter. A chapter *must* start with a first-level heading: `# A good chapter`, and can contain one (and only one) first-level heading.
-
-Use second-level and higher headings within chapters like: `## A short section` or `### An even shorter section`.
-
-The `index.Rmd` file is required, and is also your first book chapter. It will be the homepage when you render the book.
-
-## What you will learn
-
-You can render the HTML version of this example book without changing anything:
-
-1. Find the **Build** pane in the RStudio IDE, and
-
-1. Click on **Build Book**, then select your output format, or select "All formats" if you'd like to use multiple formats from the same book source files.
-
-Or build the book from the R console:
-
-```{r, eval=FALSE}
-bookdown::render_book()
+```{r, echo=FALSE, out.width="100%"}
+knitr::include_graphics("images/WhyR.jpg")
 ```
 
-To render this example to PDF as a `bookdown::pdf_book`, you'll need to install XeLaTeX. You are recommended to install TinyTeX (which includes XeLaTeX): <https://yihui.org/tinytex/>.
+With R, Rather than having to use multiple pieces of software you use one piece of FREE software. With one project which includes a record of everything you've done. This means if you or another researcher wants to rerun the analysis with new data, its a simple matter of putting the data in a project folder and voila, rerun the same code. When you're ready to publish? Your entire manuscript can be written in R along with your analysis and eventually publish the data--everything is there to easily and exactly replicate every step of the process.
 
-## Preview book
-
-As you work, you may start a local server to live preview this HTML book. This preview will update as you edit the book when you save individual .Rmd files. You can start the server in a work session by using the RStudio add-in "Preview book", or from the R console:
-
-```{r eval=FALSE}
-bookdown::serve_book()
-```
-
+This quick guide is meant as a companion to your assignment. It is not meant to teach you all the ins and outs of R, as that would be several courses on its own, instead, you will get a small taste of R and its capabilities in hopes that it might ignite the spark of curiosity to learn more. As, the other great thing about R is there is a WEALTH of free resources available on the internet where you can find the answer to any analysis question. I will share lots of handy resources in the Resource section. R is where it's at.
 
 ```{r include=FALSE}
 # automatically create a bib database for R packages

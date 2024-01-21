@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 2 The Assignment | PSYCH 2126: Research Methods</title>
+  <meta name="description" content="Writing reproducible research." />
+  <meta name="generator" content="bookdown 0.36 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 2 The Assignment | PSYCH 2126: Research Methods" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:description" content="Writing reproducible research." />
+  <meta name="github-repo" content="rstudio/bookdown-demo" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 2 The Assignment | PSYCH 2126: Research Methods" />
+  
+  <meta name="twitter:description" content="Writing reproducible research." />
+  
+
+<meta name="author" content="S.Heron" />
+
+
+<meta name="date" content="2024-01-20" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="index.html"/>
+<link rel="next" href="Intro.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">PSYCH 2126 Research Methods Assignment</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introduction</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#why-r"><i class="fa fa-check"></i><b>1.1</b> Why R?</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="cross.html"><a href="cross.html"><i class="fa fa-check"></i><b>2</b> The Assignment</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="cross.html"><a href="cross.html#Part1"><i class="fa fa-check"></i><b>2.1</b> Part I</a></li>
+<li class="chapter" data-level="2.2" data-path="cross.html"><a href="cross.html#Part2"><i class="fa fa-check"></i><b>2.2</b> Part II</a></li>
+<li class="chapter" data-level="2.3" data-path="cross.html"><a href="cross.html#keep-in-mind"><i class="fa fa-check"></i><b>2.3</b> Keep in Mind</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="Intro.html"><a href="Intro.html"><i class="fa fa-check"></i><b>3</b> Getting started with R</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="Intro.html"><a href="Intro.html#installing-r-and-r-studio"><i class="fa fa-check"></i><b>3.1</b> Installing R and R Studio</a></li>
+<li class="chapter" data-level="3.2" data-path="Intro.html"><a href="Intro.html#opening-r-studio"><i class="fa fa-check"></i><b>3.2</b> Opening R Studio</a></li>
+<li class="chapter" data-level="3.3" data-path="Intro.html"><a href="Intro.html#customizing-r-studio"><i class="fa fa-check"></i><b>3.3</b> Customizing R Studio</a></li>
+<li class="chapter" data-level="3.4" data-path="Intro.html"><a href="Intro.html#install-packages"><i class="fa fa-check"></i><b>3.4</b> Install Packages</a></li>
+<li class="chapter" data-level="3.5" data-path="Intro.html"><a href="Intro.html#creating-your-project"><i class="fa fa-check"></i><b>3.5</b> Creating your project</a></li>
+<li class="chapter" data-level="3.6" data-path="Intro.html"><a href="Intro.html#how-to-learn-more"><i class="fa fa-check"></i><b>3.6</b> How to learn more?</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="research-assignment.html"><a href="research-assignment.html"><i class="fa fa-check"></i><b>4</b> Research Assignment</a></li>
+<li class="chapter" data-level="5" data-path="troubleshooting.html"><a href="troubleshooting.html"><i class="fa fa-check"></i><b>5</b> Troubleshooting</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="troubleshooting.html"><a href="troubleshooting.html#footnotes"><i class="fa fa-check"></i><b>5.1</b> Footnotes</a></li>
+<li class="chapter" data-level="5.2" data-path="troubleshooting.html"><a href="troubleshooting.html#citations"><i class="fa fa-check"></i><b>5.2</b> Citations</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="handy-resources.html"><a href="handy-resources.html"><i class="fa fa-check"></i><b>6</b> Handy Resources</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="handy-resources.html"><a href="handy-resources.html#useful-links"><i class="fa fa-check"></i><b>6.1</b> Useful Links</a></li>
+<li class="chapter" data-level="6.2" data-path="handy-resources.html"><a href="handy-resources.html#other-tips-and-tricks"><i class="fa fa-check"></i><b>6.2</b> Other tips and tricks</a></li>
+<li class="chapter" data-level="6.3" data-path="handy-resources.html"><a href="handy-resources.html#callout-blocks"><i class="fa fa-check"></i><b>6.3</b> Callout blocks</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">PSYCH 2126: Research Methods</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="cross" class="section level1 hasAnchor" number="2">
+<h1><span class="header-section-number">Chapter 2</span> The Assignment<a href="cross.html#cross" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p><img src="images/Kahneman&Tversky.png" width="100%" /></p>
+<p>Amos Tversky (left) and Daniel Kahneman (right) wrote some articles that challenged well-established theories in Psychology that have had an impact well beyond the discipline of psychology (e.g. economics).</p>
+<p><strong>Assignment outline</strong></p>
+<p>The assignment consists of two parts.</p>
+<div id="Part1" class="section level2 hasAnchor" number="2.1">
+<h2><span class="header-section-number">2.1</span> Part I<a href="cross.html#Part1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Find one of K&amp;T’s original research papers by using Google Scholar or the <a href="https://omni.laurentian.ca/discovery/search?vid=01OCUL_LU:OMNI&amp;lang=en" title="Laurentian Library">Laurentian Omni library</a>. Next, find 9 more studies that each build on the study before. So, your first study will be a Kahneman and Tversky study, next, a study that sits on the shoulders of that study, then another that progressed from that study, and so on until you find a study conducted between 2020 and today. A minimum of 10 articles should be cited. As Dr. Emond says, “Kind of like six degrees of separation but with citations”.</p>
+</div>
+<div id="Part2" class="section level2 hasAnchor" number="2.2">
+<h2><span class="header-section-number">2.2</span> Part II<a href="cross.html#Part2" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Next, you will choose ONE of T&amp;K’s theories and design an <strong>experiment</strong> to test it.</p>
+<p>Your final submission will include:</p>
+<ol style="list-style-type: decimal">
+<li>A brief introduction to the topic, explaining the theory you are exploring and referencing the article(s) it is based on. You will place this in the intro section of the R Markdown document.</li>
+<li>State your hypothesis and any other questions you would like to answer <em>clearly</em>.</li>
+<li>Operationally define your independent variable(s) and dependent variable(s). Keep in mind you should choose a design that demonstrates your understanding of the concepts learned in class. A factorial design will blow our socks off.</li>
+<li>Describe your design and procedure clearly in the Methods section.</li>
+<li>Do not forget to explain how you will control for any confounding variables.</li>
+<li>Create some data you might expect your design would produce. You might be thinking whhaaat? Don’t worry, I will help with this part! No need to worry about it yet, first do your research, write up your intro and methods and THEN we’ll create the data.</li>
+<li>Once you have your data, you will dig into analyses with R. When here, you will follow a tutorial that will teach you how to visualize your data and conduct your analysis (ANOVA, correlations or anything else your heart desires).</li>
+<li>You will create a data visualization that conveys your main results.</li>
+<li>You will BRIEFLY summarise your findings in a mini Results section.</li>
+<li>Finally, you will write a very brief conclusion wrapping it all up and including at least two sentences that include two things you learned or didn’t learn during this assignment!</li>
+</ol>
+<p>For all of the parts above, <strong>complete</strong> descriptions must be given. In <strong>full detail</strong>. Also, you must <strong>justify</strong> all of your choices. Why you decided to design it the way you did and define your variables the way you did.</p>
+</div>
+<div id="keep-in-mind" class="section level2 hasAnchor" number="2.3">
+<h2><span class="header-section-number">2.3</span> Keep in Mind<a href="cross.html#keep-in-mind" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>This assignment is meant to give you a taste of producing reproducible research with R. You will learn to conduct your analyses <em>and</em> write up in R so at the end you have lovely little document that includes everything a person would need to reproduce your experiment. You will hand in a pdf copy of your report, which will include your data. Don’t worry about HOW we’ll do this yet, just know that you will.</p>
+<p>Now, after you’ve found your studies and chosen your theory, there are a couple of ways you can tackle this:</p>
+<ol style="list-style-type: decimal">
+<li><p><strong>Do your write up in Word first</strong>, then copy and paste it into R when you’re ready.</p></li>
+<li><p><strong>Do what I do, write directly in R</strong>.</p></li>
+</ol>
+<p>HOWEVER, because R can be intimidating and confusing at first and I don’t want you losing hours of work with a mistake, it might be smart to have a copy of your write up in Word or Google Docs, just in case! Once you get the knack of R you’ll never have to use Word as back up again. But for now, it might give you peace of mind and its very easy to copy and paste your write up directly into R. It’s what I did in the beginning and it worked like a charm.</p>
+<p><img src="images/smart-brain.gif" width="50%" style="display: block; margin: auto;" /></p>
+<p>Remember: if you have ANY trouble with this assignment, don’t hesitate to reach out sheron@laurentian.ca . We could always set up a zoom meeting or I could meet you at Laurentian to help trouble shoot any issues. I’m here to help and in fact LOVE helping students–just don’t wait until the last minute. K thanks :)</p>
+<p>You can now head to the Getting Started with R section! Congrats!</p>
+<p>Tutorial for Part II</p>
+<p>Next you will download the MY_ASSIGNMENT template I created for you and copy it to the root directory of your project folder. Once copied to your project folder, from the R Studio workspace, go the file pane and select the file you just placed there. This should open the R Markdown document in your workspace. I created this document to work like a template. You can simply replace my prompts and text with your own.</p>
+<p>R Markdown</p>
+<p>Let’s get acquainted with your first R Markdown document. The first thing you might want to do is rename it (right-click on the tab and click rename). Try knitting the document next. Click on the Knit icon above and wait. You should see some code running by in the render window to the right. Hang tight, and if all goes well it should complete and you’ll find a pdf file with the same name in the folder of your project.</p>
+<p>Play Around</p>
+<p>You’ll notice that there are areas with plain text, and small codechunks. Any text in a codechunk with a hashtag in front will NOT be printed in the pdf document. Only the outputs of any functions you run from here. WARNING: you can’t have plain text in any chunk UNLESS it has a hashtag in front of it which basically tells R to ignore it. The chunks are meant to execute R code so only code should be here unless preceeded by the hashtag. Another important note: R IS CASE SENSITIVE. So, if you are copying my code or any code, you must copy the exact text including case. If something is called “df” you <strong>must</strong> call it with df, not Df or DF as R won’t find it.</p>
+<p><strong>If you leave random text in these chunks, it will throw an error, and the document won’t knit.</strong></p>
+<p>If you try to knit the document and there’s a problem, you will see an error in the render window to the right. Sometimes, it will give a clue as to where the problem is; for example, it could say that it stopped rendering around line 120. Use the line numbers to the left to find the offensive mistake! Basically, if knit fails, it is almost always because there is a problem with something you typed in a code chunk.</p>
+<p>The following code outputs a histogram of the variable speed from the cars dataframe.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="cross.html#cb1-1" tabindex="-1"></a><span class="fu">hist</span>(cars<span class="sc">$</span>speed)</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
+<p>Try copy and pasting it into a chunk in your document. I’ve included one for you near the top that says ### ADD SOME CODE TO ME ###. Now, run this code chunk by clicking the little green play arrow at the top of the chunk. If it worked, you should see a little histogram below the chunk.</p>
+<p><img src="images/clipboard-395323488.png" /></p>
+<p>Now try knitting the document (Knit at top of the frame), and you should find the histogram in the pdf.</p>
+<p>Create your own R Markdown document</p>
+<p>Here you will find the requirements for your assignment. First, let’s create an R Markdown document so you can get started. Begin by heading to the File dropdown (top left), selecting New File and R Markdown and you’ll see the following popup:</p>
+<p><img src="images/clipboard-2848079311.png" width="533" /></p>
+<p>On the left you’re going to select “From Template” and then “APA-style manucript (6th edition)”</p>
+<p><img src="images/clipboard-1990732896.png" /></p>
+<p>Now you should see an untitled document in the main pane of Rstudio. Click on the little disk icon at top left to save this file and give it a name while you’re at it. It will automatically save the file to your project folder.</p>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="Intro.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/USERNAME/REPO/edit/BRANCH/01-Assignment.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["_main.pdf", "_main.epub"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
