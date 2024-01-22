@@ -23,7 +23,7 @@
 <meta name="author" content="S. Heron for Dr. Emond’s Psych Class" />
 
 
-<meta name="date" content="2024-01-21" />
+<meta name="date" content="2024-01-22" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -52,7 +52,6 @@
 <link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
 <link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
 <script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
-<script src="book.js"></script>
 
 
 <style type="text/css">
@@ -163,7 +162,11 @@ div.csl-indent {
 <li class="toc-logo"><a href="./"><img src="images/logo.png"></a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introduction</a></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introduction</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#goals"><i class="fa fa-check"></i><b>1.1</b> Goals</a></li>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#what-can-r-do"><i class="fa fa-check"></i><b>1.2</b> What can R do?</a></li>
+</ul></li>
 <li class="chapter" data-level="2" data-path="cross.html"><a href="cross.html"><i class="fa fa-check"></i><b>2</b> The Assignment</a>
 <ul>
 <li class="chapter" data-level="2.1" data-path="cross.html"><a href="cross.html#meet-kahneman-tversky"><i class="fa fa-check"></i><b>2.1</b> Meet Kahneman &amp; Tversky</a></li>
@@ -179,9 +182,15 @@ div.csl-indent {
 <li class="chapter" data-level="3.3" data-path="Intro.html"><a href="Intro.html#customizing-r-studio"><i class="fa fa-check"></i><b>3.3</b> Customizing R Studio</a></li>
 <li class="chapter" data-level="3.4" data-path="Intro.html"><a href="Intro.html#install-packages"><i class="fa fa-check"></i><b>3.4</b> Install Packages</a></li>
 <li class="chapter" data-level="3.5" data-path="Intro.html"><a href="Intro.html#creating-your-project"><i class="fa fa-check"></i><b>3.5</b> Creating your project</a></li>
-<li class="chapter" data-level="3.6" data-path="Intro.html"><a href="Intro.html#how-to-learn-more"><i class="fa fa-check"></i><b>3.6</b> How to learn more?</a></li>
+<li class="chapter" data-level="3.6" data-path="Intro.html"><a href="Intro.html#create-your-r-markdown-document"><i class="fa fa-check"></i><b>3.6</b> Create your R Markdown Document</a></li>
+<li class="chapter" data-level="3.7" data-path="Intro.html"><a href="Intro.html#r-markdown-basics"><i class="fa fa-check"></i><b>3.7</b> R Markdown basics</a>
+<ul>
+<li class="chapter" data-level="3.7.1" data-path="Intro.html"><a href="Intro.html#code-chunks"><i class="fa fa-check"></i><b>3.7.1</b> Code chunks</a></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="research-assignment.html"><a href="research-assignment.html"><i class="fa fa-check"></i><b>4</b> Research Assignment</a></li>
+<li class="chapter" data-level="3.8" data-path="Intro.html"><a href="Intro.html#knit-troubleshooting"><i class="fa fa-check"></i><b>3.8</b> Knit Troubleshooting</a></li>
+<li class="chapter" data-level="3.9" data-path="Intro.html"><a href="Intro.html#create-your-own-r-markdown-document"><i class="fa fa-check"></i><b>3.9</b> Create your own R Markdown document</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="useful-tutorials.html"><a href="useful-tutorials.html"><i class="fa fa-check"></i><b>4</b> Useful Tutorials</a></li>
 <li class="chapter" data-level="5" data-path="troubleshooting.html"><a href="troubleshooting.html"><i class="fa fa-check"></i><b>5</b> Troubleshooting</a>
 <ul>
 <li class="chapter" data-level="5.1" data-path="troubleshooting.html"><a href="troubleshooting.html#footnotes"><i class="fa fa-check"></i><b>5.1</b> Footnotes</a></li>
@@ -214,27 +223,36 @@ div.csl-indent {
           <div class="page-inner">
 
             <section class="normal" id="section-">
+<link href="style.css" rel="stylesheet">
+<div class="hero-image-container"> 
+  <img class= "hero-image" src="images/books.jpg">
+</div>
 <div id="header">
 <h1 class="title">PSYCH 2126: Term Assignment</h1>
 <p class="author"><em>S. Heron for Dr. Emond’s Psych Class</em></p>
-<p class="date"><em>2024-01-21</em></p>
+<p class="date"><em>2024-01-22</em></p>
 </div>
 <div id="introduction" class="section level1 hasAnchor" number="1">
 <h1><span class="header-section-number">Chapter 1</span> Introduction<a href="index.html#introduction" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p>This guidebook will walk you through all of the steps necessary to complete your term assignment. Get ready, because you are embarking on a journey… a journey from the safe GUI world point-and-click world of SPSS to the code-based Thunderdome of R.</p>
+<p>This guidebook will walk you through all of the steps necessary to complete your term assignment. Get ready, because you are embarking on a journey… from the safe GUI point-and-click world of SPSS to the code-based Thunderdome of R.</p>
 <p><strong>Where we’re going…</strong></p>
 <p><img src="images/WhyR.jpg" width="100%" style="display: block; margin: auto;" /></p>
-<p><strong>The goal of the assignment is twofold: First, to give you the opportunity to flex what you are learning in class, and two, to introduce you R Statistical Software; a game-changer in any future research endeavors.</strong></p>
+<div id="goals" class="section level2 hasAnchor" number="1.1">
+<h2><span class="header-section-number">1.1</span> Goals<a href="index.html#goals" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>The goal of the assignment is twofold: First, to give you the opportunity to flex what you are learning in class, and two, to introduce you R Statistical Software; a game-changer in any future research endeavors.</p>
 <p><strong>This guide is meant as a companion to your assignment.</strong> It is not meant to be an in depth course on R, as that would be several entire courses on its own, but by the end you <em>will</em> have had a small taste of R and its capabilities. And who knows, it might ignite a spark of curiosity that jump starts a desire to learn more.</p>
 <p><strong>By the end of this assignment</strong>, you will have read a bunch of interesting research papers, designed a mini study based on a theory of your choice and completed some analyses and a full write up in R that you will hand in. Your paper will include everything a person would need to reproduce your experiment from start to finish. Don’t worry about HOW we’ll do this yet, <strong>just know that you will</strong>.</p>
-<p><strong>A few things R can do:</strong></p>
+</div>
+<div id="what-can-r-do" class="section level2 hasAnchor" number="1.2">
+<h2><span class="header-section-number">1.2</span> What can R do?<a href="index.html#what-can-r-do" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Disclaimer: I do NOT work for R. I just love it.</p>
 <ul>
-<li>Advanced statistical analyses without paying for packages (its open source!)</li>
-<li>The best data visualization capabilities of ANY statistical software</li>
-<li>Reproducible research is made easy, integral partner of Open Science research</li>
-<li>Thousands of free online resources to learn anything you don’t know</li>
+<li>Advanced statistical analyses without paying for packages (it’s open source!)</li>
+<li>The best <a href="https://r-graph-gallery.com/">data visualization</a> capabilities of ANY statistical software</li>
+<li>Reproducible research is made easy, an integral partner of <a href="https://www.apa.org/monitor/2021/11/career-open-science">Open Science research</a></li>
+<li>Thousands of <a href="https://bookdown.org/mikemahoney218/IDEAR/introduction-to-r.html">free online resources</a> to learn anything you don’t know</li>
 <li>Did I say its open source.. ?</li>
-<li>Make gorgeous publication ready papers and books with inline analyses</li>
+<li>Make gorgeous <a href="https://rmarkdown.rstudio.com/gallery.html">publication-ready papers</a> and books with inline analyses</li>
 <li>Make gorgeous slideshows with analyses and text all in one document</li>
 <li>Make gorgeous websites (This website you’re reading is made 100% in R)</li>
 <li>Juice up your resume (researchers with R skills are a HUGE asset and hard to come by)</li>
@@ -243,6 +261,7 @@ div.csl-indent {
 </ul>
 <p><img src="images/WhyR2.jpg" width="95%" style="display: block; margin: auto;" /></p>
 
+</div>
 </div>
             </section>
 

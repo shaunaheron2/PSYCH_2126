@@ -4,20 +4,28 @@
 
 Amos Tversky (left: 1937-1996) and Daniel Kahneman (right: 1934-) transformed the field of behavioural economics in the 70s and 80s. Collaborating on groundbreaking research, they challenged traditional economic theories of "rational behaviour" by revealing the systematic biases and cognitive errors characteristic of human decision-making. The work of these two will be the focus of your research.
 
-```{r, echo=FALSE, out.width="100%"}
-knitr::include_graphics("images/Kahneman&Tversky.png")
-```
-
 ::: fyi
 Daniel Kahneman was awarded the [Nobel Peace](https://www.nobelprize.org/prizes/economic-sciences/2002/kahneman/facts/) Prize in 2002 for his and Amos' groundbreaking work in human decision-making.
 :::
 
+```{r, echo=FALSE, out.width="50%", fig.align="center"}
+knitr::include_graphics("images/KT.webp")
+```
+
 ## Assignment Stage 1 {#Part1}
 
-Your first job is to find one of K&T's original research papers with Google Scholar or the [Laurentian Omni library](https://omni.laurentian.ca/discovery/search?vid=01OCUL_LU:OMNI&lang=en "Laurentian Library"). Next, find 9 more studies that each build on the study before. So, your first study will be a Kahneman and Tversky study, next, a study that sits on the shoulders of that study, then another that progressed from that study, and so on until you find a study conducted between 2020 and today. A minimum of 10 articles should be cited. As Dr. Emond says, "Kind of like six degrees of separation but with citations".
+Your first job is to:
+
+1. Find **one** of K&T's original research papers with Google Scholar or the [Laurentian Omni library](https://omni.laurentian.ca/discovery/search?vid=01OCUL_LU:OMNI&lang=en "Laurentian Library"). 
+
+2. Find at least 9 more studies that build/test the theories before. So, your first study will be a Kahneman and Tversky study, next, a study that sits on the shoulders of that study, then another that progressed from that study, and so on until you find a study conducted between 2020 and today. 
+
+3. READ THEM.
+
+4. A *minimum* of 10 articles should be cited. As Dr. Emond says, "Kind of like six degrees of separation but with citations".
 
 ::: puzzle
-As you're reading, make note of theories that interest you. You will eventually pick one to design an experiment around.
+As you're reading, make note of theories that interest you. You will eventually *pick one* to design an experiment around.
 :::
 
 ```{r, echo=FALSE, out.width="100%", fig.align="center"}
@@ -28,14 +36,13 @@ As you're reading, make note of theories that interest you. You will eventually 
 
 Next you will choose *one* of T&K's *well-tested* theories and design your own **experiment** to test it.
 
-Steps to complete:
+**Steps to complete next:**
 
 1.  Write a brief introduction to the topic, explaining the theory you are exploring and referencing the article(s) it is based on. You will place this in the intro section of the document you create.
 2.  Be sure to state your hypothesis and any other questions you would like to answer *clearly*.
 3.  Make sure to *operationally define* your independent variable(s) and dependent variable(s). Keep in mind you should choose a design that demonstrates your understanding of the concepts learned in class. A factorial design will blow our socks off.
 4.  Describe your design and procedure clearly in the Methods section.
 5.  Do not forget to explain how you will control for any confounding variables.
-
 
 :::fyi
 For all of the parts above, **complete** descriptions must be given. In **full detail**. Also, you must **justify** all of your choices. Why you decided to design it the way you did and define your variables the way you did.
@@ -53,33 +60,31 @@ There are a couple of ways you can tackle this next step, integrating your write
 
 HOWEVER, because R can be intimidating and confusing at first and I don't want you losing hours of work with a mistake, it might be smart to have a copy of your write up in Word or Google Docs, just in case! Once you get the knack of R you'll never have to use Word as back up again. But for now, it might give you peace of mind and its very easy to copy and paste your write up directly into R. It's what I did in the beginning and it worked like a charm.
 
-
 ```{r, echo=FALSE, out.width="50%", fig.align="center"}
 knitr::include_graphics("images/smart-brain.gif")
 ```
 
-
-**Steps to complete in R:**
+**Steps you will complete in R:**
 
 1. Install R and R Studio and customize your workspace (see R Tutorials). 
 
 2.  Create a set of data that your design (and specific dependent variable) would produce. What would your data look like? 
 
-:::lightbulb
+:::fyi
 I will help with this part! No need to worry about it yet, first do your research, write up your intro and methods and THEN we'll create the data.
 :::
 
-2.  Once you have your dataset, you will dig into analyses with R. You'll find a video tutorial to follow (see Analysis Tutorial that will be uploaded by February 10th) where l will walk you through how to visualize your data, conduct your analysis (ANOVA, correlations or anything else your heart desires), and finally save it all as a pdf.
+2.  Once you have your dataset, you will start your data analyses. You'll find a video tutorial to follow (see Analysis Tutorial that will be uploaded by February 10th) where l will walk you through how to visualize your data, conduct your analysis (ANOVA, correlations or anything else your heart desires), and finally save it all as a pdf. 
 
 3.  Create at least one data visualization that conveys your main results.
 
 9.  Write a BRIEF summary of your "findings" (mini-results) in your Results section.
 
-10. Copy and paste your write-up into your R document. Remember, there's an Introduction, Methods, Results and a short Discussion/Conclusion.
+10. Copy and paste your entire write-up into your R document. Remember, there needs to be an Introduction, Methods, Results and a short Discussion/Conclusion.
 
-10. Finally, write a very brief conclusion wrapping it all up and including at least two sentences that include two things you learned or didn't learn during this assignment!
+10. Finally, write a very brief conclusion that wraps it all up, including at least two things you learned (or didn't learn) during this assignment!
 
-11. Hand in everything as a pdf (this step will be included in the video tutorial).
+11. Knit your pdf from R and hand it in via Dropbox on D2l (this step will be included in the video tutorial).
 
 :::lightbulb
 If you have trouble with any part of this assignment, email me at sheron\@laurentian.ca to set up a zoom or in person meeting. I'm here to help! 
@@ -98,48 +103,11 @@ Your final submission will be a knitted R Markdown pdf document that includes:
 7.  At least one visualization that conveys your main results (e.g. your treatment effect).
 9.  A BRIEF summary of your "findings" in the Results section.
 10. A very brief conclusion wrapping it all up and including at least two sentences that include two things you learned or didn't learn during this assignment!
+11. A reference page at the end (APA formated)
 11. Hand in everything as a knitted pdf (see tutorial).
 
 :::lightbulb
 Don't wait until the last minute to ask for help! Email me anytime and I should get back within 24 hours sheron\@laurentian.ca to set up a zoom or in person meeting. I'm here to help!
 :::
 
-Tutorial for Part II
 
-Next you will download the MY_ASSIGNMENT template I created for you and copy it to the root directory of your project folder. Once copied to your project folder, from the R Studio workspace, go the file pane and select the file you just placed there. This should open the R Markdown document in your workspace. I created this document to work like a template. You can simply replace my prompts and text with your own.
-
-R Markdown
-
-Let's get acquainted with your first R Markdown document. The first thing you might want to do is rename it (right-click on the tab and click rename). Try knitting the document next. Click on the Knit icon above and wait. You should see some code running by in the render window to the right. Hang tight, and if all goes well it should complete and you'll find a pdf file with the same name in the folder of your project.
-
-Play Around
-
-You'll notice that there are areas with plain text, and small codechunks. Any text in a codechunk with a hashtag in front will NOT be printed in the pdf document. Only the outputs of any functions you run from here. WARNING: you can't have plain text in any chunk UNLESS it has a hashtag in front of it which basically tells R to ignore it. The chunks are meant to execute R code so only code should be here unless preceeded by the hashtag. Another important note: R IS CASE SENSITIVE. So, if you are copying my code or any code, you must copy the exact text including case. If something is called "df" you **must** call it with df, not Df or DF as R won't find it.
-
-**If you leave random text in these chunks, it will throw an error, and the document won't knit.**
-
-If you try to knit the document and there's a problem, you will see an error in the render window to the right. Sometimes, it will give a clue as to where the problem is; for example, it could say that it stopped rendering around line 120. Use the line numbers to the left to find the offensive mistake! Basically, if knit fails, it is almost always because there is a problem with something you typed in a code chunk.
-
-The following code outputs a histogram of the variable speed from the cars dataframe.
-
-```{r}
-hist(cars$speed)
-```
-
-Try copy and pasting it into a chunk in your document. I've included one for you near the top that says \### ADD SOME CODE TO ME ###. Now, run this code chunk by clicking the little green play arrow at the top of the chunk. If it worked, you should see a little histogram below the chunk.
-
-![](images/clipboard-395323488.png)
-
-Now try knitting the document (Knit at top of the frame), and you should find the histogram in the pdf.
-
-Create your own R Markdown document
-
-Here you will find the requirements for your assignment. First, let's create an R Markdown document so you can get started. Begin by heading to the File dropdown (top left), selecting New File and R Markdown and you'll see the following popup:
-
-![](images/clipboard-2848079311.png){width="533"}
-
-On the left you're going to select "From Template" and then "APA-style manucript (6th edition)"
-
-![](images/clipboard-1990732896.png)
-
-Now you should see an untitled document in the main pane of Rstudio. Click on the little disk icon at top left to save this file and give it a name while you're at it. It will automatically save the file to your project folder.
