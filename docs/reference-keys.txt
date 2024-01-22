@@ -1,6 +1,8 @@
 eq:binom
 thm:tri
 introduction
+goals
+what-can-r-do
 cross
 meet-kahneman-tversky
 Part1
@@ -13,8 +15,12 @@ opening-r-studio
 customizing-r-studio
 install-packages
 creating-your-project
-how-to-learn-more
-research-assignment
+create-your-r-markdown-document
+r-markdown-basics
+code-chunks
+knit-troubleshooting
+create-your-own-r-markdown-document
+useful-tutorials
 troubleshooting
 footnotes
 citations
