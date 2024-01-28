@@ -17,7 +17,7 @@ install-packages
 create-your-r-markdown-document
 r-markdown-basics
 the-yaml
+formatted-text-area
 code-chunks
-knit-troubleshooting
-create-your-own-r-markdown-document
+learning-more
 analysis-tutorial

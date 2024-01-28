@@ -129,7 +129,11 @@ Now you should see an untitled document in the main pane of Rstudio. Click on th
 
 ## R Markdown basics
 
-Let's get acquainted with the anatomy of an R Markdown document. There are three main components of the document: the YAML header, the formatted text (where you put your writeup) and code chunks (this is where executable code goes).
+::: fyi
+The tutorial below is not fully fleshed out but will be by mid-February (I will send out an email when it's live). Until then, work on steps 1 to 2 of your assignment and make sure you have R and R Studio installed. Also, watch Nick Fox's tutorial below. The rest of what I've left below is for those who would like to start playing with R right away.
+:::
+
+Let's get acquainted with the anatomy of an R Markdown document. There are three main components of the document: the YAML header, the formatted text (where you put your writeup) and code chunks (this is where executable code goes). Before proceeding, watch Nick Fox's [Markdown tutorial](https://www.youtube.com/watch?v=lQaW020f57M) to get an idea of where we're going. I will be adding a video tutorial here soon also (mid-February). I'm just leaving this here for those already curious :)
 
 ![](images/rmarkdown_anatomy.png)
 
@@ -143,13 +147,15 @@ Let's modify the document step by step:
 
 Here you will add your title, your name and any other information. One caveat–the YAML area is VERY sensitive. Indents must be kept as is and any text changes MUST be contained within quotes. So, in the above example, you would replace the title Variance Heterogeneity title with your own. Ensuring that you have the title enclosed in the " ". Replace the author's name with your name. Add a subtitle and/or anything else you'd like. If you want to check your changes in the pdf, click the knit button then open the file from the root of your folder again.
 
+### Formatted Text Area
+
 ### Code chunks
 
-You'll notice in the document there are areas with plain text and small code chunks. The plain text will render as... well, plain text. If you look at the pdf created you'll see it prints Times New Roman, 12 pt font according to APA guidelines. The codechunk are the lighter grey areas that starts with the three italics followed by an R inside curly brackets.
+You'll notice in the document there are areas with plain text and small code chunks. The plain text will render as... well, plain text. If you look at the pdf created, you'll see it prints Times New Roman, 12 pt font according to APA guidelines. The codechunks are the lighter grey areas that start with the three italics followed by an R inside curly brackets.
 
 ![](images/codechunk.JPG)
 
-Any text in a code chunk MUST be code. You can not have random text in here, as everything within it will be "executed" as a command. You can't have plain text in any chunk UNLESS it has a hashtag in front of it which basically tells R to ignore it. Another important thing to keep in mind is R IS CASE SENSITIVE. So, if you are copying my code or any code, **you must copy the exact text including case**. If something is called "df" you **must** call it with df, not Df or DF as R won't find it and will throw you an error.
+Any text in a code chunk MUST be code. You can not have random text in here, as everything within it will be "executed" as a command. You can't have plain text in any chunk UNLESS it has a hashtag in front of it which basically tells R to ignore it. Another important thing to keep in mind is R IS CASE-SENSITIVE. So, if you are copying my code or any code, **you must copy the exact text, including the case**. If something is called "df" you **must** call it with df, not Df or DF as R won't find it and will throw you an error.
 
 ```{r}
 # Here is an example, let's take the iris dataframe and call it df
@@ -194,8 +200,6 @@ gghistogram(
 
 ```
 
-## Knit Troubleshooting
-
 If you try to knit the document and there's a problem, you will see an error in the render window to the right. Sometimes, it will give a clue as to where the problem is; for example, it could say that it stopped rendering around line 120. Use the line numbers to the left to find the offensive mistake! Basically, if knit fails, it is almost always because there is a problem with something you typed in a code chunk.
 
 The following code outputs a histogram of the variable speed from the cars dataframe.
@@ -213,21 +217,11 @@ If it worked, you should see a little histogram below the chunk.
 
 Now try knitting the document (Knit button looks like a ball of yarn at top of the frame), and once rendered you should find the histogram in the pdf.
 
-## Create your own R Markdown document
+## Learning More
 
-Here you will find the requirements for your assignment. First, let's create an R Markdown document so you can get started. Begin by heading to the File dropdown (top left), selecting New File and R Markdown and you'll see the following popup:
+The material we will cover in this short assignment will only give you a taste of what R is capable of. For advanced operations you will need to learn more.
 
-![](images/clipboard-2848079311.png){width="533"}
-
-On the left you're going to select "From Template" and then "APA-style manucript (6th edition)"
-
-![](images/clipboard-1990732896.png)
-
-Now you should see an untitled document in the main pane of Rstudio. Click on the little disk icon at top left to save this file and give it a name while you're at it. It will automatically save the file to your project folder. \## How to learn more?
-
-The material we will cover in this short assignment will only give you a taste of what R is capable of. For advanced operations like cleaning your dataset, running more complex models or creating beautiful visualizations you will need to learn more.
-
-The best way to become more proficient with R, like any tool, is to actively use it to answer your research questions. I learned R from the internet out of frustration with the limitations of SPSS. There was lots of trial and error, but over time I got better and better, and had to look up code less and less.
+The best way to become more proficient with R, like any tool, is to actively use it. I learned R from the internet out of frustration with the limitations of SPSS. Though there was lots of trial and error and mistakes at first, over time I got better and better, and had to look up code less and less.
 
 ![](images/clipboard-553228617.png)
 

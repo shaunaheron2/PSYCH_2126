@@ -167,10 +167,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.6" data-path="Intro.html"><a href="Intro.html#r-markdown-basics"><i class="fa fa-check"></i><b>3.6</b> R Markdown basics</a>
 <ul>
 <li class="chapter" data-level="3.6.1" data-path="Intro.html"><a href="Intro.html#the-yaml"><i class="fa fa-check"></i><b>3.6.1</b> The YAML</a></li>
-<li class="chapter" data-level="3.6.2" data-path="Intro.html"><a href="Intro.html#code-chunks"><i class="fa fa-check"></i><b>3.6.2</b> Code chunks</a></li>
+<li class="chapter" data-level="3.6.2" data-path="Intro.html"><a href="Intro.html#formatted-text-area"><i class="fa fa-check"></i><b>3.6.2</b> Formatted Text Area</a></li>
+<li class="chapter" data-level="3.6.3" data-path="Intro.html"><a href="Intro.html#code-chunks"><i class="fa fa-check"></i><b>3.6.3</b> Code chunks</a></li>
 </ul></li>
-<li class="chapter" data-level="3.7" data-path="Intro.html"><a href="Intro.html#knit-troubleshooting"><i class="fa fa-check"></i><b>3.7</b> Knit Troubleshooting</a></li>
-<li class="chapter" data-level="3.8" data-path="Intro.html"><a href="Intro.html#create-your-own-r-markdown-document"><i class="fa fa-check"></i><b>3.8</b> Create your own R Markdown document</a></li>
+<li class="chapter" data-level="3.7" data-path="Intro.html"><a href="Intro.html#learning-more"><i class="fa fa-check"></i><b>3.7</b> Learning More</a></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="analysis-tutorial.html"><a href="analysis-tutorial.html"><i class="fa fa-check"></i><b>4</b> Analysis Tutorial</a></li>
 <li class="divider"></li>
@@ -282,20 +282,26 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="r-markdown-basics" class="section level2 hasAnchor" number="3.6">
 <h2><span class="header-section-number">3.6</span> R Markdown basics<a href="Intro.html#r-markdown-basics" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Let’s get acquainted with the anatomy of an R Markdown document. There are three main components of the document: the YAML header, the formatted text (where you put your writeup) and code chunks (this is where executable code goes).</p>
+<div class="fyi">
+<p>The tutorial below is not fully fleshed out but will be by mid-February (I will send out an email when it’s live). Until then, work on steps 1 to 2 of your assignment and make sure you have R and R Studio installed. Also, watch Nick Fox’s tutorial below. The rest of what I’ve left below is for those who would like to start playing with R right away.</p>
+</div>
+<p>Let’s get acquainted with the anatomy of an R Markdown document. There are three main components of the document: the YAML header, the formatted text (where you put your writeup) and code chunks (this is where executable code goes). Before proceeding, watch Nick Fox’s <a href="https://www.youtube.com/watch?v=lQaW020f57M">Markdown tutorial</a> to get an idea of where we’re going. I will be adding a video tutorial here soon also (mid-February). I’m just leaving this here for those already curious :)</p>
 <p><img src="images/rmarkdown_anatomy.png" /></p>
 <p>Before you change anything in the document, let’s see how this file looks without any editing. Hit the “Knit” button at the top of R Studio (little ball of yarn), and wait. A bunch of code will flash by in the Render window. If it works, it will get through all the code without an error.</p>
-<p>You should now find a pdf file in the root of your project. Just click on the file pane to the right, and a pdf will load. Click on it to open it. As you can see, it produces an APA-formatted PDF of the document you have open now. Your next steps will be to replace the template text with your own.</p>
-<p>Let’s modify it step by step:</p>
+<p>You should now find a pdf file in the root of your project that looks like this: <a href="output/SampleAPAPaper.pdf">link</a>. Just click on the file pane to the right, and a pdf will load. Click on it to open it. As you can see, it produces an APA-formatted PDF of the document you have open now. Your next steps will be to replace the pre-written text with your own.</p>
+<p>Let’s modify the document step by step:</p>
 <div id="the-yaml" class="section level3 hasAnchor" number="3.6.1">
 <h3><span class="header-section-number">3.6.1</span> The YAML<a href="Intro.html#the-yaml" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Here you will add your title, your name and any other information. One caveat–the YAML area is VERY sensitive. Indents must be kept as is and any text changes MUST be contained within quotes. So, in the above example, you would replace the title Variance Heterogeneity title with your own. Ensuring that you have the title enclosed in the ” “. Replace the author’s name with your name. Add a subtitle and/or anything else you’d like. If you want to check your changes in the pdf, click the knit button then open the file from the root of your folder again.</p>
 </div>
-<div id="code-chunks" class="section level3 hasAnchor" number="3.6.2">
-<h3><span class="header-section-number">3.6.2</span> Code chunks<a href="Intro.html#code-chunks" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>You’ll notice in the document there are areas with plain text and small code chunks. The plain text will render as… well, plain text. If you look at the pdf created you’ll see it prints Times New Roman, 12 pt font according to APA guidelines. The codechunk are the lighter grey areas that starts with the three italics followed by an R inside curly brackets.</p>
+<div id="formatted-text-area" class="section level3 hasAnchor" number="3.6.2">
+<h3><span class="header-section-number">3.6.2</span> Formatted Text Area<a href="Intro.html#formatted-text-area" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+</div>
+<div id="code-chunks" class="section level3 hasAnchor" number="3.6.3">
+<h3><span class="header-section-number">3.6.3</span> Code chunks<a href="Intro.html#code-chunks" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>You’ll notice in the document there are areas with plain text and small code chunks. The plain text will render as… well, plain text. If you look at the pdf created, you’ll see it prints Times New Roman, 12 pt font according to APA guidelines. The codechunks are the lighter grey areas that start with the three italics followed by an R inside curly brackets.</p>
 <p><img src="images/codechunk.JPG" /></p>
-<p>Any text in a code chunk MUST be code. You can not have random text in here, as everything within it will be “executed” as a command. You can’t have plain text in any chunk UNLESS it has a hashtag in front of it which basically tells R to ignore it. Another important thing to keep in mind is R IS CASE SENSITIVE. So, if you are copying my code or any code, <strong>you must copy the exact text including case</strong>. If something is called “df” you <strong>must</strong> call it with df, not Df or DF as R won’t find it and will throw you an error.</p>
+<p>Any text in a code chunk MUST be code. You can not have random text in here, as everything within it will be “executed” as a command. You can’t have plain text in any chunk UNLESS it has a hashtag in front of it which basically tells R to ignore it. Another important thing to keep in mind is R IS CASE-SENSITIVE. So, if you are copying my code or any code, <strong>you must copy the exact text, including the case</strong>. If something is called “df” you <strong>must</strong> call it with df, not Df or DF as R won’t find it and will throw you an error.</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="Intro.html#cb4-1" tabindex="-1"></a><span class="co"># Here is an example, let&#39;s take the iris dataframe and call it df</span></span>
 <span id="cb4-2"><a href="Intro.html#cb4-2" tabindex="-1"></a><span class="co"># Copy this code to a chunk in your R Markdown document</span></span>
 <span id="cb4-3"><a href="Intro.html#cb4-3" tabindex="-1"></a><span class="co"># To create a new chunk, place your cursor in a text area and then hit CTRL-ALT-I</span></span>
@@ -329,10 +335,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb8-8"><a href="Intro.html#cb8-8" tabindex="-1"></a>  <span class="at">fill =</span> <span class="st">&quot;Species&quot;</span>, <span class="at">palette =</span> <span class="fu">c</span>(<span class="st">&quot;#00AFBB&quot;</span>, <span class="st">&quot;#E7B800&quot;</span>, <span class="st">&quot;#E7B6a6&quot;</span>)</span>
 <span id="cb8-9"><a href="Intro.html#cb8-9" tabindex="-1"></a>  )</span></code></pre></div>
 <p><img src="_main_files/figure-html/unnamed-chunk-13-1.png" width="672" /></p>
-</div>
-</div>
-<div id="knit-troubleshooting" class="section level2 hasAnchor" number="3.7">
-<h2><span class="header-section-number">3.7</span> Knit Troubleshooting<a href="Intro.html#knit-troubleshooting" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>If you try to knit the document and there’s a problem, you will see an error in the render window to the right. Sometimes, it will give a clue as to where the problem is; for example, it could say that it stopped rendering around line 120. Use the line numbers to the left to find the offensive mistake! Basically, if knit fails, it is almost always because there is a problem with something you typed in a code chunk.</p>
 <p>The following code outputs a histogram of the variable speed from the cars dataframe.</p>
 <div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="Intro.html#cb9-1" tabindex="-1"></a><span class="co"># Notice I placed a hashtag here so that R will ignore this text</span></span>
@@ -343,15 +345,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>If it worked, you should see a little histogram below the chunk.</p>
 <p>Now try knitting the document (Knit button looks like a ball of yarn at top of the frame), and once rendered you should find the histogram in the pdf.</p>
 </div>
-<div id="create-your-own-r-markdown-document" class="section level2 hasAnchor" number="3.8">
-<h2><span class="header-section-number">3.8</span> Create your own R Markdown document<a href="Intro.html#create-your-own-r-markdown-document" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Here you will find the requirements for your assignment. First, let’s create an R Markdown document so you can get started. Begin by heading to the File dropdown (top left), selecting New File and R Markdown and you’ll see the following popup:</p>
-<p><img src="images/clipboard-2848079311.png" width="533" /></p>
-<p>On the left you’re going to select “From Template” and then “APA-style manucript (6th edition)”</p>
-<p><img src="images/clipboard-1990732896.png" /></p>
-<p>Now you should see an untitled document in the main pane of Rstudio. Click on the little disk icon at top left to save this file and give it a name while you’re at it. It will automatically save the file to your project folder. ## How to learn more?</p>
-<p>The material we will cover in this short assignment will only give you a taste of what R is capable of. For advanced operations like cleaning your dataset, running more complex models or creating beautiful visualizations you will need to learn more.</p>
-<p>The best way to become more proficient with R, like any tool, is to actively use it to answer your research questions. I learned R from the internet out of frustration with the limitations of SPSS. There was lots of trial and error, but over time I got better and better, and had to look up code less and less.</p>
+</div>
+<div id="learning-more" class="section level2 hasAnchor" number="3.7">
+<h2><span class="header-section-number">3.7</span> Learning More<a href="Intro.html#learning-more" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>The material we will cover in this short assignment will only give you a taste of what R is capable of. For advanced operations you will need to learn more.</p>
+<p>The best way to become more proficient with R, like any tool, is to actively use it. I learned R from the internet out of frustration with the limitations of SPSS. Though there was lots of trial and error and mistakes at first, over time I got better and better, and had to look up code less and less.</p>
 <p><img src="images/clipboard-553228617.png" /></p>
 <p>At first it may feel daunting, but you will quickly see that there are amazing resources online. FOr example, maybe you want make your wide dataset long for some multilevel analyses–how do you do this in R? Well, a simple “how to make wide dataset long in R” will conjur up thousands of useful links where you can simply copy and paste their code and then just adjust it to use with your specific data. “How do I run an ANOVA in R?” or “ANOVA tutorial in R” will find you:</p>
 <p><a href="https://statsandr.com/blog/anova-in-r/" class="uri">https://statsandr.com/blog/anova-in-r/</a></p>

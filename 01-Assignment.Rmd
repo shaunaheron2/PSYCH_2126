@@ -73,19 +73,15 @@ knitr::include_graphics("images/smart-brain.gif")
 
 ## Stage 3: R Analysis & Writeup
 
-Now that you have your design nailed down, you will email the design (including the expected range/levels of your outcome variable) to Shauna (the TA). You can send this in a word document or copy and paste the design into an email. Within a couple of days she will send you some "fake" data that corresponds to your design and chosen outcome. You will use this data for your "analysis" in R. 
+Now that you have your design nailed down, **you will email the design (including the expected range/levels of your outcome variable) to Shauna (the TA)**. You can send this in a word document or copy and paste the design into an email. Within a couple of days you will receive some "fake" experimental data that corresponds to your design and chosen outcome. You will use this data for your "analysis" in R. 
 
 ::: lightbulb
-Be sure to submit your design and outcome requirements for your data to Shauna at least ONE MONTH before the final due date so you have time to troubleshoot any problems as well as analyze & write up your results and discussion.
+Be sure to submit your design and outcome requirements to Shauna at least ONE MONTH before the final due date so you have time to troubleshoot any problems you might have with R as well as analyze & write up your results and discussion.
 :::
 
-While you are waiting for your data, if you haven't already, its time to install R.
+**Steps to complete while waiting for your data:**
 
-**Steps you will complete in R:**
-
-1. Email your design with enough detail about your dependent variable, controls and independent variable(s) that Shauna can create a dataset for you that matches your outcome and experimental groups.
-
-3. Install R and R Studio and customize your workspace (see R Tutorials) while you are waiting for your data.
+1. Install R and R Studio and customize your workspace (see R Tutorials).
 
 ::: fyi
 You do not have to wait until this step to install R. In fact I would install it near the beginning just so you have it ready to go when its time for this step.
