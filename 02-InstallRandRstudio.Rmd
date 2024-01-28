@@ -2,7 +2,7 @@
 
 ## Installing R and R Studio
 
-Head to this link:
+Head to this link and choose the installation for R and R Studio that corresponds with your operating system (Windows or MacOS)
 
 [R and R Studio](https://posit.co/download/rstudio-desktop/)
 
@@ -14,9 +14,9 @@ From the next page, you will choose one of the top links–either R for Windows 
 
 [![Choose your operating system (Windows or Mac)](images/macpcinstallR.JPG){width="419"}](https://cran.rstudio.com/)
 
-Download the file, then install using the default settings if possible. If you run into problems there is plenty of help to be found on the R website and there is a great video below that can help too.
+Download the file, then install using the default settings if possible. If you run into problems there is plenty of help to be found on the R website and there is a great video below that can help too. You can also email Shauna for help ([sheron\@laurentian](mailto:sheron@laurentian){.email}) if you run into trouble.
 
-Once R is installed, click the link above again, and this time go to step 2: Install R Studio. Click the link circled below for a Windows install,
+**Once R is installed, click the link above again, and this time go to step 2: Install R Studio.** Click the link circled below for a Windows install,
 
 [![R Studio](images/Rstudioinstall2.JPG)](https://posit.co/download/rstudio-desktop/)
 
@@ -26,19 +26,13 @@ For a Mac install scroll down a little on the same page and you'll see the Mac O
 
 ## Opening R Studio
 
-::: lightbulb
-It is important to remember that R is CASE SENSITIVE. This is something you need to get used to. If you call a file df and then later refer to it as Df, R will throw an error.
-:::
-
-1.  Open R Studio by clicking on it it's icon and once you have your first package, you will open via the cube icon in your project folder (see below).
+1.  Open **R Studio** for the first time by clicking on it's icon.
 
 ![R Studio icon](images/Rstudio_icon.JPG){width="218"}
 
-NOTE: you will almost *never* open R itself, but always R studio.
+NOTE: you will almost *never* open R itself, but always R Studio.
 
-## Customizing R Studio
-
-RStudio is divided into 4 “panes”. Default colour is white with the following layout:
+Once it loads, R Studio you will see the workspace is divided into 4 “panes” or work areas. 
 
 -   The **Source** for your scripts and documents (top-left, in the default layout)
 
@@ -48,28 +42,50 @@ RStudio is divided into 4 “panes”. Default colour is white with the followin
 
 -   The R **Console** (bottom-left)
 
+![Generic RStudio Setup](images/RStudioWindow.png)
+
 The placement of these panes and their content can be customized (see menu, Tools -\> Global Options -\> Pane Layout). For ease of use, settings such as background color, font color, font size, and zoom level can also be adjusted in this menu (Global Options -\> Appearance).
 
-I prefer the "modern" R studio theme (Tools –\> Global Options –\> Appearance). And my console top-right along with terminal and background jobs and Environment, History, Files, Plots, Packages etc. bottom right.
+## Customizing R Studio
+
+This screenshot below illustrates how I have R Studio configured. To get your self set up the same, follow the [Video Tutorial](https://www.youtube.com/watch?v=jAHJyeOqe24) created by the amazing Psychology researcher and statistics prof Andy Field. I highly recommend ALL of his stats videos as well as his textbooks–especially the ones relating to R. Here, he will walk you through customizing your workspace.
+
+In my own R Studio, I chose the "modern" R studio theme (Tools –\> Global Options –\> Appearance) and have been using Andy's layout for years now. 
 
 ![](images/clipboard-3227369920.png)
 
-One of the advantages of using RStudio is that all the information you need to write code is available in a single window. There are also shortcuts, autocompletion, and highlighting for the major file types and object you will use in RStudio.
+## Create your project
 
-Customize R by checking this [Video Tutorial](https://www.youtube.com/watch?v=jAHJyeOqe24) out by the amazing Psychology researcher and statistics prof Andy Field. I highly recommend ALL of his stats videos as well as his textbooks–especially the ones relating to R. Here, he will walk you through customizing your workspace.
+At the top left of your screen, click the File dropdown and select "New Project". By default, R projects are usually stored in your documents folder. Here, you'll click on **New Directory**.
 
-Text [Tutorial](https://support.posit.co/hc/en-us/articles/200549016-Customizing-the-RStudio-IDE "How to customize R Studio")
+![](images/NewProject.JPG)
 
-## Install Packages
+Next, click New Project and you'll be prompted to select a location for your project. I find it best to leave the project subdirectory as C:/documents (or wherever your docs directory is). Then select a name for your new project. E.g. ResearchMethods_Assignment. This is where your project, your data and all of your files will live.
+
+![](images/NewProject_name.JPG)
+
+In future, you should open Rstudio and your project from that folder where you'll see an icon that looks like a 3-d cube.
+
+![](images/projecticon.JPG)
+
+This opens your project workspace. A workspace is your current working environment in R which includes any user-defined object. By default, all of these objects will be saved, and automatically loaded, when you reopen your project.
+
+Next, it is good practice to create several subfolders for the data you will analyze. Click on the "Files" tab in the right pane (depending on where you located it). Here you should see the root folder of your project. From here, click "New Folder" and name in "Raw Data" and then create another called "Processed Data" and now you're set. All files related to your project will be in this workspace.
+
+## Create your R Markdown Document
+
+Next you will download the MY_ASSIGNMENT template from D2l, and copy it to the root directory of your project folder (see previous step). Once copied to your project folder, head back to the R Studio work space and from the file pane, select the file you just placed there (click on it). This should open the R Markdown document in your work space. This document will be your working document. It is designed to work like a template; simply replace my prompts and instructions with your own text.
+
+### Install Packages
 
 ::: lightbulb
-R does not like variable or object names with spaces. E.g. the name Red Group would have to be RedGroup or Red_Group or `Red Group` or R will throw your errors.
+R is case sensitive and does not like variable or object names with spaces. E.g. the name Red Group would have to be RedGroup or Red_Group or `Red Group` or R will throw your errors.
 :::
 
 In the console window of R, copy and paste this code into the command line then hit return:
 
 ```{r, eval=FALSE}
-install.packages(c("tidyverse", "dplyr", "psych", "patchwork", "sjPlot", "lme4", "papaja"))
+install.packages(c("tidyverse", "dplyr", "psych", "patchwork", "sjPlot", "lme4", "papaja", "lme4"))
 ```
 
 ![](images/installpackages.JPG)
@@ -102,28 +118,6 @@ library(papaja)
 ```
 
 but we'll get back to packages when creating your first project.
-
-## Creating your project
-
-At the top left of your screen, click the File dropdown and select "New Project". By default, R projects are usually stored in your documents folder. Here, you'll click on **New Directory**.
-
-![](images/NewProject.JPG)
-
-Next, click New Project and you'll be prompted to select a location for your project. I find it best to leave the project subdirectory as C:/documents (or wherever your docs directory is). Then select a name for your new project. E.g. ResearchMethods_Assignment. This is where your project, your data and all of your files will live.
-
-![](images/NewProject_name.JPG)
-
-In future, you should open Rstudio and your project from that folder where you'll see an icon that looks like a 3-d cube.
-
-![](images/projecticon.JPG)
-
-This opens your project workspace. A workspace is your current working environment in R which includes any user-defined object. By default, all of these objects will be saved, and automatically loaded, when you reopen your project.
-
-Next, it is good practice to create several subfolders for the data you will analyze. Click on the "Files" tab in the right pane (depending on where you located it). Here you should see the root folder of your project. From here, click "New Folder" and name in "Raw Data" and then create another called "Processed Data" and now you're set. All files related to your project will be in this workspace.
-
-## Create your R Markdown Document
-
-Next you will download the MY_ASSIGNMENT template from D2l, and copy it to the root directory of your project folder (see previous step). Once copied to your project folder, head back to the R Studio workspace and from the file pane, select the file you just placed there (click on it). This should open the R Markdown document in your workspace. This document will be your working document. It is designed to work like a template; simply replace my prompts and instructions with your own text.
 
 ## R Markdown basics
 
@@ -168,7 +162,6 @@ Oops! You should have got an error from R. Now correct the case error and try ag
 hist(df$Sepal.Width) 
 
 ```
-
 
 ```{r, warning=FALSE, message=FALSE}
 # Now a prettier one using the ggpubr package

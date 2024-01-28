@@ -115,7 +115,7 @@ div.lightbulb {
     background-position: 15px center;
     min-height: 100px;
     color: #2ea8b3;
-    background-color: #fcfcfc;
+    background-color: #f5fcfb;
 }
 
 /*-----Body Links-------*/
@@ -202,7 +202,9 @@ visibility: hidden;
 }
 
 /* HERO IMAGE */
+
 /*
+
 .hero-image-container {
   position: absolute;
   top: 0;
@@ -220,5 +222,7 @@ visibility: hidden;
 
 .page-inner {
   padding-top: 400px !important;
+<<<<<<< HEAD
 }*/
+
 
