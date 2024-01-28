@@ -1,5 +1,3 @@
-eq:binom
-thm:tri
 introduction
 goals
 what-can-r-do
@@ -15,17 +13,11 @@ installing-r-and-r-studio
 opening-r-studio
 customizing-r-studio
 create-your-project
-create-your-r-markdown-document
 install-packages
+create-your-r-markdown-document
 r-markdown-basics
+the-yaml
 code-chunks
 knit-troubleshooting
 create-your-own-r-markdown-document
-useful-tutorials
-troubleshooting
-footnotes
-citations
-handy-resources
-useful-links
-other-tips-and-tricks
-callout-blocks
+analysis-tutorial
