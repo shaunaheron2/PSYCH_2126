@@ -219,7 +219,7 @@ Now try knitting the document (Knit button looks like a ball of yarn at top of t
 
 ## Learning More
 
-The material we will cover in this short assignment will only give you a taste of what R is capable of. For advanced operations you will need to learn more.
+The material we will cover in this short assignment will only give you a taste of what R is capable of. For advanced operations, you will need to learn more.
 
 The best way to become more proficient with R, like any tool, is to actively use it. I learned R from the internet out of frustration with the limitations of SPSS. Though there was lots of trial and error and mistakes at first, over time I got better and better, and had to look up code less and less.
 
