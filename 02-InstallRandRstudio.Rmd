@@ -2,6 +2,8 @@
 
 ## Getting Started
 
+First things first: why R? The reason we want to learn R, is that it allows us to great reproducible resarch
+
 To get started, we will follow along with [Andy Field's](https://www.statisticsadventure.com/) brilliant tutorials which will walk us through:
 
 1.  Installing R and RStudio
@@ -50,7 +52,9 @@ Next, we will follow along with the [Working in RStudio tutorial](https://milton
 
 4.  Follow along with the rest of the tutorial to get to know R Markdown.
 
-    Don't worry if its still confusing at this time, we'll learn more about RMarkdown soon.
+::: puzzle
+Don't worry if everything is as clear as mud, we'll learn more about RMarkdown soon.
+:::
 
 5.  **Move to the next step: installing packages.**
 
@@ -60,51 +64,209 @@ Next, we will follow along with the [Working in RStudio tutorial](https://milton
 
 Next, we will follow along with the [Install Packages tutorial](https://milton-the-cat.rocks/learnr/r/r_getting_started/#section-installing-and-loading-packages).
 
--   Install the packages he recommends (tidyverse and here)
+-   Install the packages he recommends.
 
-```{=html}
 <!-- -->
-```
 
--   Install these packages as well by copy and pasting the code below to your **console**.
-
-    ```{r, eval=FALSE}
-    install.packages("papaja", "psych", "DataExplorer", "ggplot2", "sjPlot")
-
-    ```
-
--   We will also install the tutorial package that I created for you, which will include an **assignment template** to make things a bit easier for you in Markdown.
-
-Copy and paste the following code into your console:
+-   Install the following packages as well by copy and pasting the code below to your **console** and hitting return.
 
 ```{r, eval=FALSE}
-remotes::install_github("shaunaheron2/psych2126template")
+    
+install.packages("rmarkdown","papaja", "psych", "DataExplorer", "ggplot2", "sjPlot", "dlookr", "apaTables", "gt")
+
 ```
 
--   then load them and add them to the library chunk of your R Markdown document by copy and pasting the code below:
+-   We will also install the tutorial package that I created for you, which will include an **assignment template**. It will make things easier to create an APA-formatted document in R Markdown.
 
-    ```{r, eval=FALSE}
+Copy and paste the following code into your console and hit enter:
 
-    library(tidyverse)
-    library(here)
-    library(papaja)
-    library(psych)
-    library(DataExplorer)
-    library(ggplot2)
-    library(sjPlot)
+```{r, eval=FALSE}
 
-    ```
+remotes::install_github("shaunaheron2/psych2126template")
 
-### More on R Markdown
+```
 
-In this step you will learn more about R Markdown and you will create your assignment markdown document by using the PSYCH2126 Markdown template. 
+-   Once packages are installed, click "Session" then Restart R" (in the top menu of R Studio) to refresh your workspace.
+
+Load the packages we just installed by adding them to the library chunk of your R Markdown document. Hint: copy and paste the code below. You can also load them by adding the code to your console window.
+
+```{r}
+
+library(tidyverse) # powerful data wrangling tool
+library(here)
+library(dlookr) # powerful data exploration tool
+library(papaja)
+library(base)
+library(psych)
+library(DataExplorer) # used to explore data
+library(ggplot2) # powerful plotting app
+library(sjPlot) # this is for plotting 
+library(psych2126template) # this is our template
+library(apaTables)
+```
+
+## R Markdown
+
+::: fyi
+Be sure that you've already installed Papaja and have it loaded in your environment before working along with the tutorial.
+:::
+
+In this step Andy will walk you through the basics of R Markdown. Be sure you completed the previous steps under **Getting Started**.
+
+1.  **Follow along with Andy's [tutorial](https://milton-the-cat.rocks/learnr/r/r_getting_started/#section-r-markdown) to get to know the basics.**
+
+| Now you will create an APA formatted document that contains your text write up, your data analysis and your references. You will use this document to create your reproducible scientific paper.
+
+3.  Follow along with [this video](https://www.youtube.com/watch?v=mplP1cjIv-E&list=PLmvNihjFsoM5hpQdqoI7onL4oXDSQ0ym8&index=5) for a step-by-step walkthrough. Note: you won't select the Papaja template as he does, instead select the **AssignmentTemplate** you installed and loaded above. For whatever reason, if you don't see the AssignmentTemplate, just select the APA-style manuscript instead.
+
+::: puzzle
+Nick's workspace looks a bit different because he is using a dark theme for his workspace. To change your theme, remember you go to Tools --\> Global Options --\> Appearance pane.
+:::
+
+2.  From your project workspace, you'll click **File** –\> **New R Markdown** and select **"From Template"** then **"AssignmentTemplate".** Make sure you installed the packages above or you won't see the template here. Where it says name, give your document a name–like "My Assignment" or whatever else you'd like to call it then click **OK.**
+
+![](images/assignmenttemplate.JPG)
+
+3.  **Try clicking the Knit button to see how the template renders the R Markdown.**
+
+Once the document has rendered, you'll find a .pdf file in your project folder. If it didn't open automatically, click on it in the file pane. Once it is open, you can make changes to the R Markdown and when you click knit you'll see them in the pdf. Sometimes you have to click refresh in your browser to load the changes.
+
+**You'll notice I added three figures using the iris dataset that comes loaded in R:**
+
+1.  A histogram
+2.  A boxplot
+3.  Violin plots
+
+Follow along with Nick to learn about Papaja and to customize the template.
+
+::: lightbulb
+Nick has a different file structure. He is not working from a project, but *you will be* if you followed Andy's instructions above. This means your workspace already knows where the working directory is--its your project folder (which will be off your documents folder if you put it here like I suggested). Just ignore where he puts his files, but everything else is good to follow :)
+:::
+
+```{r, eval=FALSE}
+
+# install.packages("papaja") # remove the hashtag at the beginning of this line and run the code to install papaja if you haven't already (see above)
+
+library(papaja)
+
+```
+
+::: fyi
+Nick refers to his console at the bottom of the screen, if you followed Andy's workspace setup it will be on the right side of your screen.
+:::
+
+## Analysis Tutorial
+
+If you don't already have your data from Shauna, practice with pre-loaded datasets (iris, cars).
+
+Here are some tutorials that complement this section. Simply copy and paste the code below into a codechunk in your project and then run them. Feel free to play around with the code--its the best way to learn.
+
+### Descriptive Table
+
+The first step in analysing any new dataset is to describe and visualize it.
+
+Luckily there are some handy packages to help us do this. Let's use the iris dataset.
+
+Load the iris dataframe and store it in an object we'll call "df"
+
+```{r}
+
+df <- data.frame(iris) 
+
+```
+
+The describe command from the dlookr packages allows you to see the mean, standard deviation and skewness of your data right away.
+
+```{r}
+
+descriptives <- describe(df)
+
+```
+
+You can see there are 5 variables, 4 sepal measurements and a species variable.
+
+If you'd like to look at your dataframe in a table format, use the view command. This will open a sortable table of your dataframe in another tab. To get back to your R Markdown document click on the tab containing it at the top of your workspace.
+
+```{r, eval=FALSE}
+
+view(df)
+
+```
+
+You can also use the gt command to create a pretty, customizable table in your document.
+
+```{r}
+library(gt)
+
+descriptives %>% gt()
+```
+
+### Histograms
+
+To see a histogram of all the continuous variables in the dataframe use the plot_histogram function from the DataExplorer package. This is a great way to check your outcome variable for normality. Remember, most statistical tests have a set of assumptions that if violated, make the results of said tests unreliable.
+
+```{r}
+
+plot_histogram(df)
+
+```
+
+The histograms tell us a few things:
+
+-   the Petal length histogram tells us that petal length is NOT a normal distribution. Its bimodal, meaning there are two distributions in one. Some petals are really short and some are medium to long.
+
+-   Lucky for us our outcome variable (sepal length) seems relatively normal.
+
+We could also look at correlations to see if there are underlying relationships we need to consider in our data:
+
+### Correlations
+
+```{r}
+plot_correlation(na.omit(df), maxcat = 5L)
+```
+
+### T-Tests
+
+```{r}
+
+# To run a t-test, our grouping variable can only have two levels, while Species has 4, so we;re just going to look at the difference between two levels
+
+df2 <- df %>% filter(Species=="setosa"|Species=="versicolor") %>% droplevels()
+
+t.test(Sepal.Length ~ Species, data = df2)
+
+```
+
+```{r}
+
+apa_print(
+  t.test(Sepal.Length ~ Species, data = df2)
+)
+
+```
+
+### Factorial ANOVA
 
 ```{r}
 
 ```
 
 
+### Visualize Results
+
+```{r}
+
+
+
+```
+
+# Putting it all together
+
+This will show you how to complete your final document containing your analysis and writeup then how to render it as a pdf.
+
 ## Learning More
+
+-   [Papaja Manual](https://frederikaust.com/papaja_man/reporting.html)
 
 The material we will cover in this short assignment will only give you a taste of what R is capable of. For advanced operations, you will need to learn more.
 
