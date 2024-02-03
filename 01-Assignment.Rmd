@@ -18,10 +18,10 @@ knitr::include_graphics("images/KT.webp")
 
 Your first job is to:
 
-1.  Find **one** of K&T's original research papers with Google Scholar or the [Laurentian Omni library](https://omni.laurentian.ca/discovery/search?vid=01OCUL_LU:OMNI&lang=en "Laurentian Library") with a theory/hypothesis that you can follow from K&T's original paper through subsequent papers until today. **Your aim is to find at least 9 studies that build on and test that theory.**
+1.  Find **one** of K&T's original research papers with Google Scholar or the [Laurentian Omni library](https://omni.laurentian.ca/discovery/search?vid=01OCUL_LU:OMNI&lang=en "Laurentian Library") with a theory/hypothesis that you can follow from the original paper through subsequent papers until today. **Your aim is to find at least 9 studies that build on and test that theory.**
 
 ::: fyi
-Do not choose an obscure theory that only 2 people have heard about. You won't garner extra marks for this. For the purposes of this exercise the theory or hypothesis you choose should be **well tested**.
+Do not choose an obscure theory that only 2 people have heard about. You won't garner extra marks for this. For the purposes of this exercise, the theory or hypothesis you choose should be **well tested**.
 :::
 
 So, your first study will be a Kahneman and Tversky study, next, a study that sits on the shoulders of that study, then another that progressed from that study, and so on until you find a study conducted between 2020 and today. A *minimum* of 10 articles should be cited. As Dr. Emond says, "Kind of like six degrees of separation but with citations". **These will make up your intro and discussion references in the final write-up.**
