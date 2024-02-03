@@ -52,6 +52,8 @@
 <link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
 <link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
 <script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
 
 
 <style type="text/css">
@@ -259,7 +261,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li>Install the following packages as well by copy and pasting the code below to your <strong>console</strong> and hitting return.</li>
 </ul>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="Intro.html#cb1-1" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;rmarkdown&quot;</span>,<span class="st">&quot;papaja&quot;</span>, <span class="st">&quot;psych&quot;</span>, <span class="st">&quot;DataExplorer&quot;</span>, <span class="st">&quot;ggplot2&quot;</span>, <span class="st">&quot;sjPlot&quot;</span>, <span class="st">&quot;dlookr&quot;</span>, <span class="st">&quot;apaTables&quot;</span>, <span class="st">&quot;gt&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="Intro.html#cb1-1" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;rmarkdown&quot;</span>,<span class="st">&quot;papaja&quot;</span>, <span class="st">&quot;psych&quot;</span>, <span class="st">&quot;DataExplorer&quot;</span>, <span class="st">&quot;ggplot2&quot;</span>, <span class="st">&quot;sjPlot&quot;</span>, <span class="st">&quot;dlookr&quot;</span>, <span class="st">&quot;apaTables&quot;</span>, <span class="st">&quot;gt&quot;</span>, <span class="st">&quot;modelsummary&quot;</span>)</span></code></pre></div>
 <ul>
 <li>We will also install the tutorial package that I created for you, which will include an <strong>assignment template</strong>. It will make things easier to create an APA-formatted document in R Markdown.</li>
 </ul>
@@ -312,7 +314,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb13-3"><a href="Intro.html#cb13-3" tabindex="-1"></a><span class="fu">library</span>(sjPlot) <span class="co"># this is for plotting </span></span></code></pre></div>
 <pre><code>## Install package &quot;strengejacke&quot; from GitHub (`devtools::install_github(&quot;strengejacke/strengejacke&quot;)`) to load all sj-packages at once!</code></pre>
 <div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="Intro.html#cb15-1" tabindex="-1"></a><span class="fu">library</span>(psych2126template) <span class="co"># this is our template</span></span>
-<span id="cb15-2"><a href="Intro.html#cb15-2" tabindex="-1"></a><span class="fu">library</span>(apaTables)</span></code></pre></div>
+<span id="cb15-2"><a href="Intro.html#cb15-2" tabindex="-1"></a><span class="fu">library</span>(modelsummary)</span></code></pre></div>
+<pre><code>## 
+## Attaching package: &#39;modelsummary&#39;
+## 
+## The following object is masked from &#39;package:psych&#39;:
+## 
+##     SD</code></pre>
 </div>
 </div>
 <div id="r-markdown" class="section level2 hasAnchor" number="3.2">
@@ -349,9 +357,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="lightbulb">
 <p>Nick has a different file structure. He is not working from a project, but <em>you will be</em> if you followed Andy’s instructions above. This means your workspace already knows where the working directory is–its your project folder (which will be off your documents folder if you put it here like I suggested). Just ignore where he puts his files, but everything else is good to follow :)</p>
 </div>
-<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="Intro.html#cb16-1" tabindex="-1"></a><span class="co"># install.packages(&quot;papaja&quot;) # remove the hashtag at the beginning of this line and run the code to install papaja if you haven&#39;t already (see above)</span></span>
-<span id="cb16-2"><a href="Intro.html#cb16-2" tabindex="-1"></a></span>
-<span id="cb16-3"><a href="Intro.html#cb16-3" tabindex="-1"></a><span class="fu">library</span>(papaja)</span></code></pre></div>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="Intro.html#cb17-1" tabindex="-1"></a><span class="co"># install.packages(&quot;papaja&quot;) # remove the hashtag at the beginning of this line and run the code to install papaja if you haven&#39;t already (see above)</span></span>
+<span id="cb17-2"><a href="Intro.html#cb17-2" tabindex="-1"></a></span>
+<span id="cb17-3"><a href="Intro.html#cb17-3" tabindex="-1"></a><span class="fu">library</span>(papaja)</span></code></pre></div>
 <div class="fyi">
 <p>Nick refers to his console at the bottom of the screen, if you followed Andy’s workspace setup it will be on the right side of your screen.</p>
 </div>
@@ -362,573 +370,346 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Here are some tutorials that complement this section. Simply copy and paste the code below into a codechunk in your project and then run them. Feel free to play around with the code–its the best way to learn.</p>
 <div id="descriptive-table" class="section level3 hasAnchor" number="3.3.1">
 <h3><span class="header-section-number">3.3.1</span> Descriptive Table<a href="Intro.html#descriptive-table" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>The first step in analysing any new dataset is to describe and visualize it.</p>
-<p>Luckily there are some handy packages to help us do this. Let’s use the iris dataset.</p>
-<p>Load the iris dataframe and store it in an object we’ll call “df”</p>
-<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="Intro.html#cb17-1" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(iris) </span></code></pre></div>
+<p>The first step before analysing a new dataset is to describe and visualize it. <strong>You will want to add a descriptive statistics table and a histogram of your outcome variable in your final document.</strong></p>
+<p>This section is meant as practice, I will list each step needed for your final paper in the “Putting it all Together” tutorial at the very end.</p>
+<p>Luckily R has some very handy packages to help us explore our data.</p>
+<p>Lets load the iris dataframe and store it in an object we’ll call <em>df</em>.</p>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="Intro.html#cb18-1" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(iris) <span class="co"># load the iris dataframe into an object we&#39;ll call df</span></span></code></pre></div>
 <p>The describe command from the dlookr packages allows you to see the mean, standard deviation and skewness of your data right away.</p>
-<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="Intro.html#cb18-1" tabindex="-1"></a>descriptives <span class="ot">&lt;-</span> <span class="fu">describe</span>(df)</span></code></pre></div>
-<p>You can see there are 5 variables, 4 sepal measurements and a species variable.</p>
-<p>If you’d like to look at your dataframe in a table format, use the view command. This will open a sortable table of your dataframe in another tab. To get back to your R Markdown document click on the tab containing it at the top of your workspace.</p>
-<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="Intro.html#cb19-1" tabindex="-1"></a><span class="fu">view</span>(df)</span></code></pre></div>
-<p>You can also use the gt command to create a pretty, customizable table in your document.</p>
-<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="Intro.html#cb20-1" tabindex="-1"></a><span class="fu">library</span>(gt)</span>
-<span id="cb20-2"><a href="Intro.html#cb20-2" tabindex="-1"></a></span>
-<span id="cb20-3"><a href="Intro.html#cb20-3" tabindex="-1"></a>descriptives <span class="sc">%&gt;%</span> <span class="fu">gt</span>()</span></code></pre></div>
-<div id="yflpcmwaxc" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#yflpcmwaxc table {
-  font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-#yflpcmwaxc thead, #yflpcmwaxc tbody, #yflpcmwaxc tfoot, #yflpcmwaxc tr, #yflpcmwaxc td, #yflpcmwaxc th {
-  border-style: none;
-}
-
-#yflpcmwaxc p {
-  margin: 0;
-  padding: 0;
-}
-
-#yflpcmwaxc .gt_table {
-  display: table;
-  border-collapse: collapse;
-  line-height: normal;
-  margin-left: auto;
-  margin-right: auto;
-  color: #333333;
-  font-size: 16px;
-  font-weight: normal;
-  font-style: normal;
-  background-color: #FFFFFF;
-  width: auto;
-  border-top-style: solid;
-  border-top-width: 2px;
-  border-top-color: #A8A8A8;
-  border-right-style: none;
-  border-right-width: 2px;
-  border-right-color: #D3D3D3;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #A8A8A8;
-  border-left-style: none;
-  border-left-width: 2px;
-  border-left-color: #D3D3D3;
-}
-
-#yflpcmwaxc .gt_caption {
-  padding-top: 4px;
-  padding-bottom: 4px;
-}
-
-#yflpcmwaxc .gt_title {
-  color: #333333;
-  font-size: 125%;
-  font-weight: initial;
-  padding-top: 4px;
-  padding-bottom: 4px;
-  padding-left: 5px;
-  padding-right: 5px;
-  border-bottom-color: #FFFFFF;
-  border-bottom-width: 0;
-}
-
-#yflpcmwaxc .gt_subtitle {
-  color: #333333;
-  font-size: 85%;
-  font-weight: initial;
-  padding-top: 3px;
-  padding-bottom: 5px;
-  padding-left: 5px;
-  padding-right: 5px;
-  border-top-color: #FFFFFF;
-  border-top-width: 0;
-}
-
-#yflpcmwaxc .gt_heading {
-  background-color: #FFFFFF;
-  text-align: center;
-  border-bottom-color: #FFFFFF;
-  border-left-style: none;
-  border-left-width: 1px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 1px;
-  border-right-color: #D3D3D3;
-}
-
-#yflpcmwaxc .gt_bottom_border {
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-}
-
-#yflpcmwaxc .gt_col_headings {
-  border-top-style: solid;
-  border-top-width: 2px;
-  border-top-color: #D3D3D3;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  border-left-style: none;
-  border-left-width: 1px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 1px;
-  border-right-color: #D3D3D3;
-}
-
-#yflpcmwaxc .gt_col_heading {
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 100%;
-  font-weight: normal;
-  text-transform: inherit;
-  border-left-style: none;
-  border-left-width: 1px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 1px;
-  border-right-color: #D3D3D3;
-  vertical-align: bottom;
-  padding-top: 5px;
-  padding-bottom: 6px;
-  padding-left: 5px;
-  padding-right: 5px;
-  overflow-x: hidden;
-}
-
-#yflpcmwaxc .gt_column_spanner_outer {
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 100%;
-  font-weight: normal;
-  text-transform: inherit;
-  padding-top: 0;
-  padding-bottom: 0;
-  padding-left: 4px;
-  padding-right: 4px;
-}
-
-#yflpcmwaxc .gt_column_spanner_outer:first-child {
-  padding-left: 0;
-}
-
-#yflpcmwaxc .gt_column_spanner_outer:last-child {
-  padding-right: 0;
-}
-
-#yflpcmwaxc .gt_column_spanner {
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  vertical-align: bottom;
-  padding-top: 5px;
-  padding-bottom: 5px;
-  overflow-x: hidden;
-  display: inline-block;
-  width: 100%;
-}
-
-#yflpcmwaxc .gt_spanner_row {
-  border-bottom-style: hidden;
-}
-
-#yflpcmwaxc .gt_group_heading {
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 100%;
-  font-weight: initial;
-  text-transform: inherit;
-  border-top-style: solid;
-  border-top-width: 2px;
-  border-top-color: #D3D3D3;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  border-left-style: none;
-  border-left-width: 1px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 1px;
-  border-right-color: #D3D3D3;
-  vertical-align: middle;
-  text-align: left;
-}
-
-#yflpcmwaxc .gt_empty_group_heading {
-  padding: 0.5px;
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 100%;
-  font-weight: initial;
-  border-top-style: solid;
-  border-top-width: 2px;
-  border-top-color: #D3D3D3;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  vertical-align: middle;
-}
-
-#yflpcmwaxc .gt_from_md > :first-child {
-  margin-top: 0;
-}
-
-#yflpcmwaxc .gt_from_md > :last-child {
-  margin-bottom: 0;
-}
-
-#yflpcmwaxc .gt_row {
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-  margin: 10px;
-  border-top-style: solid;
-  border-top-width: 1px;
-  border-top-color: #D3D3D3;
-  border-left-style: none;
-  border-left-width: 1px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 1px;
-  border-right-color: #D3D3D3;
-  vertical-align: middle;
-  overflow-x: hidden;
-}
-
-#yflpcmwaxc .gt_stub {
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 100%;
-  font-weight: initial;
-  text-transform: inherit;
-  border-right-style: solid;
-  border-right-width: 2px;
-  border-right-color: #D3D3D3;
-  padding-left: 5px;
-  padding-right: 5px;
-}
-
-#yflpcmwaxc .gt_stub_row_group {
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 100%;
-  font-weight: initial;
-  text-transform: inherit;
-  border-right-style: solid;
-  border-right-width: 2px;
-  border-right-color: #D3D3D3;
-  padding-left: 5px;
-  padding-right: 5px;
-  vertical-align: top;
-}
-
-#yflpcmwaxc .gt_row_group_first td {
-  border-top-width: 2px;
-}
-
-#yflpcmwaxc .gt_row_group_first th {
-  border-top-width: 2px;
-}
-
-#yflpcmwaxc .gt_summary_row {
-  color: #333333;
-  background-color: #FFFFFF;
-  text-transform: inherit;
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-}
-
-#yflpcmwaxc .gt_first_summary_row {
-  border-top-style: solid;
-  border-top-color: #D3D3D3;
-}
-
-#yflpcmwaxc .gt_first_summary_row.thick {
-  border-top-width: 2px;
-}
-
-#yflpcmwaxc .gt_last_summary_row {
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-}
-
-#yflpcmwaxc .gt_grand_summary_row {
-  color: #333333;
-  background-color: #FFFFFF;
-  text-transform: inherit;
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-}
-
-#yflpcmwaxc .gt_first_grand_summary_row {
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-  border-top-style: double;
-  border-top-width: 6px;
-  border-top-color: #D3D3D3;
-}
-
-#yflpcmwaxc .gt_last_grand_summary_row_top {
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-  border-bottom-style: double;
-  border-bottom-width: 6px;
-  border-bottom-color: #D3D3D3;
-}
-
-#yflpcmwaxc .gt_striped {
-  background-color: rgba(128, 128, 128, 0.05);
-}
-
-#yflpcmwaxc .gt_table_body {
-  border-top-style: solid;
-  border-top-width: 2px;
-  border-top-color: #D3D3D3;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-}
-
-#yflpcmwaxc .gt_footnotes {
-  color: #333333;
-  background-color: #FFFFFF;
-  border-bottom-style: none;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  border-left-style: none;
-  border-left-width: 2px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 2px;
-  border-right-color: #D3D3D3;
-}
-
-#yflpcmwaxc .gt_footnote {
-  margin: 0px;
-  font-size: 90%;
-  padding-top: 4px;
-  padding-bottom: 4px;
-  padding-left: 5px;
-  padding-right: 5px;
-}
-
-#yflpcmwaxc .gt_sourcenotes {
-  color: #333333;
-  background-color: #FFFFFF;
-  border-bottom-style: none;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  border-left-style: none;
-  border-left-width: 2px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 2px;
-  border-right-color: #D3D3D3;
-}
-
-#yflpcmwaxc .gt_sourcenote {
-  font-size: 90%;
-  padding-top: 4px;
-  padding-bottom: 4px;
-  padding-left: 5px;
-  padding-right: 5px;
-}
-
-#yflpcmwaxc .gt_left {
-  text-align: left;
-}
-
-#yflpcmwaxc .gt_center {
-  text-align: center;
-}
-
-#yflpcmwaxc .gt_right {
-  text-align: right;
-  font-variant-numeric: tabular-nums;
-}
-
-#yflpcmwaxc .gt_font_normal {
-  font-weight: normal;
-}
-
-#yflpcmwaxc .gt_font_bold {
-  font-weight: bold;
-}
-
-#yflpcmwaxc .gt_font_italic {
-  font-style: italic;
-}
-
-#yflpcmwaxc .gt_super {
-  font-size: 65%;
-}
-
-#yflpcmwaxc .gt_footnote_marks {
-  font-size: 75%;
-  vertical-align: 0.4em;
-  position: initial;
-}
-
-#yflpcmwaxc .gt_asterisk {
-  font-size: 100%;
-  vertical-align: 0;
-}
-
-#yflpcmwaxc .gt_indent_1 {
-  text-indent: 5px;
-}
-
-#yflpcmwaxc .gt_indent_2 {
-  text-indent: 10px;
-}
-
-#yflpcmwaxc .gt_indent_3 {
-  text-indent: 15px;
-}
-
-#yflpcmwaxc .gt_indent_4 {
-  text-indent: 20px;
-}
-
-#yflpcmwaxc .gt_indent_5 {
-  text-indent: 25px;
-}
-</style>
-<table class="gt_table" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
-  <thead>
-    <tr class="gt_col_headings">
-      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="vars">vars</th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="n">n</th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="mean">mean</th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="sd">sd</th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="median">median</th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="trimmed">trimmed</th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="mad">mad</th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="min">min</th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="max">max</th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="range">range</th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="skew">skew</th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="kurtosis">kurtosis</th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="se">se</th>
-    </tr>
-  </thead>
-  <tbody class="gt_table_body">
-    <tr><td headers="vars" class="gt_row gt_right">1</td>
-<td headers="n" class="gt_row gt_right">150</td>
-<td headers="mean" class="gt_row gt_right">5.843333</td>
-<td headers="sd" class="gt_row gt_right">0.8280661</td>
-<td headers="median" class="gt_row gt_right">5.80</td>
-<td headers="trimmed" class="gt_row gt_right">5.808333</td>
-<td headers="mad" class="gt_row gt_right">1.03782</td>
-<td headers="min" class="gt_row gt_right">4.3</td>
-<td headers="max" class="gt_row gt_right">7.9</td>
-<td headers="range" class="gt_row gt_right">3.6</td>
-<td headers="skew" class="gt_row gt_right">0.3086407</td>
-<td headers="kurtosis" class="gt_row gt_right">-0.6058125</td>
-<td headers="se" class="gt_row gt_right">0.06761132</td></tr>
-    <tr><td headers="vars" class="gt_row gt_right">2</td>
-<td headers="n" class="gt_row gt_right">150</td>
-<td headers="mean" class="gt_row gt_right">3.057333</td>
-<td headers="sd" class="gt_row gt_right">0.4358663</td>
-<td headers="median" class="gt_row gt_right">3.00</td>
-<td headers="trimmed" class="gt_row gt_right">3.043333</td>
-<td headers="mad" class="gt_row gt_right">0.44478</td>
-<td headers="min" class="gt_row gt_right">2.0</td>
-<td headers="max" class="gt_row gt_right">4.4</td>
-<td headers="range" class="gt_row gt_right">2.4</td>
-<td headers="skew" class="gt_row gt_right">0.3126147</td>
-<td headers="kurtosis" class="gt_row gt_right">0.1387047</td>
-<td headers="se" class="gt_row gt_right">0.03558833</td></tr>
-    <tr><td headers="vars" class="gt_row gt_right">3</td>
-<td headers="n" class="gt_row gt_right">150</td>
-<td headers="mean" class="gt_row gt_right">3.758000</td>
-<td headers="sd" class="gt_row gt_right">1.7652982</td>
-<td headers="median" class="gt_row gt_right">4.35</td>
-<td headers="trimmed" class="gt_row gt_right">3.760000</td>
-<td headers="mad" class="gt_row gt_right">1.85325</td>
-<td headers="min" class="gt_row gt_right">1.0</td>
-<td headers="max" class="gt_row gt_right">6.9</td>
-<td headers="range" class="gt_row gt_right">5.9</td>
-<td headers="skew" class="gt_row gt_right">-0.2694109</td>
-<td headers="kurtosis" class="gt_row gt_right">-1.4168574</td>
-<td headers="se" class="gt_row gt_right">0.14413600</td></tr>
-    <tr><td headers="vars" class="gt_row gt_right">4</td>
-<td headers="n" class="gt_row gt_right">150</td>
-<td headers="mean" class="gt_row gt_right">1.199333</td>
-<td headers="sd" class="gt_row gt_right">0.7622377</td>
-<td headers="median" class="gt_row gt_right">1.30</td>
-<td headers="trimmed" class="gt_row gt_right">1.184167</td>
-<td headers="mad" class="gt_row gt_right">1.03782</td>
-<td headers="min" class="gt_row gt_right">0.1</td>
-<td headers="max" class="gt_row gt_right">2.5</td>
-<td headers="range" class="gt_row gt_right">2.4</td>
-<td headers="skew" class="gt_row gt_right">-0.1009166</td>
-<td headers="kurtosis" class="gt_row gt_right">-1.3581792</td>
-<td headers="se" class="gt_row gt_right">0.06223645</td></tr>
-    <tr><td headers="vars" class="gt_row gt_right">5</td>
-<td headers="n" class="gt_row gt_right">150</td>
-<td headers="mean" class="gt_row gt_right">2.000000</td>
-<td headers="sd" class="gt_row gt_right">0.8192319</td>
-<td headers="median" class="gt_row gt_right">2.00</td>
-<td headers="trimmed" class="gt_row gt_right">2.000000</td>
-<td headers="mad" class="gt_row gt_right">1.48260</td>
-<td headers="min" class="gt_row gt_right">1.0</td>
-<td headers="max" class="gt_row gt_right">3.0</td>
-<td headers="range" class="gt_row gt_right">2.0</td>
-<td headers="skew" class="gt_row gt_right">0.0000000</td>
-<td headers="kurtosis" class="gt_row gt_right">-1.5199333</td>
-<td headers="se" class="gt_row gt_right">0.06689001</td></tr>
-  </tbody>
-  
-  
-</table>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="Intro.html#cb19-1" tabindex="-1"></a>descriptives <span class="ot">&lt;-</span> <span class="fu">describe</span>(df) <span class="co"># create an object out of the output of the describe function</span></span>
+<span id="cb19-2"><a href="Intro.html#cb19-2" tabindex="-1"></a></span>
+<span id="cb19-3"><a href="Intro.html#cb19-3" tabindex="-1"></a>descriptives <span class="co"># this calls the object we just made</span></span></code></pre></div>
+<pre><code>##              vars   n mean   sd median trimmed  mad min max range  skew
+## Sepal.Length    1 150 5.84 0.83   5.80    5.81 1.04 4.3 7.9   3.6  0.31
+## Sepal.Width     2 150 3.06 0.44   3.00    3.04 0.44 2.0 4.4   2.4  0.31
+## Petal.Length    3 150 3.76 1.77   4.35    3.76 1.85 1.0 6.9   5.9 -0.27
+## Petal.Width     4 150 1.20 0.76   1.30    1.18 1.04 0.1 2.5   2.4 -0.10
+## Species*        5 150 2.00 0.82   2.00    2.00 1.48 1.0 3.0   2.0  0.00
+##              kurtosis   se
+## Sepal.Length    -0.61 0.07
+## Sepal.Width      0.14 0.04
+## Petal.Length    -1.42 0.14
+## Petal.Width     -1.36 0.06
+## Species*        -1.52 0.07</code></pre>
+<p>From the output you can see there are 5 variables, 4 sepal measurements and a species variable. There is no missing data.</p>
+<div class="fyi">
+<p>In the Environment pane of your workspace (to the right), you will see the objects you create. You can click on them or hover over them here to open them or obtain more information about them. Its especially handy to view large datasets as it will open a sortable version of the df in a new tab in the workspace.</p>
 </div>
+<p>For a prettier descriptive table of all the continuous variables that includes little histograms:</p>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="Intro.html#cb21-1" tabindex="-1"></a><span class="fu">datasummary_skim</span>(df) <span class="co"># a function that shows some descriptives of the numerical data in your df</span></span></code></pre></div>
+<table class="table" style="width: auto !important; margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:left;">
+</th>
+<th style="text-align:right;">
+Unique (#)
+</th>
+<th style="text-align:right;">
+Missing (%)
+</th>
+<th style="text-align:right;">
+Mean
+</th>
+<th style="text-align:right;">
+SD
+</th>
+<th style="text-align:right;">
+Min
+</th>
+<th style="text-align:right;">
+Median
+</th>
+<th style="text-align:right;">
+Max
+</th>
+<th style="text-align:right;">
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+Sepal.Length
+</td>
+<td style="text-align:right;">
+35
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+5.8
+</td>
+<td style="text-align:right;">
+0.8
+</td>
+<td style="text-align:right;">
+4.3
+</td>
+<td style="text-align:right;">
+5.8
+</td>
+<td style="text-align:right;">
+7.9
+</td>
+<td style="text-align:right;">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" class="svglite" width="48.00pt" height="12.00pt" viewBox="0 0 48.00 12.00">
+<defs>
+<style type="text/css">
+    .svglite line, .svglite polyline, .svglite polygon, .svglite path, .svglite rect, .svglite circle {
+      fill: none;
+      stroke: #000000;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      stroke-miterlimit: 10.00;
+    }
+    .svglite text {
+      white-space: pre;
+    }
+  </style>
+</defs><rect width="100%" height="100%" style="stroke: none; fill: none;"></rect><defs><clipPath id="cpMC4wMHw0OC4wMHwwLjAwfDEyLjAw"><rect x="0.00" y="0.00" width="48.00" height="12.00"></rect></clipPath></defs><g clip-path="url(#cpMC4wMHw0OC4wMHwwLjAwfDEyLjAw)">
+</g><defs><clipPath id="cpMC4wMHw0OC4wMHwyLjg4fDEyLjAw"><rect x="0.00" y="2.88" width="48.00" height="9.12"></rect></clipPath></defs><g clip-path="url(#cpMC4wMHw0OC4wMHwyLjg4fDEyLjAw)"><rect x="-1.93" y="10.30" width="6.17" height="1.36" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="4.25" y="4.31" width="6.17" height="7.35" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="10.42" y="4.31" width="6.17" height="7.35" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="16.59" y="3.49" width="6.17" height="8.17" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="22.77" y="3.22" width="6.17" height="8.44" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="28.94" y="6.76" width="6.17" height="4.90" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="35.11" y="10.03" width="6.17" height="1.63" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="41.28" y="10.03" width="6.17" height="1.63" style="stroke-width: 0.38; fill: #000000;"></rect></g>
+</svg>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Sepal.Width
+</td>
+<td style="text-align:right;">
+23
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+3.1
+</td>
+<td style="text-align:right;">
+0.4
+</td>
+<td style="text-align:right;">
+2.0
+</td>
+<td style="text-align:right;">
+3.0
+</td>
+<td style="text-align:right;">
+4.4
+</td>
+<td style="text-align:right;">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" class="svglite" width="48.00pt" height="12.00pt" viewBox="0 0 48.00 12.00">
+<defs>
+<style type="text/css">
+    .svglite line, .svglite polyline, .svglite polygon, .svglite path, .svglite rect, .svglite circle {
+      fill: none;
+      stroke: #000000;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      stroke-miterlimit: 10.00;
+    }
+    .svglite text {
+      white-space: pre;
+    }
+  </style>
+</defs><rect width="100%" height="100%" style="stroke: none; fill: none;"></rect><defs><clipPath id="cpMC4wMHw0OC4wMHwwLjAwfDEyLjAw"><rect x="0.00" y="0.00" width="48.00" height="12.00"></rect></clipPath></defs><g clip-path="url(#cpMC4wMHw0OC4wMHwwLjAwfDEyLjAw)">
+</g><defs><clipPath id="cpMC4wMHw0OC4wMHwyLjg4fDEyLjAw"><rect x="0.00" y="2.88" width="48.00" height="9.12"></rect></clipPath></defs><g clip-path="url(#cpMC4wMHw0OC4wMHwyLjg4fDEyLjAw)"><rect x="1.78" y="10.72" width="3.70" height="0.94" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="5.48" y="10.02" width="3.70" height="1.64" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="9.19" y="8.61" width="3.70" height="3.05" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="12.89" y="6.27" width="3.70" height="5.40" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="16.59" y="3.22" width="3.70" height="8.44" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="20.30" y="6.03" width="3.70" height="5.63" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="24.00" y="7.44" width="3.70" height="4.22" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="27.70" y="9.32" width="3.70" height="2.35" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="31.41" y="9.55" width="3.70" height="2.11" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="35.11" y="10.96" width="3.70" height="0.70" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="38.81" y="11.19" width="3.70" height="0.47" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="42.52" y="11.43" width="3.70" height="0.23" style="stroke-width: 0.38; fill: #000000;"></rect></g>
+</svg>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Petal.Length
+</td>
+<td style="text-align:right;">
+43
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+3.8
+</td>
+<td style="text-align:right;">
+1.8
+</td>
+<td style="text-align:right;">
+1.0
+</td>
+<td style="text-align:right;">
+4.3
+</td>
+<td style="text-align:right;">
+6.9
+</td>
+<td style="text-align:right;">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" class="svglite" width="48.00pt" height="12.00pt" viewBox="0 0 48.00 12.00">
+<defs>
+<style type="text/css">
+    .svglite line, .svglite polyline, .svglite polygon, .svglite path, .svglite rect, .svglite circle {
+      fill: none;
+      stroke: #000000;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      stroke-miterlimit: 10.00;
+    }
+    .svglite text {
+      white-space: pre;
+    }
+  </style>
+</defs><rect width="100%" height="100%" style="stroke: none; fill: none;"></rect><defs><clipPath id="cpMC4wMHw0OC4wMHwwLjAwfDEyLjAw"><rect x="0.00" y="0.00" width="48.00" height="12.00"></rect></clipPath></defs><g clip-path="url(#cpMC4wMHw0OC4wMHwwLjAwfDEyLjAw)">
+</g><defs><clipPath id="cpMC4wMHw0OC4wMHwyLjg4fDEyLjAw"><rect x="0.00" y="2.88" width="48.00" height="9.12"></rect></clipPath></defs><g clip-path="url(#cpMC4wMHw0OC4wMHwyLjg4fDEyLjAw)"><rect x="1.78" y="3.22" width="3.77" height="8.44" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="5.54" y="8.70" width="3.77" height="2.97" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="9.31" y="11.66" width="3.77" height="0.00" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="13.08" y="11.43" width="3.77" height="0.23" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="16.84" y="10.75" width="3.77" height="0.91" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="20.61" y="9.15" width="3.77" height="2.51" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="24.38" y="6.87" width="3.77" height="4.79" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="28.14" y="6.87" width="3.77" height="4.79" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="31.91" y="7.78" width="3.77" height="3.88" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="35.68" y="8.01" width="3.77" height="3.65" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="39.44" y="10.52" width="3.77" height="1.14" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="43.21" y="10.75" width="3.77" height="0.91" style="stroke-width: 0.38; fill: #000000;"></rect></g>
+</svg>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Petal.Width
+</td>
+<td style="text-align:right;">
+22
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+1.2
+</td>
+<td style="text-align:right;">
+0.8
+</td>
+<td style="text-align:right;">
+0.1
+</td>
+<td style="text-align:right;">
+1.3
+</td>
+<td style="text-align:right;">
+2.5
+</td>
+<td style="text-align:right;">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" class="svglite" width="48.00pt" height="12.00pt" viewBox="0 0 48.00 12.00">
+<defs>
+<style type="text/css">
+    .svglite line, .svglite polyline, .svglite polygon, .svglite path, .svglite rect, .svglite circle {
+      fill: none;
+      stroke: #000000;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      stroke-miterlimit: 10.00;
+    }
+    .svglite text {
+      white-space: pre;
+    }
+  </style>
+</defs><rect width="100%" height="100%" style="stroke: none; fill: none;"></rect><defs><clipPath id="cpMC4wMHw0OC4wMHwwLjAwfDEyLjAw"><rect x="0.00" y="0.00" width="48.00" height="12.00"></rect></clipPath></defs><g clip-path="url(#cpMC4wMHw0OC4wMHwwLjAwfDEyLjAw)">
+</g><defs><clipPath id="cpMC4wMHw0OC4wMHwyLjg4fDEyLjAw"><rect x="0.00" y="2.88" width="48.00" height="9.12"></rect></clipPath></defs><g clip-path="url(#cpMC4wMHw0OC4wMHwyLjg4fDEyLjAw)"><rect x="-0.074" y="3.22" width="3.70" height="8.44" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="3.63" y="8.19" width="3.70" height="3.48" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="7.33" y="11.17" width="3.70" height="0.50" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="11.04" y="11.66" width="3.70" height="0.00" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="14.74" y="9.92" width="3.70" height="1.74" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="18.44" y="9.68" width="3.70" height="1.99" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="22.15" y="6.45" width="3.70" height="5.22" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="25.85" y="7.69" width="3.70" height="3.97" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="29.56" y="8.19" width="3.70" height="3.48" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="33.26" y="8.93" width="3.70" height="2.73" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="36.96" y="9.43" width="3.70" height="2.24" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="40.67" y="8.93" width="3.70" height="2.73" style="stroke-width: 0.38; fill: #000000;"></rect><rect x="44.37" y="10.92" width="3.70" height="0.75" style="stroke-width: 0.38; fill: #000000;"></rect></g>
+</svg>
+</td>
+</tr>
+</tbody>
+</table>
+<p>To summarise any categorical variables we can add the type = “categorical” function to our original command. Here we see all of our numeric variables distrbuted across the levels of the categorical (Species).</p>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="Intro.html#cb22-1" tabindex="-1"></a><span class="fu">datasummary_skim</span>(df, <span class="at">type =</span> <span class="st">&quot;categorical&quot;</span>) <span class="co"># same command, but here we look at our continuous across the levels of Species which is a categorical in the iris dataset</span></span></code></pre></div>
+<table class="table" style="width: auto !important; margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:left;">
+Species
+</th>
+<th style="text-align:right;">
+N
+</th>
+<th style="text-align:right;">
+%
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+setosa
+</td>
+<td style="text-align:right;">
+50
+</td>
+<td style="text-align:right;">
+33.3
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+versicolor
+</td>
+<td style="text-align:right;">
+50
+</td>
+<td style="text-align:right;">
+33.3
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+virginica
+</td>
+<td style="text-align:right;">
+50
+</td>
+<td style="text-align:right;">
+33.3
+</td>
+</tr>
+</tbody>
+</table>
+<p>Cute!</p>
+<p>Obviously there is so much more we can do here, but let’s leave it here for the time being.</p>
 </div>
 <div id="histograms" class="section level3 hasAnchor" number="3.3.2">
 <h3><span class="header-section-number">3.3.2</span> Histograms<a href="Intro.html#histograms" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>To see a histogram of all the continuous variables in the dataframe use the plot_histogram function from the DataExplorer package. This is a great way to check your outcome variable for normality. Remember, most statistical tests have a set of assumptions that if violated, make the results of said tests unreliable.</p>
-<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="Intro.html#cb21-1" tabindex="-1"></a><span class="fu">plot_histogram</span>(df)</span></code></pre></div>
+<p>The next step after looking at descriptive statistics, is to visualize your data.</p>
+<p>To see a histogram of all the continuous variables in the dataframe use the plot_histogram function from the DataExplorer package.</p>
+<p>Histograms are a great way to check your outcome variable for normality. Remember, most statistical tests have a set of assumptions that if violated, make the results of the tests unreliable.</p>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="Intro.html#cb23-1" tabindex="-1"></a><span class="fu">plot_histogram</span>(df)</span></code></pre></div>
 <p><img src="_main_files/figure-html/unnamed-chunk-15-1.png" width="672" /></p>
 <p>The histograms tell us a few things:</p>
 <ul>
 <li><p>the Petal length histogram tells us that petal length is NOT a normal distribution. Its bimodal, meaning there are two distributions in one. Some petals are really short and some are medium to long.</p></li>
 <li><p>Lucky for us our outcome variable (sepal length) seems relatively normal.</p></li>
 </ul>
+<p>Let’s have a look at just our outcome variable. This time, we ask the function to run not just the dataframe (df) but an individual variable from the dataframe. In R, a variable name is composed of two parts:</p>
+<ol style="list-style-type: decimal">
+<li>the prefix (which is the dataframe or table)</li>
+<li>the variable name (the exact name the variable has in our df)</li>
+</ol>
+<p>To look at an individual variable we need to tell R where to find it. The three parts are:
+df (the address dataframe) $ (a connector that tells us R that we want a specific variable) Sepal.Length</p>
+<p>Lets put it all together:</p>
+<p>df$Sepal.Length</p>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="Intro.html#cb24-1" tabindex="-1"></a><span class="co"># To create a histogram of sepal length we call the function hist</span></span>
+<span id="cb24-2"><a href="Intro.html#cb24-2" tabindex="-1"></a></span>
+<span id="cb24-3"><a href="Intro.html#cb24-3" tabindex="-1"></a><span class="fu">hist</span>(df<span class="sc">$</span>Sepal.Length)</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-16-1.png" width="672" /></p>
+<p>Similarly, we could look at sepal width:</p>
+<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="Intro.html#cb25-1" tabindex="-1"></a><span class="fu">hist</span>(df<span class="sc">$</span>Sepal.Width)</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-17-1.png" width="672" /></p>
+<div class="puzzle">
+<p>Remember: R is case sensitive, so if you dont type the names of variables and objects exactly as they appear in your dataframe, R will scream at you!</p>
+</div>
 <p>We could also look at correlations to see if there are underlying relationships we need to consider in our data:</p>
 </div>
 <div id="correlations" class="section level3 hasAnchor" number="3.3.3">
 <h3><span class="header-section-number">3.3.3</span> Correlations<a href="Intro.html#correlations" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="Intro.html#cb22-1" tabindex="-1"></a><span class="fu">plot_correlation</span>(<span class="fu">na.omit</span>(df), <span class="at">maxcat =</span> 5L)</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-16-1.png" width="672" /></p>
+<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="Intro.html#cb26-1" tabindex="-1"></a><span class="fu">plot_correlation</span>(<span class="fu">na.omit</span>(df), <span class="at">maxcat =</span> 5L)</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-18-1.png" width="672" /></p>
 </div>
 <div id="t-tests" class="section level3 hasAnchor" number="3.3.4">
 <h3><span class="header-section-number">3.3.4</span> T-Tests<a href="Intro.html#t-tests" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="Intro.html#cb23-1" tabindex="-1"></a><span class="co"># To run a t-test, our grouping variable can only have two levels, while Species has 4, so we;re just going to look at the difference between two levels</span></span>
-<span id="cb23-2"><a href="Intro.html#cb23-2" tabindex="-1"></a></span>
-<span id="cb23-3"><a href="Intro.html#cb23-3" tabindex="-1"></a>df2 <span class="ot">&lt;-</span> df <span class="sc">%&gt;%</span> <span class="fu">filter</span>(Species<span class="sc">==</span><span class="st">&quot;setosa&quot;</span><span class="sc">|</span>Species<span class="sc">==</span><span class="st">&quot;versicolor&quot;</span>) <span class="sc">%&gt;%</span> <span class="fu">droplevels</span>()</span>
-<span id="cb23-4"><a href="Intro.html#cb23-4" tabindex="-1"></a></span>
-<span id="cb23-5"><a href="Intro.html#cb23-5" tabindex="-1"></a><span class="fu">t.test</span>(Sepal.Length <span class="sc">~</span> Species, <span class="at">data =</span> df2)</span></code></pre></div>
+<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="Intro.html#cb27-1" tabindex="-1"></a><span class="co"># To run a t-test, our grouping variable can only have two levels, while Species has 4, so we;re just going to look at the difference between two levels</span></span>
+<span id="cb27-2"><a href="Intro.html#cb27-2" tabindex="-1"></a></span>
+<span id="cb27-3"><a href="Intro.html#cb27-3" tabindex="-1"></a>df2 <span class="ot">&lt;-</span> df <span class="sc">%&gt;%</span> <span class="fu">filter</span>(Species<span class="sc">==</span><span class="st">&quot;setosa&quot;</span><span class="sc">|</span>Species<span class="sc">==</span><span class="st">&quot;versicolor&quot;</span>) <span class="sc">%&gt;%</span> <span class="fu">droplevels</span>()</span>
+<span id="cb27-4"><a href="Intro.html#cb27-4" tabindex="-1"></a></span>
+<span id="cb27-5"><a href="Intro.html#cb27-5" tabindex="-1"></a><span class="fu">t.test</span>(Sepal.Length <span class="sc">~</span> Species, <span class="at">data =</span> df2)</span></code></pre></div>
 <pre><code>## 
 ##  Welch Two Sample t-test
 ## 
@@ -940,9 +721,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## sample estimates:
 ##     mean in group setosa mean in group versicolor 
 ##                    5.006                    5.936</code></pre>
-<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="Intro.html#cb25-1" tabindex="-1"></a><span class="fu">apa_print</span>(</span>
-<span id="cb25-2"><a href="Intro.html#cb25-2" tabindex="-1"></a>  <span class="fu">t.test</span>(Sepal.Length <span class="sc">~</span> Species, <span class="at">data =</span> df2)</span>
-<span id="cb25-3"><a href="Intro.html#cb25-3" tabindex="-1"></a>)</span></code></pre></div>
+<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="Intro.html#cb29-1" tabindex="-1"></a><span class="fu">apa_print</span>(</span>
+<span id="cb29-2"><a href="Intro.html#cb29-2" tabindex="-1"></a>  <span class="fu">t.test</span>(Sepal.Length <span class="sc">~</span> Species, <span class="at">data =</span> df2)</span>
+<span id="cb29-3"><a href="Intro.html#cb29-3" tabindex="-1"></a>)</span></code></pre></div>
 <pre><code>## $estimate
 ## [1] &quot;$\\Delta M = -0.93$, 95\\% CI $[-1.11, -0.75]$&quot;
 ## 

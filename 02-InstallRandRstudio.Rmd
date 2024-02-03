@@ -72,7 +72,7 @@ Next, we will follow along with the [Install Packages tutorial](https://milton-t
 
 ```{r, eval=FALSE}
     
-install.packages("rmarkdown","papaja", "psych", "DataExplorer", "ggplot2", "sjPlot", "dlookr", "apaTables", "gt")
+install.packages("rmarkdown","papaja", "psych", "DataExplorer", "ggplot2", "sjPlot", "dlookr", "apaTables", "gt", "modelsummary")
 
 ```
 
@@ -102,7 +102,7 @@ library(DataExplorer) # used to explore data
 library(ggplot2) # powerful plotting app
 library(sjPlot) # this is for plotting 
 library(psych2126template) # this is our template
-library(apaTables)
+library(modelsummary)
 ```
 
 ## R Markdown
@@ -163,47 +163,61 @@ Here are some tutorials that complement this section. Simply copy and paste the 
 
 ### Descriptive Table
 
-The first step in analysing any new dataset is to describe and visualize it.
+The first step before analysing a new dataset is to describe and visualize it. **You will want to add a descriptive statistics table and a histogram of your outcome variable in your final document.**
 
-Luckily there are some handy packages to help us do this. Let's use the iris dataset.
+This section is meant as practice, I will list each step needed for your final paper in the "Putting it all Together" tutorial at the very end.
 
-Load the iris dataframe and store it in an object we'll call "df"
+Luckily R has some very handy packages to help us explore our data.
+
+Lets load the iris dataframe and store it in an object we'll call *df*. 
 
 ```{r}
 
-df <- data.frame(iris) 
+df <- data.frame(iris) # load the iris dataframe into an object we'll call df
 
 ```
 
 The describe command from the dlookr packages allows you to see the mean, standard deviation and skewness of your data right away.
 
 ```{r}
+descriptives <- describe(df) # create an object out of the output of the describe function
 
-descriptives <- describe(df)
-
+descriptives # this calls the object we just made
 ```
 
-You can see there are 5 variables, 4 sepal measurements and a species variable.
+From the output you can see there are 5 variables, 4 sepal measurements and a species variable. There is no missing data.
 
-If you'd like to look at your dataframe in a table format, use the view command. This will open a sortable table of your dataframe in another tab. To get back to your R Markdown document click on the tab containing it at the top of your workspace.
+:::fyi
+In the Environment pane of your workspace (to the right), you will see the objects you create. You can click on them or hover over them here to open them or obtain more information about them. Its especially handy to view large datasets as it will open a sortable version of the df in a new tab in the workspace.
+:::
 
-```{r, eval=FALSE}
-
-view(df)
-
-```
-
-You can also use the gt command to create a pretty, customizable table in your document.
+For a prettier descriptive table of all the continuous variables that includes little histograms:
 
 ```{r}
-library(gt)
 
-descriptives %>% gt()
+datasummary_skim(df) # a function that shows some descriptives of the numerical data in your df
+
 ```
+
+To summarise any categorical variables we can add the type = "categorical" function to our original command. Here we see all of our numeric variables distrbuted across the levels of the categorical (Species).
+
+```{r}
+
+datasummary_skim(df, type = "categorical") # same command, but here we look at our continuous across the levels of Species which is a categorical in the iris dataset
+
+```
+
+Cute!
+
+Obviously there is so much more we can do here, but let's leave it here for the time being.
 
 ### Histograms
 
-To see a histogram of all the continuous variables in the dataframe use the plot_histogram function from the DataExplorer package. This is a great way to check your outcome variable for normality. Remember, most statistical tests have a set of assumptions that if violated, make the results of said tests unreliable.
+**The next step after looking at descriptive statistics, is to visualize your data.** 
+
+To see a histogram of all the continuous variables in the dataframe use the plot_histogram function from the DataExplorer package. 
+
+Histograms are a great way to check your outcome variable for normality. Remember, most statistical tests have a set of assumptions that if violated, make the results of the tests unreliable.
 
 ```{r}
 
@@ -213,17 +227,54 @@ plot_histogram(df)
 
 The histograms tell us a few things:
 
--   the Petal length histogram tells us that petal length is NOT a normal distribution. Its bimodal, meaning there are two distributions in one. Some petals are really short and some are medium to long.
+-   the Petal length & Petal width histograms tells us that petal size does NOT follow a normal distribution. Its bimodal, meaning there are two distributions in one. Some petals are really short and some are medium to long. We would have trouble if this were our outcome variable--lucky for us its not.
 
--   Lucky for us our outcome variable (sepal length) seems relatively normal.
+-   Our outcome variable (sepal length) seems relatively normal.
 
-We could also look at correlations to see if there are underlying relationships we need to consider in our data:
+**Let's have a look at just our outcome variable.** 
+
+In R, a variable name is composed of two parts:
+
+1. the **prefix** (which is the dataframe or table) - df in our case
+
+2. the **variable name** (the exact name the variable has in our df) - Sepal.Length in our case.
+
+To call an individual variable we need to tell R where to find it. The three parts are:
+
+**df** (the address dataframe) **$** (a connector that tells us R that we want the specific variable name that follows) **Sepal.Length** (the name of our variable)
+ 
+**Lets put it all together: df$Sepal.Length**
+
+```{r}
+# To create a histogram of sepal length we call the function hist
+
+hist(df$Sepal.Length)
+
+```
+
+Lovely! Similarly, we could look at sepal width:
+
+```{r}
+hist(df$Sepal.Width)
+```
+
+You will add a histogram of your data to your final document. You'll use the data I give you based on your research design instead of the iris dataset.
+
+:::puzzle
+Remember: R is case sensitive, so if you dont type the names of variables and objects exactly as they appear in your dataframe, R will scream at you!
+:::
 
 ### Correlations
+
+We might also look at correlations to see if there are underlying relationships we need to consider:
 
 ```{r}
 plot_correlation(na.omit(df), maxcat = 5L)
 ```
+
+On quick glance, we can see that sepal length is positively correlated with the Species Virginca (r = .64), meaning that long sepal lengths are more likely in Virginica flowers than Setosa, where sepal length is negatively correlated which suggests the a shorter sepal length.
+
+There is a lot more interesting stuff in the correlation matrix, but to avoid confusion let's move on. Just know that you can build these matrixes in R if you need to. 
 
 ### T-Tests
 
