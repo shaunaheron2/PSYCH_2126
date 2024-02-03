@@ -65,7 +65,6 @@ Next, we will follow along with the [Install Packages tutorial](https://milton-t
 ```{=html}
 <!-- -->
 ```
--   We will also install the tutorial package that I created for you, which will include an **assignment template** to make things a bit easier for you in Markdown.
 
 -   Install these packages as well by copy and pasting the code below to your **console**.
 
@@ -73,6 +72,14 @@ Next, we will follow along with the [Install Packages tutorial](https://milton-t
     install.packages("papaja", "psych", "DataExplorer", "ggplot2", "sjPlot")
 
     ```
+
+-   We will also install the tutorial package that I created for you, which will include an **assignment template** to make things a bit easier for you in Markdown.
+
+Copy and paste the following code into your console:
+
+```{r, eval=FALSE}
+remotes::install_github("shaunaheron2/psych2126template")
+```
 
 -   then load them and add them to the library chunk of your R Markdown document by copy and pasting the code below:
 
@@ -95,7 +102,6 @@ In this step you will learn more about R Markdown and you will create your assig
 ```{r}
 
 ```
-
 
 
 ## Learning More
