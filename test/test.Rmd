@@ -1,0 +1,186 @@
+---
+title             : "Your Main Title Goes Here"
+short title : "Short title"
+author: 
+  - name          : "Put your name here"
+    affiliation   : "1"
+    corresponding : no    # Define only one corresponding author
+    email         : "youremail@laurentian.ca"
+
+affiliation:
+  - id            : "1"
+    institution   : "Laurentian University"
+  - id            : "2"
+    institution   : "PSYCH 2126: Research Methods"
+    
+date: "`r Sys.Date()`"
+
+abstract: |
+  One or two sentences providing a **basic introduction** to the field,  comprehensible to a scientist in any discipline.
+  Two to three sentences of **more detailed background**, comprehensible  to scientists in related disciplines.
+  One sentence clearly stating the **general problem** being addressed by  this particular study.
+  One sentence summarizing the main result (with the words "**here we show**" or their equivalent).
+  Two or three sentences explaining what the **main result** reveals in direct comparison to what was thought to be the case previously, or how the  main result adds to previous knowledge.
+  One or two sentences to put the results into a more **general context**.
+  Two or three sentences to provide a **broader perspective**, readily comprehensible to a scientist in any discipline.
+  
+  <!-- https://tinyurl.com/ybremelq -->
+  
+bibliography      : "r-references.bib"
+
+floatsintext      : no
+linenumbers       : no
+draft             : no
+mask              : no
+
+figurelist        : yes
+tablelist         : no
+footnotelist      : no
+
+classoption       : "man"
+output            : papaja::apa6_pdf
+---
+
+```{r setup, include = FALSE}
+
+library("papaja")
+r_refs("r-references.bib")
+
+# HERE IS WHERE YOU WILL ADD ANY EXTRA PACKAGES YOU NEED.
+# Copy and paste any packages from the original Markdown file you played with into here.
+# Remember, a package can't be loaded if it is not installed.
+
+library(tidyverse)
+library(DataExplorer)
+library(sjPlot)
+library(ggplot2)
+library(ggstatsplot)
+library(modelsummary)
+#library(aov)
+library(lme4)
+library(ggpubr)
+library(rstatix)
+
+# To install packages run the following code in the console pane:
+
+# install.packages("packagenamehere")
+
+```
+
+```{r analysis-preferences}
+# Seed for random number generation
+set.seed(42)
+knitr::opts_chunk$set(cache.extra = knitr::rand_seed)
+
+```
+
+```{r, echo=FALSE, warning=FALSE, include=FALSE}
+
+# load your data here. Let's load an example dataset--the famous Iris set--first:
+# Once you have your own data, you will place it in the "data" folder of your project. To load it, you will run the follow code (just remove the hashtag before running it)
+
+# df <- read.csv("data/yourdata.csv") # you will use this code when you have your data. For now practice with the sample data.
+
+df <- data.frame(PlantGrowth)
+
+```
+
+# Introduction
+
+Here you will add your **brief** literature review which should include a bit of background citing the papers you read in your initial research. You will also state your purpose, your hypotheses and justifications for them.
+
+You can copy and paste your write up for these sections from Word or Google Docs directly into R Markdown. You can also write directly in R Markdown like I do, but I recommend the former in the beginning. Baby steps!
+
+# Methods
+
+Here you will report your study design, including sample size, independent and dependent variable(s) and any other important bits. <!-- 21-word solution (Simmons, Nelson & Simonsohn, 2012; retrieved from http://ssrn.com/abstract=2160588) -->
+
+## Participants
+
+You can use the participants and procedure headers if you like, or you can leave them out and just summarise them in the Methods section. These sections help organize a larger, thesis-length methods section but for our purposes they aren't necessary.
+
+## Procedure
+
+## Data analysis
+
+Here you will cite the analysis you're going to conduct along with your descriptive statistics, ANOVA, correlations or whatever else you want to do.
+
+```{r, echo=FALSE, warning=FALSE, message=FALSE}
+# Here you will conduct your analyses. I will give you detailed instructions on what analyses/packages to use for your specific analyses. I will send this with your data.
+
+# Here are a couple of example that you can delete once you have your own analyses.
+
+# https://www.datanovia.com/en/lessons/anova-in-r/ <- in depth tutorial
+
+
+datasummary_skim(df)
+
+# check the levels of your treatment variable 
+
+levels(df$group)
+
+# we see there are three levels
+```
+
+```{r, echo=FALSE, warning=FALSE, message=FALSE, include=FALSE}
+
+# For our purposes you want to be sure your control group is the first level. It is the level we'll compare the other levels to.
+
+# To reorder your variable:
+
+df <- df %>%
+  reorder_levels(group, order = c("ctrl", "trt1", "trt2"))
+
+```
+
+```{r, echo=FALSE, warning=FALSE, message=FALSE, include=FALSE}
+
+# One way ANOVA
+# The one-way ANOVA can be used to determine whether the means of your outcome are significantly different between the three conditions.
+
+df %>%
+  group_by(group) %>%
+  get_summary_stats(weight, type = "mean_sd")
+
+```
+
+
+We used `r cite_r("r-references.bib")` for all our analyses.
+
+# Results
+
+Here you will report your results.
+You will produce a histogram out of your outcome variable and a visualization of your results. Note the examples below. The tutorials will help you achieve this. When you hand your paper in, follow the tutorial "Final Steps to Prepare Your Document" which will show you how to hide the code chunks and ONLY display the visuals in the final .pdf.
+
+```{r, fig.cap="A Histogram"}
+
+# Put your histogram here
+
+hist(df$weight)
+
+```
+
+
+```{r, fig.cap="A Boxplot"}
+
+df %>% 
+  ggplot(aes(x=group, y=weight, colour=group))+
+  geom_point()+ 
+  geom_boxplot(stat="boxplot")
+
+```
+
+
+```{r, fig.cap="Between Subject Boxplot"}
+df %>% ggbetweenstats(x=group, y=weight)
+```
+
+# Discussion
+
+
+\newpage
+
+# References
+
+::: {#refs custom-style="Bibliography"}
+:::

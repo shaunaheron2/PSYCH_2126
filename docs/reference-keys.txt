@@ -15,10 +15,14 @@ customizing-your-workspace
 create-your-project
 install-packages
 r-markdown
-analysis-tutorial
+data-analysis-in-r
+describing-data
+calling-single-variables
 descriptive-table
 histograms
 correlations
+boxplots
+statistical-tests
 t-tests
 factorial-anova
 visualize-results

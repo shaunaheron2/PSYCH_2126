@@ -1,0 +1,306 @@
+# Data Analysis in R
+
+While you're waiting to for your data from Shauna (remember to send you experiment design to Shauna so that she can create some data for you), lets practice basic data analysis in R with some pre-loaded datasets.
+
+The tutorials that follow aren't meant to teach you statistics, you have Dr. Emond and a textbook for that. I will briefly discuss the rationale for the statistical methods I include here. Refer to your textbook or other online resources for the underlying theory. The tutorial is meant to teach you how to conduct the analyses you'd like to perform in R, not why you're conducting it.
+
+I recommend following along with this tutorial in a basic R markdown document. See the **R Markdown** section if you don't remember how to start a new document. Hint, File –\> New File –\> R Markdown –\> Click Okay then Save via the little disk icon above. Name it something like Practice 1.
+
+To code along with the tutorial, you can paste the code found in the chunks below into the codechunk of your practice Markdown document. Feel free to play around, rename variables and explore. Making mistakes is the best way to learn.
+
+## Describing Data
+
+> *The Dirty Data Theorem states that "real world" data tends to come from bizarre and unspecifiable distributions of highly correlated variables and have unequal sample sizes, missing data points, non-independent observations, and an indeterminate number of inaccurately recorded values. --- Unknown, Statistically Speaking, p. 282.*
+
+The first step before analyzing any new dataset is to describe and visualize it.
+
+You will use the commands in this section to add a summary table and histogram of your outcome variable to your final document. I will list each step needed to add a histogram to your final paper in the "Putting it all Together" tutorial at the very end.
+
+**First, lets practice.**
+
+Let's start by loading the iris data frame and storing it in an object we'll call *df*.
+
+```{r}
+
+df <- data.frame(iris) # load the iris dataframe into an object
+
+
+```
+
+Let's imagine we got this data by measuring the petals and stamens of 4 species of flowers behind our house. We're hoping we can learn something about the relationship between the species and petal/stamen size. Let's take a look at the data:
+
+```{r}
+
+# let's call the object we just created
+
+df
+
+```
+
+Woah, kinda messy. Do these strings of numbers tell us anything about the flowers we just measured? Not really. It just gives me a headache. What we need to do is *describe* the data.
+
+There are a wide variety of measures that one might want to calculate here. Means, medians, ranges, quartiles, standard deviations, skewness, etc. There are too many of these functions to cover in this tutorial, so let's discuss the most common statistics that you will need to report.
+
+-   `mean()` calculates the arithmetic mean.
+
+-   `median()` calculates the median;
+
+-   `min()` and `max()` are the minimum and maximum;
+
+-   `sd()` calculates the standard deviation (and `var()` computes the variance)
+
+-   `psych::skew()` and `psych::kurtosi()` compute skewness and kurtosis respectively
+
+Instead of using these commands individually, the describe command from the Psych package will allow us to see the mean, standard deviation, range and skewness of our data all at once.
+
+```{r}
+
+descriptives <- psych::describe(df) # create an object to hold the output of the describe function
+
+descriptives # this calls the object we just made
+
+```
+
+From the output you can see our df contains 5 variables: 4 sepal measurements that are continuous and a species variable that seems to be a categorical variable (note the asterix denoting its a nominal variable) with 3 levels
+
+If we wanted to calculate the mean of just one variable, let's say Sepal Width we would call the specific variable. 
+
+#### Calling single variables
+
+In R, a variable name is composed of two parts:
+
+1.  The **prefix** (which tells R what dataframe the variable is in) - df in our case
+
+2.  The **variable name** (the exact name the variable has in our df) - Sepal.Length in our case. If you forget the names of the variables in the dataframe you can always quickly use the names command for a list of all variables.
+
+```{r}
+names(df)
+```
+
+To call an individual variable we need to tell R where to find it. The three parts are:
+
+**df** (the address dataframe) **\$** (a connector that tells us R that we want the specific variable name that follows) **Sepal.Length** (the name of our variable)
+
+**Lets put it all together: df\$Sepal.Length**
+
+These are the individual commands for mean, median and standard deviation.
+
+```{r}
+
+mean(df$Sepal.Width) # calculate the mean of sepal width in the df dataframe
+median(df$Sepal.Width) # calculate the median of sepal width
+sd(df$Sepal.Width) # calculate the standard deviation of sepal width
+
+```
+
+::: fyi
+In the Environment pane of your workspace (to the right), you will see the objects you create. You can click on them or hover over them here to open them or obtain more information about them. Its especially handy to view large datasets as it will open a sortable version of the df in a new tab in the workspace.
+:::
+
+### Descriptive Table
+
+For a prettier descriptive table of all the continuous variables in your df including little histograms:
+
+```{r}
+
+summary <- datasummary_skim(df) # a function that shows some descriptives of the numerical data in your df
+
+summary # now call the object
+```
+
+To summarise the categorical variable in our dataset we can add the type = "categorical" function to our original command. 
+
+```{r}
+
+datasummary_skim(df, type = "categorical") # same command, but here we look at the frequencies of our categorical variable Species 
+
+```
+
+Cute! We see that 3 species of flowers were sampled. 50 measurements were conducted on each flower giving us a total sample size of 150. This matches the count we saw in our descriptives table.
+
+To put it all in one table we could try this:
+
+```{r}
+# this command says we want the datasummary function to compute the mean and sd for
+# all continuous variables in the df dataframe by species
+
+datasummary(Species * (All(df)) ~ Mean + SD, data=df, output='markdown')
+
+```
+Now we can see the overall means of each continuous variable across species
+
+What if we want to see the distribution of each measure between species?
+
+### Histograms
+
+**The next step after computing some descriptive statistics, is to visualize our data.**
+
+To see a histogram of all the continuous variables in the dataframe use the plot_histogram function from the DataExplorer package.
+
+Histograms are a great way to check your outcome variable for normality. Remember, most statistical tests have a set of assumptions that if violated, make the results of the tests unreliable.
+
+```{r}
+
+plot_histogram(df)
+
+```
+
+The histograms tell us a few things:
+
+-   Petal length & Petal width measurements do NOT follow a normal distribution. They look bimodal, meaning there are two distributions in one. Some petals are really short and some are medium to long with a gap in between. We would have trouble modeling this if it were our outcome variable--lucky for us its not!
+
+-   Our outcome variable (sepal length and width) seems *relatively* normal.
+
+```{r}
+# To create a histogram of sepal length we call the function hist
+
+hist(df$Sepal.Length)
+
+```
+
+Lovely! Similarly, we could look at sepal width:
+
+```{r}
+hist(df$Sepal.Width)
+```
+
+Here's a fancier grouped histogram. It allows us to see the distribution of sepal length across the species factor. This allows us to see where sepal length overlaps and where it does not. From the grouped histogram we can see that the flower with shortest sepals are Setosa flowers while the longest sepals belong to the Versicolor species.
+
+```{r}
+p <- df %>%
+  ggplot( aes(x=Sepal.Length, fill=Species)) +
+    geom_histogram(color="#e9ecef", alpha=0.6, position = 'identity') +
+    labs(fill="")
+p
+```
+
+You will add a histogram of your outcome variable to your final document. You'll use the data I give you (based on your research design) instead of the iris dataset.
+
+::: puzzle
+Remember: R is case sensitive, so if you dont type the names of variables and objects exactly as they appear in your dataframe, R will scream at you!
+:::
+
+
+### Correlations
+
+We might also look at correlations to see if there are underlying relationships we need to consider:
+
+```{r}
+plot_correlation(df, maxcat = 5L) # let's build a correlation matrix 
+```
+
+On quick glance, we can see that sepal length is positively correlated with the Species Virginca (r = .64), meaning that long sepal lengths are more likely in Virginica flowers than Setosa, where sepal length is negatively correlated which suggests a shorter sepal length. This concurs with the histograms we just looked at.
+
+There is a lot more interesting stuff in the correlation matrix, but to avoid confusion let's move on. Just know that you can build these matrices in R if you ever need one in future.
+
+### Boxplots
+
+Before we run an Anova or a linear regression, let's see visualize the differences between groups. For this data, a boxplot is our best bet.
+
+We'll use the ggplot package.
+
+```{r}
+p <- df %>% # we call our dataframe and tell it to put the output in an object called p
+  group_by(Species)%>% # we want to group our data by our categorical variable
+  ggplot(aes(x=Species, y=Sepal.Length))+ # here we tell ggplot what we want on our x and y axis
+  geom_boxplot(stat="boxplot") # here we tell is that we want a boxplot
+
+p # now we call the object we just made
+
+```
+
+Let's make it more colourful
+
+```{r}
+
+p + geom_boxplot(stat="boxplot", aes(fill=Species))+ # here we modify the code a little to make the plot colourful
+  scale_fill_manual(values = c("#00AFBB", "#E7B800", "#FC4E07"))
+
+```
+
+What about a title and a proper name for the y axis?
+
+```{r}
+
+p + geom_boxplot(stat="boxplot", aes(fill=Species))+ 
+  scale_fill_manual(values = c("#00AFBB", "#E7B800", "#FC4E07")) +
+  ylab("Sepal Length (cms)")+ # here we add a label to the y axis
+  ggtitle("Sepal length by species") # here we add a title
+
+
+```
+
+Almost there–now let's format it APA style
+
+```{r}
+
+p + geom_boxplot(stat="boxplot", aes(fill=Species))+ 
+  scale_fill_manual(values = c("#00AFBB", "#E7B800", "#FC4E07")) +
+  ylab("Sepal Length (cms)")+ # here we add a label to the y axis
+  ggtitle("Sepal length by species")+ # here we add a title
+theme_classic() # this changes the theme (notice the grey background is gone)
+
+```
+
+Obviously there is [so much more we can do here](http://www.sthda.com/english/articles/32-r-graphics-essentials/132-plot-grouped-data-box-plot-bar-plot-and-more/ "Lots of plots"), but let's keep it simple for now.
+
+## Statistical Tests
+
+### T-Tests
+
+```{r}
+
+# To run a t-test, our grouping variable can only have two levels, while Species has 4, so we;re just going to look at the difference between two levels
+
+df2 <- df %>% filter(Species=="setosa"|Species=="versicolor") %>% droplevels()
+
+results <- t.test(Sepal.Length ~ Species, data = df2)
+
+results
+
+```
+
+```{r}
+
+
+```
+
+### Factorial ANOVA
+
+```{r}
+
+```
+
+### Visualize Results
+
+```{r}
+
+
+
+```
+
+# Putting it all together
+
+This will show you how to complete your final document containing your analysis and writeup then how to render it as a pdf.
+
+## Learning More
+
+-   [Papaja Manual](https://frederikaust.com/papaja_man/reporting.html)
+
+The material we will cover in this short assignment will only give you a taste of what R is capable of. For advanced operations, you will need to learn more.
+
+The best way to become more proficient with R, like any tool, is to actively use it. I learned R from the internet out of frustration with the limitations of SPSS. Though there was lots of trial and error and mistakes at first, over time I got better and better, and had to look up code less and less.
+
+![](images/clipboard-553228617.png)
+
+At first it may feel daunting, but you will quickly see that there are amazing resources online. FOr example, maybe you want make your wide dataset long for some multilevel analyses–how do you do this in R? Well, a simple "how to make wide dataset long in R" will conjur up thousands of useful links where you can simply copy and paste their code and then just adjust it to use with your specific data. "How do I run an ANOVA in R?" or "ANOVA tutorial in R" will find you:
+
+<https://statsandr.com/blog/anova-in-r/>
+
+The great thing about these kinds of tutorials is that they include the code and often the rationalization as to why they are conducting the analyses like they are with recommendations of what steps should come first as well as how you would test any assumptions. You will learn SOOO much not just about R, but about data this way.
+
+R Markdown
+
+R Markdown Cheatsheet.
+
+<https://www.rstudio.com/wp-content/uploads/2015/02/rmarkdown-cheatsheet.pdf>
