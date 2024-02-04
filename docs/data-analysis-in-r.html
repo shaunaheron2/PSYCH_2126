@@ -179,8 +179,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4.2" data-path="data-analysis-in-r.html"><a href="data-analysis-in-r.html#statistical-tests"><i class="fa fa-check"></i><b>4.2</b> Statistical Tests</a>
 <ul>
 <li class="chapter" data-level="4.2.1" data-path="data-analysis-in-r.html"><a href="data-analysis-in-r.html#t-tests"><i class="fa fa-check"></i><b>4.2.1</b> T-Tests</a></li>
-<li class="chapter" data-level="4.2.2" data-path="data-analysis-in-r.html"><a href="data-analysis-in-r.html#factorial-anova"><i class="fa fa-check"></i><b>4.2.2</b> Factorial ANOVA</a></li>
+<li class="chapter" data-level="4.2.2" data-path="data-analysis-in-r.html"><a href="data-analysis-in-r.html#one-way-anova"><i class="fa fa-check"></i><b>4.2.2</b> One-Way ANOVA</a></li>
 <li class="chapter" data-level="4.2.3" data-path="data-analysis-in-r.html"><a href="data-analysis-in-r.html#visualize-results"><i class="fa fa-check"></i><b>4.2.3</b> Visualize Results</a></li>
+<li class="chapter" data-level="4.2.4" data-path="data-analysis-in-r.html"><a href="data-analysis-in-r.html#two-way-anova"><i class="fa fa-check"></i><b>4.2.4</b> Two-Way ANOVA</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="putting-it-all-together.html"><a href="putting-it-all-together.html"><i class="fa fa-check"></i><b>5</b> Putting it all together</a>
@@ -210,9 +211,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="data-analysis-in-r" class="section level1 hasAnchor" number="4">
 <h1><span class="header-section-number">Chapter 4</span> Data Analysis in R<a href="data-analysis-in-r.html#data-analysis-in-r" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <p>While you’re waiting to for your data from Shauna (remember to send you experiment design to Shauna so that she can create some data for you), lets practice basic data analysis in R with some pre-loaded datasets.</p>
-<p>The tutorials that follow aren’t meant to teach you statistics, you have Dr. Emond and a textbook for that. I will briefly discuss the rationale for the statistical methods I include here. Refer to your textbook or other online resources for the underlying theory. The tutorial is meant to teach you how to conduct the analyses you’d like to perform in R, not why you’re conducting it.</p>
-<p>I recommend following along with this tutorial in a basic R markdown document. See the <strong>R Markdown</strong> section if you don’t remember how to start a new document. Hint, File –&gt; New File –&gt; R Markdown –&gt; Click Okay then Save via the little disk icon above. Name it something like Practice 1.</p>
-<p>To code along with the tutorial, you can paste the code found in the chunks below into the codechunk of your practice Markdown document. Feel free to play around, rename variables and explore. Making mistakes is the best way to learn.</p>
+<p>The tutorials that follow aren’t meant to teach you statistics, you have Dr. Emond and probably a textbook for that. Instead, I will teach you how to conduct the analyses you’ve learned about in R rather than SPSS. Refer to your textbook or other online resources for the underlying theory.</p>
+<p>I recommend following along with the tutorial in a basic R markdown document. See the <strong>R Markdown</strong> section if you don’t remember how to start a new document. Hint, File –&gt; New File –&gt; R Markdown –&gt; Click Okay then Save via the little disk icon above. Name it something like Practice 1.</p>
+<p>To code alongside the tutorial you can copy and paste the code found below into the codechunk sof your practice Markdown document. Feel free to play around, rename variables and explore. Making mistakes is the best way to learn.</p>
 <div id="describing-data" class="section level2 hasAnchor" number="4.1">
 <h2><span class="header-section-number">4.1</span> Describing Data<a href="data-analysis-in-r.html#describing-data" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <blockquote>
@@ -222,11 +223,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>You will use the commands in this section to add a summary table and histogram of your outcome variable to your final document. I will list each step needed to add a histogram to your final paper in the “Putting it all Together” tutorial at the very end.</p>
 <p><strong>First, lets practice.</strong></p>
 <p>Let’s start by loading the iris data frame and storing it in an object we’ll call <em>df</em>.</p>
-<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="data-analysis-in-r.html#cb18-1" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(iris) <span class="co"># load the iris dataframe into an object</span></span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="data-analysis-in-r.html#cb4-1" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(iris) <span class="co"># load the iris dataframe into an object</span></span></code></pre></div>
 <p>Let’s imagine we got this data by measuring the petals and stamens of 4 species of flowers behind our house. We’re hoping we can learn something about the relationship between the species and petal/stamen size. Let’s take a look at the data:</p>
-<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="data-analysis-in-r.html#cb19-1" tabindex="-1"></a><span class="co"># let&#39;s call the object we just created</span></span>
-<span id="cb19-2"><a href="data-analysis-in-r.html#cb19-2" tabindex="-1"></a></span>
-<span id="cb19-3"><a href="data-analysis-in-r.html#cb19-3" tabindex="-1"></a>df</span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="data-analysis-in-r.html#cb5-1" tabindex="-1"></a><span class="co"># let&#39;s call the object we just created</span></span>
+<span id="cb5-2"><a href="data-analysis-in-r.html#cb5-2" tabindex="-1"></a></span>
+<span id="cb5-3"><a href="data-analysis-in-r.html#cb5-3" tabindex="-1"></a>df</span></code></pre></div>
 <pre><code>##     Sepal.Length Sepal.Width Petal.Length Petal.Width    Species
 ## 1            5.1         3.5          1.4         0.2     setosa
 ## 2            4.9         3.0          1.4         0.2     setosa
@@ -388,9 +389,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><p><code>psych::skew()</code> and <code>psych::kurtosi()</code> compute skewness and kurtosis respectively</p></li>
 </ul>
 <p>Instead of using these commands individually, the describe command from the Psych package will allow us to see the mean, standard deviation, range and skewness of our data all at once.</p>
-<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="data-analysis-in-r.html#cb21-1" tabindex="-1"></a>descriptives <span class="ot">&lt;-</span> psych<span class="sc">::</span><span class="fu">describe</span>(df) <span class="co"># create an object to hold the output of the describe function</span></span>
-<span id="cb21-2"><a href="data-analysis-in-r.html#cb21-2" tabindex="-1"></a></span>
-<span id="cb21-3"><a href="data-analysis-in-r.html#cb21-3" tabindex="-1"></a>descriptives <span class="co"># this calls the object we just made</span></span></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="data-analysis-in-r.html#cb7-1" tabindex="-1"></a>descriptives <span class="ot">&lt;-</span> psych<span class="sc">::</span><span class="fu">describe</span>(df) <span class="co"># create an object to hold the output of the describe function</span></span>
+<span id="cb7-2"><a href="data-analysis-in-r.html#cb7-2" tabindex="-1"></a></span>
+<span id="cb7-3"><a href="data-analysis-in-r.html#cb7-3" tabindex="-1"></a>descriptives <span class="co"># this calls the object we just made</span></span></code></pre></div>
 <pre><code>##              vars   n mean   sd median trimmed  mad min max range  skew
 ## Sepal.Length    1 150 5.84 0.83   5.80    5.81 1.04 4.3 7.9   3.6  0.31
 ## Sepal.Width     2 150 3.06 0.44   3.00    3.04 0.44 2.0 4.4   2.4  0.31
@@ -412,17 +413,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><p>The <strong>prefix</strong> (which tells R what dataframe the variable is in) - df in our case</p></li>
 <li><p>The <strong>variable name</strong> (the exact name the variable has in our df) - Sepal.Length in our case. If you forget the names of the variables in the dataframe you can always quickly use the names command for a list of all variables.</p></li>
 </ol>
-<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="data-analysis-in-r.html#cb23-1" tabindex="-1"></a><span class="fu">names</span>(df)</span></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="data-analysis-in-r.html#cb9-1" tabindex="-1"></a><span class="fu">names</span>(df)</span></code></pre></div>
 <pre><code>## [1] &quot;Sepal.Length&quot; &quot;Sepal.Width&quot;  &quot;Petal.Length&quot; &quot;Petal.Width&quot;  &quot;Species&quot;</code></pre>
 <p>To call an individual variable we need to tell R where to find it. The three parts are:</p>
 <p><strong>df</strong> (the address dataframe) <strong>$</strong> (a connector that tells us R that we want the specific variable name that follows) <strong>Sepal.Length</strong> (the name of our variable)</p>
 <p><strong>Lets put it all together: df$Sepal.Length</strong></p>
 <p>These are the individual commands for mean, median and standard deviation.</p>
-<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="data-analysis-in-r.html#cb25-1" tabindex="-1"></a><span class="fu">mean</span>(df<span class="sc">$</span>Sepal.Width) <span class="co"># calculate the mean of sepal width in the df dataframe</span></span></code></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="data-analysis-in-r.html#cb11-1" tabindex="-1"></a><span class="fu">mean</span>(df<span class="sc">$</span>Sepal.Width) <span class="co"># calculate the mean of sepal width in the df dataframe</span></span></code></pre></div>
 <pre><code>## [1] 3.057333</code></pre>
-<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="data-analysis-in-r.html#cb27-1" tabindex="-1"></a><span class="fu">median</span>(df<span class="sc">$</span>Sepal.Width) <span class="co"># calculate the median of sepal width</span></span></code></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="data-analysis-in-r.html#cb13-1" tabindex="-1"></a><span class="fu">median</span>(df<span class="sc">$</span>Sepal.Width) <span class="co"># calculate the median of sepal width</span></span></code></pre></div>
 <pre><code>## [1] 3</code></pre>
-<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="data-analysis-in-r.html#cb29-1" tabindex="-1"></a><span class="fu">sd</span>(df<span class="sc">$</span>Sepal.Width) <span class="co"># calculate the standard deviation of sepal width</span></span></code></pre></div>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="data-analysis-in-r.html#cb15-1" tabindex="-1"></a><span class="fu">sd</span>(df<span class="sc">$</span>Sepal.Width) <span class="co"># calculate the standard deviation of sepal width</span></span></code></pre></div>
 <pre><code>## [1] 0.4358663</code></pre>
 <div class="fyi">
 <p>In the Environment pane of your workspace (to the right), you will see the objects you create. You can click on them or hover over them here to open them or obtain more information about them. Its especially handy to view large datasets as it will open a sortable version of the df in a new tab in the workspace.</p>
@@ -431,9 +432,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="descriptive-table" class="section level3 hasAnchor" number="4.1.1">
 <h3><span class="header-section-number">4.1.1</span> Descriptive Table<a href="data-analysis-in-r.html#descriptive-table" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>For a prettier descriptive table of all the continuous variables in your df including little histograms:</p>
-<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="data-analysis-in-r.html#cb31-1" tabindex="-1"></a>summary <span class="ot">&lt;-</span> <span class="fu">datasummary_skim</span>(df) <span class="co"># a function that shows some descriptives of the numerical data in your df</span></span>
-<span id="cb31-2"><a href="data-analysis-in-r.html#cb31-2" tabindex="-1"></a></span>
-<span id="cb31-3"><a href="data-analysis-in-r.html#cb31-3" tabindex="-1"></a>summary <span class="co"># now call the object</span></span></code></pre></div>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="data-analysis-in-r.html#cb17-1" tabindex="-1"></a>summary <span class="ot">&lt;-</span> <span class="fu">datasummary_skim</span>(df) <span class="co"># a function that shows some descriptives of the numerical data in your df</span></span>
+<span id="cb17-2"><a href="data-analysis-in-r.html#cb17-2" tabindex="-1"></a></span>
+<span id="cb17-3"><a href="data-analysis-in-r.html#cb17-3" tabindex="-1"></a>summary <span class="co"># now call the object</span></span></code></pre></div>
 <table class="table" style="width: auto !important; margin-left: auto; margin-right: auto;">
 <thead>
 <tr>
@@ -648,7 +649,7 @@ Petal.Width
 </tbody>
 </table>
 <p>To summarise the categorical variable in our dataset we can add the type = “categorical” function to our original command.</p>
-<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="data-analysis-in-r.html#cb32-1" tabindex="-1"></a><span class="fu">datasummary_skim</span>(df, <span class="at">type =</span> <span class="st">&quot;categorical&quot;</span>) <span class="co"># same command, but here we look at the frequencies of our categorical variable Species </span></span></code></pre></div>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="data-analysis-in-r.html#cb18-1" tabindex="-1"></a><span class="fu">datasummary_skim</span>(df, <span class="at">type =</span> <span class="st">&quot;categorical&quot;</span>) <span class="co"># same command, but here we look at the frequencies of our categorical variable Species </span></span></code></pre></div>
 <table class="table" style="width: auto !important; margin-left: auto; margin-right: auto;">
 <thead>
 <tr>
@@ -701,10 +702,10 @@ virginica
 </table>
 <p>Cute! We see that 3 species of flowers were sampled. 50 measurements were conducted on each flower giving us a total sample size of 150. This matches the count we saw in our descriptives table.</p>
 <p>To put it all in one table we could try this:</p>
-<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="data-analysis-in-r.html#cb33-1" tabindex="-1"></a><span class="co"># this command says we want the datasummary function to compute the mean and sd for</span></span>
-<span id="cb33-2"><a href="data-analysis-in-r.html#cb33-2" tabindex="-1"></a><span class="co"># all continuous variables in the df dataframe by species</span></span>
-<span id="cb33-3"><a href="data-analysis-in-r.html#cb33-3" tabindex="-1"></a></span>
-<span id="cb33-4"><a href="data-analysis-in-r.html#cb33-4" tabindex="-1"></a><span class="fu">datasummary</span>(Species <span class="sc">*</span> (<span class="fu">All</span>(df)) <span class="sc">~</span> Mean <span class="sc">+</span> SD, <span class="at">data=</span>df, <span class="at">output=</span><span class="st">&#39;markdown&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="data-analysis-in-r.html#cb19-1" tabindex="-1"></a><span class="co"># this command says we want the datasummary function to compute the mean and sd for</span></span>
+<span id="cb19-2"><a href="data-analysis-in-r.html#cb19-2" tabindex="-1"></a><span class="co"># all continuous variables in the df dataframe by species</span></span>
+<span id="cb19-3"><a href="data-analysis-in-r.html#cb19-3" tabindex="-1"></a></span>
+<span id="cb19-4"><a href="data-analysis-in-r.html#cb19-4" tabindex="-1"></a><span class="fu">datasummary</span>(Species <span class="sc">*</span> (<span class="fu">All</span>(df)) <span class="sc">~</span> Mean <span class="sc">+</span> SD, <span class="at">data=</span>df, <span class="at">output=</span><span class="st">&#39;markdown&#39;</span>)</span></code></pre></div>
 <table>
 <thead>
 <tr class="header">
@@ -797,28 +798,28 @@ virginica
 <p><strong>The next step after computing some descriptive statistics, is to visualize our data.</strong></p>
 <p>To see a histogram of all the continuous variables in the dataframe use the plot_histogram function from the DataExplorer package.</p>
 <p>Histograms are a great way to check your outcome variable for normality. Remember, most statistical tests have a set of assumptions that if violated, make the results of the tests unreliable.</p>
-<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="data-analysis-in-r.html#cb34-1" tabindex="-1"></a><span class="fu">plot_histogram</span>(df)</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-19-1.png" width="672" /></p>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="data-analysis-in-r.html#cb20-1" tabindex="-1"></a><span class="fu">plot_histogram</span>(df)</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-18-1.png" width="672" /></p>
 <p>The histograms tell us a few things:</p>
 <ul>
 <li><p>Petal length &amp; Petal width measurements do NOT follow a normal distribution. They look bimodal, meaning there are two distributions in one. Some petals are really short and some are medium to long with a gap in between. We would have trouble modeling this if it were our outcome variable–lucky for us its not!</p></li>
 <li><p>Our outcome variable (sepal length and width) seems <em>relatively</em> normal.</p></li>
 </ul>
-<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb35-1"><a href="data-analysis-in-r.html#cb35-1" tabindex="-1"></a><span class="co"># To create a histogram of sepal length we call the function hist</span></span>
-<span id="cb35-2"><a href="data-analysis-in-r.html#cb35-2" tabindex="-1"></a></span>
-<span id="cb35-3"><a href="data-analysis-in-r.html#cb35-3" tabindex="-1"></a><span class="fu">hist</span>(df<span class="sc">$</span>Sepal.Length)</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-20-1.png" width="672" /></p>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="data-analysis-in-r.html#cb21-1" tabindex="-1"></a><span class="co"># To create a histogram of sepal length we call the function hist</span></span>
+<span id="cb21-2"><a href="data-analysis-in-r.html#cb21-2" tabindex="-1"></a></span>
+<span id="cb21-3"><a href="data-analysis-in-r.html#cb21-3" tabindex="-1"></a><span class="fu">hist</span>(df<span class="sc">$</span>Sepal.Length)</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-19-1.png" width="672" /></p>
 <p>Lovely! Similarly, we could look at sepal width:</p>
-<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="data-analysis-in-r.html#cb36-1" tabindex="-1"></a><span class="fu">hist</span>(df<span class="sc">$</span>Sepal.Width)</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-21-1.png" width="672" /></p>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="data-analysis-in-r.html#cb22-1" tabindex="-1"></a><span class="fu">hist</span>(df<span class="sc">$</span>Sepal.Width)</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-20-1.png" width="672" /></p>
 <p>Here’s a fancier grouped histogram. It allows us to see the distribution of sepal length across the species factor. This allows us to see where sepal length overlaps and where it does not. From the grouped histogram we can see that the flower with shortest sepals are Setosa flowers while the longest sepals belong to the Versicolor species.</p>
-<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb37-1"><a href="data-analysis-in-r.html#cb37-1" tabindex="-1"></a>p <span class="ot">&lt;-</span> df <span class="sc">%&gt;%</span></span>
-<span id="cb37-2"><a href="data-analysis-in-r.html#cb37-2" tabindex="-1"></a>  <span class="fu">ggplot</span>( <span class="fu">aes</span>(<span class="at">x=</span>Sepal.Length, <span class="at">fill=</span>Species)) <span class="sc">+</span></span>
-<span id="cb37-3"><a href="data-analysis-in-r.html#cb37-3" tabindex="-1"></a>    <span class="fu">geom_histogram</span>(<span class="at">color=</span><span class="st">&quot;#e9ecef&quot;</span>, <span class="at">alpha=</span><span class="fl">0.6</span>, <span class="at">position =</span> <span class="st">&#39;identity&#39;</span>) <span class="sc">+</span></span>
-<span id="cb37-4"><a href="data-analysis-in-r.html#cb37-4" tabindex="-1"></a>    <span class="fu">labs</span>(<span class="at">fill=</span><span class="st">&quot;&quot;</span>)</span>
-<span id="cb37-5"><a href="data-analysis-in-r.html#cb37-5" tabindex="-1"></a>p</span></code></pre></div>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="data-analysis-in-r.html#cb23-1" tabindex="-1"></a>p <span class="ot">&lt;-</span> df <span class="sc">%&gt;%</span></span>
+<span id="cb23-2"><a href="data-analysis-in-r.html#cb23-2" tabindex="-1"></a>  <span class="fu">ggplot</span>( <span class="fu">aes</span>(<span class="at">x=</span>Sepal.Length, <span class="at">fill=</span>Species)) <span class="sc">+</span></span>
+<span id="cb23-3"><a href="data-analysis-in-r.html#cb23-3" tabindex="-1"></a>    <span class="fu">geom_histogram</span>(<span class="at">color=</span><span class="st">&quot;#e9ecef&quot;</span>, <span class="at">alpha=</span><span class="fl">0.6</span>, <span class="at">position =</span> <span class="st">&#39;identity&#39;</span>) <span class="sc">+</span></span>
+<span id="cb23-4"><a href="data-analysis-in-r.html#cb23-4" tabindex="-1"></a>    <span class="fu">labs</span>(<span class="at">fill=</span><span class="st">&quot;&quot;</span>)</span>
+<span id="cb23-5"><a href="data-analysis-in-r.html#cb23-5" tabindex="-1"></a>p</span></code></pre></div>
 <pre><code>## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
-<p><img src="_main_files/figure-html/unnamed-chunk-22-1.png" width="672" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-21-1.png" width="672" /></p>
 <p>You will add a histogram of your outcome variable to your final document. You’ll use the data I give you (based on your research design) instead of the iris dataset.</p>
 <div class="puzzle">
 <p>Remember: R is case sensitive, so if you dont type the names of variables and objects exactly as they appear in your dataframe, R will scream at you!</p>
@@ -827,39 +828,61 @@ virginica
 <div id="correlations" class="section level3 hasAnchor" number="4.1.3">
 <h3><span class="header-section-number">4.1.3</span> Correlations<a href="data-analysis-in-r.html#correlations" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>We might also look at correlations to see if there are underlying relationships we need to consider:</p>
-<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb39-1"><a href="data-analysis-in-r.html#cb39-1" tabindex="-1"></a><span class="fu">plot_correlation</span>(df, <span class="at">maxcat =</span> 5L) <span class="co"># let&#39;s build a correlation matrix </span></span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-23-1.png" width="672" /></p>
+<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="data-analysis-in-r.html#cb25-1" tabindex="-1"></a><span class="fu">plot_correlation</span>(df, <span class="at">maxcat =</span> 5L) <span class="co"># let&#39;s build a correlation matrix </span></span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-22-1.png" width="672" /></p>
 <p>On quick glance, we can see that sepal length is positively correlated with the Species Virginca (r = .64), meaning that long sepal lengths are more likely in Virginica flowers than Setosa, where sepal length is negatively correlated which suggests a shorter sepal length. This concurs with the histograms we just looked at.</p>
 <p>There is a lot more interesting stuff in the correlation matrix, but to avoid confusion let’s move on. Just know that you can build these matrices in R if you ever need one in future.</p>
 </div>
 <div id="boxplots" class="section level3 hasAnchor" number="4.1.4">
 <h3><span class="header-section-number">4.1.4</span> Boxplots<a href="data-analysis-in-r.html#boxplots" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Before we run an Anova or a linear regression, let’s see visualize the differences between groups. For this data, a boxplot is our best bet.</p>
+<p>Before we run an Anova or a linear regression, let’s visualize the empirical differences between groups. For this data, a boxplot is our best bet.</p>
 <p>We’ll use the ggplot package.</p>
-<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb40-1"><a href="data-analysis-in-r.html#cb40-1" tabindex="-1"></a>p <span class="ot">&lt;-</span> df <span class="sc">%&gt;%</span> <span class="co"># we call our dataframe and tell it to put the output in an object called p</span></span>
-<span id="cb40-2"><a href="data-analysis-in-r.html#cb40-2" tabindex="-1"></a>  <span class="fu">group_by</span>(Species)<span class="sc">%&gt;%</span> <span class="co"># we want to group our data by our categorical variable</span></span>
-<span id="cb40-3"><a href="data-analysis-in-r.html#cb40-3" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x=</span>Species, <span class="at">y=</span>Sepal.Length))<span class="sc">+</span> <span class="co"># here we tell ggplot what we want on our x and y axis</span></span>
-<span id="cb40-4"><a href="data-analysis-in-r.html#cb40-4" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>(<span class="at">stat=</span><span class="st">&quot;boxplot&quot;</span>) <span class="co"># here we tell is that we want a boxplot</span></span>
-<span id="cb40-5"><a href="data-analysis-in-r.html#cb40-5" tabindex="-1"></a></span>
-<span id="cb40-6"><a href="data-analysis-in-r.html#cb40-6" tabindex="-1"></a>p <span class="co"># now we call the object we just made</span></span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-24-1.png" width="672" /></p>
+<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="data-analysis-in-r.html#cb26-1" tabindex="-1"></a><span class="fu">library</span>(ggthemes)</span>
+<span id="cb26-2"><a href="data-analysis-in-r.html#cb26-2" tabindex="-1"></a></span>
+<span id="cb26-3"><a href="data-analysis-in-r.html#cb26-3" tabindex="-1"></a>p <span class="ot">&lt;-</span> df <span class="sc">%&gt;%</span> <span class="co"># we call our dataframe and tell it to put the output in an object called p</span></span>
+<span id="cb26-4"><a href="data-analysis-in-r.html#cb26-4" tabindex="-1"></a>  <span class="fu">group_by</span>(Species)<span class="sc">%&gt;%</span> <span class="co"># we want to group our data by our categorical variable</span></span>
+<span id="cb26-5"><a href="data-analysis-in-r.html#cb26-5" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x=</span>Species, <span class="at">y=</span>Sepal.Length))<span class="sc">+</span> <span class="co"># here we tell ggplot what we want on our x and y axis</span></span>
+<span id="cb26-6"><a href="data-analysis-in-r.html#cb26-6" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>(<span class="at">stat=</span><span class="st">&quot;boxplot&quot;</span>) <span class="co"># here we tell is that we want a boxplot</span></span>
+<span id="cb26-7"><a href="data-analysis-in-r.html#cb26-7" tabindex="-1"></a></span>
+<span id="cb26-8"><a href="data-analysis-in-r.html#cb26-8" tabindex="-1"></a>p <span class="co"># now we call the object we just made</span></span></code></pre></div>
+<div class="figure"><span style="display:block;" id="fig:unnamed-chunk-23"></span>
+<img src="_main_files/figure-html/unnamed-chunk-23-1.png" alt="My pretty boxplot" width="672" />
+<p class="caption">
+Figure 4.1: My pretty boxplot
+</p>
+</div>
 <p>Let’s make it more colourful</p>
-<div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb41-1"><a href="data-analysis-in-r.html#cb41-1" tabindex="-1"></a>p <span class="sc">+</span> <span class="fu">geom_boxplot</span>(<span class="at">stat=</span><span class="st">&quot;boxplot&quot;</span>, <span class="fu">aes</span>(<span class="at">fill=</span>Species))<span class="sc">+</span> <span class="co"># here we modify the code a little to make the plot colourful</span></span>
-<span id="cb41-2"><a href="data-analysis-in-r.html#cb41-2" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">&quot;#00AFBB&quot;</span>, <span class="st">&quot;#E7B800&quot;</span>, <span class="st">&quot;#FC4E07&quot;</span>))</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-25-1.png" width="672" /></p>
+<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="data-analysis-in-r.html#cb27-1" tabindex="-1"></a>p <span class="sc">+</span> <span class="fu">geom_boxplot</span>(<span class="at">stat=</span><span class="st">&quot;boxplot&quot;</span>, <span class="fu">aes</span>(<span class="at">fill=</span>Species))<span class="sc">+</span> <span class="co"># here we modify the code a little to make the plot colourful</span></span>
+<span id="cb27-2"><a href="data-analysis-in-r.html#cb27-2" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">&quot;#00AFBB&quot;</span>, <span class="st">&quot;#E7B800&quot;</span>, <span class="st">&quot;#FC4E07&quot;</span>)) <span class="co"># here we add our colous with RGB codes</span></span></code></pre></div>
+<div class="figure"><span style="display:block;" id="fig:unnamed-chunk-24"></span>
+<img src="_main_files/figure-html/unnamed-chunk-24-1.png" alt="My prettier boxplot" width="672" />
+<p class="caption">
+Figure 4.2: My prettier boxplot
+</p>
+</div>
 <p>What about a title and a proper name for the y axis?</p>
-<div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb42-1"><a href="data-analysis-in-r.html#cb42-1" tabindex="-1"></a>p <span class="sc">+</span> <span class="fu">geom_boxplot</span>(<span class="at">stat=</span><span class="st">&quot;boxplot&quot;</span>, <span class="fu">aes</span>(<span class="at">fill=</span>Species))<span class="sc">+</span> </span>
-<span id="cb42-2"><a href="data-analysis-in-r.html#cb42-2" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">&quot;#00AFBB&quot;</span>, <span class="st">&quot;#E7B800&quot;</span>, <span class="st">&quot;#FC4E07&quot;</span>)) <span class="sc">+</span></span>
-<span id="cb42-3"><a href="data-analysis-in-r.html#cb42-3" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;Sepal Length (cms)&quot;</span>)<span class="sc">+</span> <span class="co"># here we add a label to the y axis</span></span>
-<span id="cb42-4"><a href="data-analysis-in-r.html#cb42-4" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">&quot;Sepal length by species&quot;</span>) <span class="co"># here we add a title</span></span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-26-1.png" width="672" /></p>
+<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="data-analysis-in-r.html#cb28-1" tabindex="-1"></a>p <span class="sc">+</span> <span class="fu">geom_boxplot</span>(<span class="at">stat=</span><span class="st">&quot;boxplot&quot;</span>, <span class="fu">aes</span>(<span class="at">fill=</span>Species))<span class="sc">+</span> </span>
+<span id="cb28-2"><a href="data-analysis-in-r.html#cb28-2" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">&quot;#00AFBB&quot;</span>, <span class="st">&quot;#E7B800&quot;</span>, <span class="st">&quot;#FC4E07&quot;</span>)) <span class="sc">+</span></span>
+<span id="cb28-3"><a href="data-analysis-in-r.html#cb28-3" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;Sepal Length (cms)&quot;</span>)<span class="sc">+</span> <span class="co"># here we add a label to the y axis</span></span>
+<span id="cb28-4"><a href="data-analysis-in-r.html#cb28-4" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">&quot;Sepal length by species&quot;</span>) <span class="co"># here we add a title</span></span></code></pre></div>
+<div class="figure"><span style="display:block;" id="fig:unnamed-chunk-25"></span>
+<img src="_main_files/figure-html/unnamed-chunk-25-1.png" alt="The prettiest boxplot ever made" width="672" />
+<p class="caption">
+Figure 4.3: The prettiest boxplot ever made
+</p>
+</div>
 <p>Almost there–now let’s format it APA style</p>
-<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb43-1"><a href="data-analysis-in-r.html#cb43-1" tabindex="-1"></a>p <span class="sc">+</span> <span class="fu">geom_boxplot</span>(<span class="at">stat=</span><span class="st">&quot;boxplot&quot;</span>, <span class="fu">aes</span>(<span class="at">fill=</span>Species))<span class="sc">+</span> </span>
-<span id="cb43-2"><a href="data-analysis-in-r.html#cb43-2" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">&quot;#00AFBB&quot;</span>, <span class="st">&quot;#E7B800&quot;</span>, <span class="st">&quot;#FC4E07&quot;</span>)) <span class="sc">+</span></span>
-<span id="cb43-3"><a href="data-analysis-in-r.html#cb43-3" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;Sepal Length (cms)&quot;</span>)<span class="sc">+</span> <span class="co"># here we add a label to the y axis</span></span>
-<span id="cb43-4"><a href="data-analysis-in-r.html#cb43-4" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">&quot;Sepal length by species&quot;</span>)<span class="sc">+</span> <span class="co"># here we add a title</span></span>
-<span id="cb43-5"><a href="data-analysis-in-r.html#cb43-5" tabindex="-1"></a><span class="fu">theme_classic</span>() <span class="co"># this changes the theme (notice the grey background is gone)</span></span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-27-1.png" width="672" /></p>
+<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="data-analysis-in-r.html#cb29-1" tabindex="-1"></a>p <span class="sc">+</span> <span class="fu">geom_boxplot</span>(<span class="at">stat=</span><span class="st">&quot;boxplot&quot;</span>, <span class="fu">aes</span>(<span class="at">fill=</span>Species))<span class="sc">+</span> </span>
+<span id="cb29-2"><a href="data-analysis-in-r.html#cb29-2" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">&quot;#00AFBB&quot;</span>, <span class="st">&quot;#E7B800&quot;</span>, <span class="st">&quot;#FC4E07&quot;</span>)) <span class="sc">+</span></span>
+<span id="cb29-3"><a href="data-analysis-in-r.html#cb29-3" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;Sepal Length (cms)&quot;</span>)<span class="sc">+</span> <span class="co"># here we add a label to the y axis</span></span>
+<span id="cb29-4"><a href="data-analysis-in-r.html#cb29-4" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">&quot;Sepal length by species&quot;</span>)<span class="sc">+</span> <span class="co"># here we add a title</span></span>
+<span id="cb29-5"><a href="data-analysis-in-r.html#cb29-5" tabindex="-1"></a><span class="fu">theme_classic</span>() <span class="co"># this changes the theme (notice the grey background is gone)</span></span></code></pre></div>
+<div class="figure"><span style="display:block;" id="fig:unnamed-chunk-26"></span>
+<img src="_main_files/figure-html/unnamed-chunk-26-1.png" alt="The prettiest boxplot in the world" width="672" />
+<p class="caption">
+Figure 4.4: The prettiest boxplot in the world
+</p>
+</div>
 <p>Obviously there is <a href="http://www.sthda.com/english/articles/32-r-graphics-essentials/132-plot-grouped-data-box-plot-bar-plot-and-more/" title="Lots of plots">so much more we can do here</a>, but let’s keep it simple for now.</p>
 </div>
 </div>
@@ -867,13 +890,13 @@ virginica
 <h2><span class="header-section-number">4.2</span> Statistical Tests<a href="data-analysis-in-r.html#statistical-tests" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <div id="t-tests" class="section level3 hasAnchor" number="4.2.1">
 <h3><span class="header-section-number">4.2.1</span> T-Tests<a href="data-analysis-in-r.html#t-tests" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb44-1"><a href="data-analysis-in-r.html#cb44-1" tabindex="-1"></a><span class="co"># To run a t-test, our grouping variable can only have two levels, while Species has 4, so we;re just going to look at the difference between two levels</span></span>
-<span id="cb44-2"><a href="data-analysis-in-r.html#cb44-2" tabindex="-1"></a></span>
-<span id="cb44-3"><a href="data-analysis-in-r.html#cb44-3" tabindex="-1"></a>df2 <span class="ot">&lt;-</span> df <span class="sc">%&gt;%</span> <span class="fu">filter</span>(Species<span class="sc">==</span><span class="st">&quot;setosa&quot;</span><span class="sc">|</span>Species<span class="sc">==</span><span class="st">&quot;versicolor&quot;</span>) <span class="sc">%&gt;%</span> <span class="fu">droplevels</span>()</span>
-<span id="cb44-4"><a href="data-analysis-in-r.html#cb44-4" tabindex="-1"></a></span>
-<span id="cb44-5"><a href="data-analysis-in-r.html#cb44-5" tabindex="-1"></a>results <span class="ot">&lt;-</span> <span class="fu">t.test</span>(Sepal.Length <span class="sc">~</span> Species, <span class="at">data =</span> df2)</span>
-<span id="cb44-6"><a href="data-analysis-in-r.html#cb44-6" tabindex="-1"></a></span>
-<span id="cb44-7"><a href="data-analysis-in-r.html#cb44-7" tabindex="-1"></a>results</span></code></pre></div>
+<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="data-analysis-in-r.html#cb30-1" tabindex="-1"></a><span class="co"># To run a t-test, our grouping variable can only have two levels, while Species has 4, so we;re just going to look at the difference between two levels</span></span>
+<span id="cb30-2"><a href="data-analysis-in-r.html#cb30-2" tabindex="-1"></a></span>
+<span id="cb30-3"><a href="data-analysis-in-r.html#cb30-3" tabindex="-1"></a>df2 <span class="ot">&lt;-</span> df <span class="sc">%&gt;%</span> <span class="fu">filter</span>(Species<span class="sc">==</span><span class="st">&quot;setosa&quot;</span><span class="sc">|</span>Species<span class="sc">==</span><span class="st">&quot;versicolor&quot;</span>) <span class="sc">%&gt;%</span> <span class="fu">droplevels</span>()</span>
+<span id="cb30-4"><a href="data-analysis-in-r.html#cb30-4" tabindex="-1"></a></span>
+<span id="cb30-5"><a href="data-analysis-in-r.html#cb30-5" tabindex="-1"></a>results <span class="ot">&lt;-</span> <span class="fu">t.test</span>(Sepal.Length <span class="sc">~</span> Species, <span class="at">data =</span> df2)</span>
+<span id="cb30-6"><a href="data-analysis-in-r.html#cb30-6" tabindex="-1"></a></span>
+<span id="cb30-7"><a href="data-analysis-in-r.html#cb30-7" tabindex="-1"></a>results</span></code></pre></div>
 <pre><code>## 
 ##  Welch Two Sample t-test
 ## 
@@ -886,11 +909,139 @@ virginica
 ##     mean in group setosa mean in group versicolor 
 ##                    5.006                    5.936</code></pre>
 </div>
-<div id="factorial-anova" class="section level3 hasAnchor" number="4.2.2">
-<h3><span class="header-section-number">4.2.2</span> Factorial ANOVA<a href="data-analysis-in-r.html#factorial-anova" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="one-way-anova" class="section level3 hasAnchor" number="4.2.2">
+<h3><span class="header-section-number">4.2.2</span> One-Way ANOVA<a href="data-analysis-in-r.html#one-way-anova" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Assumptions</p>
+<p>The ANOVA test makes the following assumptions about the data:</p>
+<ul>
+<li>Independence of the observations. Each subject should belong to only one group. There is no relationship between the observations in each group. Having repeated measures for the same participants is not allowed.</li>
+<li>No significant outliers in any cell of the design</li>
+<li>Normality. the data for each design cell should be approximately normally distributed.</li>
+<li>Homogeneity of variances. The variance of the outcome variable should be equal in every cell of the design.</li>
+</ul>
+<p>Before computing ANOVA test, you need to perform some preliminary tests to check if the assumptions are met.</p>
+<p>Note that, if the above assumptions are not met there are a non-parametric alternative (Kruskal-Wallis test) to the one-way ANOVA.</p>
+<p>Unfortunately, there are no non-parametric alternatives to the two-way and the three-way ANOVA. Thus, in the situation where the assumptions are not met, you could consider running the two-way/three-way ANOVA on the transformed and non-transformed data to see if there are any meaningful differences.</p>
+<p>If both tests lead you to the same conclusions, you might not choose to transform the outcome variable and carry on with the two-way/three-way ANOVA on the original data.</p>
+<p>It’s also possible to perform robust ANOVA test using the WRS2 R package.</p>
+<p>No matter your choice, you should report what you did in your results.</p>
+<p>Load required packages:</p>
+<p>Your first steps would be to calculate the mean and sd generally and within each group, but we did that above. Now we’ll check our assumptions.</p>
+<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="data-analysis-in-r.html#cb32-1" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb32-2"><a href="data-analysis-in-r.html#cb32-2" tabindex="-1"></a><span class="fu">library</span>(ggpubr)</span>
+<span id="cb32-3"><a href="data-analysis-in-r.html#cb32-3" tabindex="-1"></a><span class="fu">library</span>(rstatix)</span></code></pre></div>
+<div id="outliers" class="section level4 hasAnchor" number="4.2.2.1">
+<h4><span class="header-section-number">4.2.2.1</span> Outliers<a href="data-analysis-in-r.html#outliers" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="data-analysis-in-r.html#cb33-1" tabindex="-1"></a>df <span class="sc">%&gt;%</span> </span>
+<span id="cb33-2"><a href="data-analysis-in-r.html#cb33-2" tabindex="-1"></a>  <span class="fu">group_by</span>(Species)<span class="sc">%&gt;%</span></span>
+<span id="cb33-3"><a href="data-analysis-in-r.html#cb33-3" tabindex="-1"></a>  <span class="fu">identify_outliers</span>(Sepal.Width)</span></code></pre></div>
+<pre><code>## # A tibble: 5 × 7
+##   Species   Sepal.Length Sepal.Width Petal.Length Petal.Width is.outlier
+##   &lt;fct&gt;            &lt;dbl&gt;       &lt;dbl&gt;        &lt;dbl&gt;       &lt;dbl&gt; &lt;lgl&gt;     
+## 1 setosa             5.7         4.4          1.5         0.4 TRUE      
+## 2 setosa             4.5         2.3          1.3         0.3 TRUE      
+## 3 virginica          7.7         3.8          6.7         2.2 TRUE      
+## 4 virginica          6           2.2          5           1.5 TRUE      
+## 5 virginica          7.9         3.8          6.4         2   TRUE      
+## # ℹ 1 more variable: is.extreme &lt;lgl&gt;</code></pre>
+<p>We do have some outliers, so we’ll conduct a robust ANOVA (rather than removing the outliers which is often frowned upon).</p>
+<p>The normality assumption can be checked by using one of the following two approaches:</p>
+<ul>
+<li>Analyzing the ANOVA model residuals to check the normality for all groups together. This approach is easier and it’s very handy when you have many groups or if there are few data points per group.</li>
+<li>Check normality for each group separately. This approach might be used when you have only a few groups and many data points per group.</li>
+</ul>
+</div>
+<div id="check-normality" class="section level4 hasAnchor" number="4.2.2.2">
+<h4><span class="header-section-number">4.2.2.2</span> Check normality<a href="data-analysis-in-r.html#check-normality" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Check normality assumption by analyzing the model residuals. QQ plot and Shapiro-Wilk test of normality are used. QQ plot draws the correlation between a given data and the normal distribution.</p>
+<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb35-1"><a href="data-analysis-in-r.html#cb35-1" tabindex="-1"></a><span class="co"># Build the linear model</span></span>
+<span id="cb35-2"><a href="data-analysis-in-r.html#cb35-2" tabindex="-1"></a>model  <span class="ot">&lt;-</span> <span class="fu">lm</span>(Sepal.Length <span class="sc">~</span> Species, <span class="at">data =</span> df)</span>
+<span id="cb35-3"><a href="data-analysis-in-r.html#cb35-3" tabindex="-1"></a><span class="co"># Create a QQ plot of residuals</span></span>
+<span id="cb35-4"><a href="data-analysis-in-r.html#cb35-4" tabindex="-1"></a><span class="fu">ggqqplot</span>(<span class="fu">residuals</span>(model))</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-31-1.png" width="672" /></p>
+<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="data-analysis-in-r.html#cb36-1" tabindex="-1"></a><span class="co"># Compute Shapiro-Wilk test of normality</span></span>
+<span id="cb36-2"><a href="data-analysis-in-r.html#cb36-2" tabindex="-1"></a><span class="fu">shapiro_test</span>(<span class="fu">residuals</span>(model))</span></code></pre></div>
+<pre><code>## # A tibble: 1 × 3
+##   variable         statistic p.value
+##   &lt;chr&gt;                &lt;dbl&gt;   &lt;dbl&gt;
+## 1 residuals(model)     0.988   0.219</code></pre>
+<p>In the QQ plot, as all the points fall approximately along the reference line, we can assume normality. This conclusion is supported by the Shapiro-Wilk test. The p-value is not significant (p = 0.13), so we can assume normality.</p>
+<p>Check normality assumption by groups. Computing Shapiro-Wilk test for each group level. If the data is normally distributed, the p-value should be greater than 0.05.</p>
+<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb38-1"><a href="data-analysis-in-r.html#cb38-1" tabindex="-1"></a><span class="fu">ggqqplot</span>(df, <span class="st">&quot;Sepal.Length&quot;</span>, <span class="at">facet.by =</span> <span class="st">&quot;Species&quot;</span>)</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-32-1.png" width="672" /></p>
+<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb39-1"><a href="data-analysis-in-r.html#cb39-1" tabindex="-1"></a><span class="co"># All the points fall approximately along the reference line, for each cell. So we can assume normality of the data.</span></span></code></pre></div>
+</div>
+<div id="homogneity-of-variance-assumption" class="section level4 hasAnchor" number="4.2.2.3">
+<h4><span class="header-section-number">4.2.2.3</span> Homogneity of variance assumption<a href="data-analysis-in-r.html#homogneity-of-variance-assumption" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>We’ll use a levene’s test</p>
+<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb40-1"><a href="data-analysis-in-r.html#cb40-1" tabindex="-1"></a>df <span class="sc">%&gt;%</span> <span class="fu">levene_test</span>(Sepal.Length <span class="sc">~</span> Species)</span></code></pre></div>
+<pre><code>## # A tibble: 1 × 4
+##     df1   df2 statistic       p
+##   &lt;int&gt; &lt;int&gt;     &lt;dbl&gt;   &lt;dbl&gt;
+## 1     2   147      6.35 0.00226</code></pre>
+<p>Unfortunately, we have a p value &lt; .05 so we have a significant difference in variance between groups.</p>
+<p>In a situation where the homogeneity of variance assumption is not met, you can compute the Welch one-way ANOVA test using the function welch_anova_test()[rstatix package]. This test does not require the assumption of equal variances.</p>
+</div>
+<div id="run-the-anova" class="section level4 hasAnchor" number="4.2.2.4">
+<h4><span class="header-section-number">4.2.2.4</span> Run the anova<a href="data-analysis-in-r.html#run-the-anova" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb42-1"><a href="data-analysis-in-r.html#cb42-1" tabindex="-1"></a>res.aov <span class="ot">&lt;-</span> df <span class="sc">%&gt;%</span> <span class="fu">anova_test</span>(Sepal.Length <span class="sc">~</span> Species)</span>
+<span id="cb42-2"><a href="data-analysis-in-r.html#cb42-2" tabindex="-1"></a>res.aov</span></code></pre></div>
+<pre><code>## ANOVA Table (type II tests)
+## 
+##    Effect DFn DFd       F        p p&lt;.05   ges
+## 1 Species   2 147 119.265 1.67e-31     * 0.619</code></pre>
+</div>
+<div id="post-hoc-tests" class="section level4 hasAnchor" number="4.2.2.5">
+<h4><span class="header-section-number">4.2.2.5</span> Post Hoc Tests<a href="data-analysis-in-r.html#post-hoc-tests" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb44-1"><a href="data-analysis-in-r.html#cb44-1" tabindex="-1"></a><span class="co"># Pairwise comparisons</span></span>
+<span id="cb44-2"><a href="data-analysis-in-r.html#cb44-2" tabindex="-1"></a>pwc <span class="ot">&lt;-</span> df <span class="sc">%&gt;%</span> <span class="fu">tukey_hsd</span>(Sepal.Length <span class="sc">~</span> Species)</span>
+<span id="cb44-3"><a href="data-analysis-in-r.html#cb44-3" tabindex="-1"></a>pwc</span></code></pre></div>
+<pre><code>## # A tibble: 3 × 9
+##   term    group1     group2     null.value estimate conf.low conf.high    p.adj
+## * &lt;chr&gt;   &lt;chr&gt;      &lt;chr&gt;           &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;
+## 1 Species setosa     versicolor          0    0.93     0.686     1.17  3.39e-14
+## 2 Species setosa     virginica           0    1.58     1.34      1.83  3   e-15
+## 3 Species versicolor virginica           0    0.652    0.408     0.896 8.29e- 9
+## # ℹ 1 more variable: p.adj.signif &lt;chr&gt;</code></pre>
+<p>The output contains the following columns:</p>
+<p>estimate: estimate of the difference between means of the two groups
+conf.low, conf.high: the lower and the upper end point of the confidence interval at 95% (default)
+p.adj: p-value after adjustment for the multiple comparisons.</p>
+</div>
+<div id="reporting-the-results" class="section level4 hasAnchor" number="4.2.2.6">
+<h4><span class="header-section-number">4.2.2.6</span> Reporting the results<a href="data-analysis-in-r.html#reporting-the-results" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>We could report the results of one-way ANOVA as follows:</p>
+<p>A one-way ANOVA was performed to evaluate if sepal length was different across the 3 different species: Setosa (n = 50), Versicolor (n = 50) and Verginica (n = 50).</p>
+<p>Sepal length was significantly different between species, F(2, 147) = 119.27, p&lt;.001, eta squared = .62.</p>
+</div>
 </div>
 <div id="visualize-results" class="section level3 hasAnchor" number="4.2.3">
 <h3><span class="header-section-number">4.2.3</span> Visualize Results<a href="data-analysis-in-r.html#visualize-results" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb46-1"><a href="data-analysis-in-r.html#cb46-1" tabindex="-1"></a><span class="co"># Visualization: box plots with p-values</span></span>
+<span id="cb46-2"><a href="data-analysis-in-r.html#cb46-2" tabindex="-1"></a>pwc <span class="ot">&lt;-</span> pwc <span class="sc">%&gt;%</span> <span class="fu">add_xy_position</span>(<span class="at">x =</span> <span class="st">&quot;Species&quot;</span>)</span>
+<span id="cb46-3"><a href="data-analysis-in-r.html#cb46-3" tabindex="-1"></a><span class="fu">ggboxplot</span>(df, <span class="at">x =</span> <span class="st">&quot;Species&quot;</span>, <span class="at">y =</span> <span class="st">&quot;Sepal.Length&quot;</span>) <span class="sc">+</span></span>
+<span id="cb46-4"><a href="data-analysis-in-r.html#cb46-4" tabindex="-1"></a>  <span class="fu">stat_pvalue_manual</span>(pwc, <span class="at">hide.ns =</span> <span class="cn">TRUE</span>) <span class="sc">+</span></span>
+<span id="cb46-5"><a href="data-analysis-in-r.html#cb46-5" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb46-6"><a href="data-analysis-in-r.html#cb46-6" tabindex="-1"></a>    <span class="at">subtitle =</span> <span class="fu">get_test_label</span>(res.aov, <span class="at">detailed =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb46-7"><a href="data-analysis-in-r.html#cb46-7" tabindex="-1"></a>    <span class="at">caption =</span> <span class="fu">get_pwc_label</span>(pwc)</span>
+<span id="cb46-8"><a href="data-analysis-in-r.html#cb46-8" tabindex="-1"></a>    )</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-36-1.png" width="672" /></p>
+<p>Remember our violation of homogeneity of variance? Let’s try the Welch’s one way test which is the alternative to the one-way ANOVA when variances are not equal.</p>
+<div class="sourceCode" id="cb47"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb47-1"><a href="data-analysis-in-r.html#cb47-1" tabindex="-1"></a><span class="co"># Welch One way ANOVA test</span></span>
+<span id="cb47-2"><a href="data-analysis-in-r.html#cb47-2" tabindex="-1"></a>res.aov2 <span class="ot">&lt;-</span> df <span class="sc">%&gt;%</span> <span class="fu">welch_anova_test</span>(Sepal.Length <span class="sc">~</span> Species)</span>
+<span id="cb47-3"><a href="data-analysis-in-r.html#cb47-3" tabindex="-1"></a></span>
+<span id="cb47-4"><a href="data-analysis-in-r.html#cb47-4" tabindex="-1"></a><span class="co"># Pairwise comparisons (Games-Howell)</span></span>
+<span id="cb47-5"><a href="data-analysis-in-r.html#cb47-5" tabindex="-1"></a>pwc2 <span class="ot">&lt;-</span> df <span class="sc">%&gt;%</span> <span class="fu">games_howell_test</span>(Sepal.Length <span class="sc">~</span> Species)</span>
+<span id="cb47-6"><a href="data-analysis-in-r.html#cb47-6" tabindex="-1"></a></span>
+<span id="cb47-7"><a href="data-analysis-in-r.html#cb47-7" tabindex="-1"></a>res.aov2</span></code></pre></div>
+<pre><code>## # A tibble: 1 × 7
+##   .y.              n statistic   DFn   DFd        p method     
+## * &lt;chr&gt;        &lt;int&gt;     &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;    &lt;dbl&gt; &lt;chr&gt;      
+## 1 Sepal.Length   150      139.     2  92.2 1.51e-28 Welch ANOVA</code></pre>
+</div>
+<div id="two-way-anova" class="section level3 hasAnchor" number="4.2.4">
+<h3><span class="header-section-number">4.2.4</span> Two-Way ANOVA<a href="data-analysis-in-r.html#two-way-anova" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="sourceCode" id="cb49"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb49-1"><a href="data-analysis-in-r.html#cb49-1" tabindex="-1"></a><span class="co">#https://www.datanovia.com/en/lessons/anova-in-r/</span></span></code></pre></div>
 </div>
 </div>
 </div>

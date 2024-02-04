@@ -199,7 +199,10 @@ Before we run an Anova or a linear regression, let's visualize the empirical dif
 
 We'll use the ggplot package.
 
-```{r}
+```{r, fig.cap="My pretty boxplot"}
+
+library(ggthemes)
+
 p <- df %>% # we call our dataframe and tell it to put the output in an object called p
   group_by(Species)%>% # we want to group our data by our categorical variable
   ggplot(aes(x=Species, y=Sepal.Length))+ # here we tell ggplot what we want on our x and y axis
@@ -211,7 +214,7 @@ p # now we call the object we just made
 
 Let's make it more colourful
 
-```{r}
+```{r, fig.cap="My prettier boxplot"}
 
 p + geom_boxplot(stat="boxplot", aes(fill=Species))+ # here we modify the code a little to make the plot colourful
   scale_fill_manual(values = c("#00AFBB", "#E7B800", "#FC4E07")) # here we add our colous with RGB codes
@@ -220,7 +223,7 @@ p + geom_boxplot(stat="boxplot", aes(fill=Species))+ # here we modify the code a
 
 What about a title and a proper name for the y axis?
 
-```{r}
+```{r, fig.cap="The prettiest boxplot ever made"}
 
 p + geom_boxplot(stat="boxplot", aes(fill=Species))+ 
   scale_fill_manual(values = c("#00AFBB", "#E7B800", "#FC4E07")) +
@@ -232,7 +235,7 @@ p + geom_boxplot(stat="boxplot", aes(fill=Species))+
 
 Almost there–now let's format it APA style
 
-```{r}
+```{r, fig.cap="The prettiest boxplot in the world"}
 
 p + geom_boxplot(stat="boxplot", aes(fill=Species))+ 
   scale_fill_manual(values = c("#00AFBB", "#E7B800", "#FC4E07")) +
@@ -265,19 +268,157 @@ results
 
 ```
 
-### Factorial ANOVA
+### One-Way ANOVA
+
+Assumptions
+
+The ANOVA test makes the following assumptions about the data:
+
+- Independence of the observations. Each subject should belong to only one group. There is no relationship between the observations in each group. Having repeated measures for the same participants is not allowed.
+- No significant outliers in any cell of the design
+- Normality. the data for each design cell should be approximately normally distributed.
+- Homogeneity of variances. The variance of the outcome variable should be equal in every cell of the design.
+
+Before computing ANOVA test, you need to perform some preliminary tests to check if the assumptions are met.
+
+Note that, if the above assumptions are not met there are a non-parametric alternative (Kruskal-Wallis test) to the one-way ANOVA.
+
+Unfortunately, there are no non-parametric alternatives to the two-way and the three-way ANOVA. Thus, in the situation where the assumptions are not met, you could consider running the two-way/three-way ANOVA on the transformed and non-transformed data to see if there are any meaningful differences.
+
+If both tests lead you to the same conclusions, you might not choose to transform the outcome variable and carry on with the two-way/three-way ANOVA on the original data.
+
+It’s also possible to perform robust ANOVA test using the WRS2 R package.
+
+No matter your choice, you should report what you did in your results.
+
+Load required packages:
+
+Your first steps would be to calculate the mean and sd generally and within each group, but we did that above. Now we'll check our assumptions.
+
+```{r, message=FALSE, warning=FALSE}
+library(tidyverse)
+library(ggpubr)
+library(rstatix)
+```
+
+#### Outliers
 
 ```{r}
 
+df %>% 
+  group_by(Species)%>%
+  identify_outliers(Sepal.Width)
+
+```
+We do have some outliers, so we'll conduct a robust ANOVA (rather than removing the outliers which is often frowned upon).
+
+The normality assumption can be checked by using one of the following two approaches:
+
+- Analyzing the ANOVA model residuals to check the normality for all groups together. This approach is easier and it’s very handy when you have many groups or if there are few data points per group.
+- Check normality for each group separately. This approach might be used when you have only a few groups and many data points per group.
+
+#### Check normality
+
+Check normality assumption by analyzing the model residuals. QQ plot and Shapiro-Wilk test of normality are used. QQ plot draws the correlation between a given data and the normal distribution.
+
+```{r}
+# Build the linear model
+model  <- lm(Sepal.Length ~ Species, data = df)
+# Create a QQ plot of residuals
+ggqqplot(residuals(model))
+
+# Compute Shapiro-Wilk test of normality
+shapiro_test(residuals(model))
 ```
 
-### Visualize Results
+In the QQ plot, as all the points fall approximately along the reference line, we can assume normality. This conclusion is supported by the Shapiro-Wilk test. The p-value is not significant (p = 0.13), so we can assume normality.
+
+Check normality assumption by groups. Computing Shapiro-Wilk test for each group level. If the data is normally distributed, the p-value should be greater than 0.05.
 
 ```{r}
 
+ggqqplot(df, "Sepal.Length", facet.by = "Species")
+
+# All the points fall approximately along the reference line, for each cell. So we can assume normality of the data.
+```
+
+#### Homogneity of variance assumption
+
+We'll use a levene's test
+
+```{r}
+df %>% levene_test(Sepal.Length ~ Species)
+```
+Unfortunately, we have a p value < .05 so we have a significant difference in variance between groups.
+
+In a situation where the homogeneity of variance assumption is not met, you can compute the Welch one-way ANOVA test using the function welch_anova_test()[rstatix package]. This test does not require the assumption of equal variances.
+
+#### Run the anova
+
+```{r}
+
+res.aov <- df %>% anova_test(Sepal.Length ~ Species)
+res.aov
+
+```
+
+#### Post Hoc Tests
+
+```{r}
+# Pairwise comparisons
+pwc <- df %>% tukey_hsd(Sepal.Length ~ Species)
+pwc
+```
+
+The output contains the following columns:
+
+estimate: estimate of the difference between means of the two groups
+conf.low, conf.high: the lower and the upper end point of the confidence interval at 95% (default)
+p.adj: p-value after adjustment for the multiple comparisons.
+
+#### Reporting the results
+
+We could report the results of one-way ANOVA as follows:
+
+A one-way ANOVA was performed to evaluate if sepal length was different across the 3 different species: Setosa (n = 50), Versicolor (n = 50) and Verginica (n = 50).
+
+Sepal length was significantly different between species, F(2, 147) = 119.27, p<.001, eta squared = .62.
+
+#### Visualize Results
+
+```{r}
+
+# Visualization: box plots with p-values
+pwc <- pwc %>% add_xy_position(x = "Species")
+ggboxplot(df, x = "Species", y = "Sepal.Length") +
+  stat_pvalue_manual(pwc, hide.ns = TRUE) +
+  labs(
+    subtitle = get_test_label(res.aov, detailed = TRUE),
+    caption = get_pwc_label(pwc)
+    )
 
 
 ```
+
+Remember our violation of homogeneity of variance? Let's try the Welch's one way test which is the alternative to the one-way ANOVA when variances are not equal.
+
+```{r}
+# Welch One way ANOVA test
+res.aov2 <- df %>% welch_anova_test(Sepal.Length ~ Species)
+
+# Pairwise comparisons (Games-Howell)
+pwc2 <- df %>% games_howell_test(Sepal.Length ~ Species)
+
+res.aov2
+```
+### Two-Way ANOVA
+
+```{r}
+
+#https://www.datanovia.com/en/lessons/anova-in-r/
+
+```
+
 
 # Putting it all together
 

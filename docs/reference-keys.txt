@@ -1,3 +1,7 @@
+fig:unnamed-chunk-23
+fig:unnamed-chunk-24
+fig:unnamed-chunk-25
+fig:unnamed-chunk-26
 introduction
 goals
 what-can-r-do
@@ -24,8 +28,14 @@ correlations
 boxplots
 statistical-tests
 t-tests
-factorial-anova
+one-way-anova
+outliers
+check-normality
+homogneity-of-variance-assumption
+run-the-anova
+post-hoc-tests
+reporting-the-results
 visualize-results
+two-way-anova
 putting-it-all-together
 learning-more
-url-your-book-url-like-httpsbookdown.orgyihuibookdown
