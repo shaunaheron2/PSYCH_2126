@@ -139,18 +139,6 @@ Once the document has rendered, you'll find a .pdf file in your project folder. 
 
 Follow along with Nick to learn about Papaja and to customize the template.
 
-::: lightbulb
-Nick has a different file structure. He is not working from a project, but *you will be* if you followed Andy's instructions above. This means your workspace already knows where the working directory is--its your project folder (which will be off your documents folder if you put it here like I suggested). Just ignore where he puts his files, but everything else is good to follow :)
-:::
-
-```{r, eval=FALSE}
-
-# install.packages("papaja") # remove the hashtag at the beginning of this line and run the code to install papaja if you haven't already (see above)
-
-library(papaja)
-
-```
-
 ::: fyi
 Nick refers to his console at the bottom of the screen, if you followed Andy's workspace setup it will be on the right side of your screen.
 :::

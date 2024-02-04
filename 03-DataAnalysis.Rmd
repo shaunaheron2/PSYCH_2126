@@ -2,11 +2,11 @@
 
 While you're waiting to for your data from Shauna (remember to send you experiment design to Shauna so that she can create some data for you), lets practice basic data analysis in R with some pre-loaded datasets.
 
-The tutorials that follow aren't meant to teach you statistics, you have Dr. Emond and a textbook for that. I will briefly discuss the rationale for the statistical methods I include here. Refer to your textbook or other online resources for the underlying theory. The tutorial is meant to teach you how to conduct the analyses you'd like to perform in R, not why you're conducting it.
+The tutorials that follow aren't meant to teach you statistics, you have Dr. Emond and probably a textbook for that. Instead, I will teach you how to conduct the analyses you've learned about in R rather than SPSS. Refer to your textbook or other online resources for the underlying theory. 
 
-I recommend following along with this tutorial in a basic R markdown document. See the **R Markdown** section if you don't remember how to start a new document. Hint, File –\> New File –\> R Markdown –\> Click Okay then Save via the little disk icon above. Name it something like Practice 1.
+I recommend following along with the tutorial in a basic R markdown document. See the **R Markdown** section if you don't remember how to start a new document. Hint, File –\> New File –\> R Markdown –\> Click Okay then Save via the little disk icon above. Name it something like Practice 1.
 
-To code along with the tutorial, you can paste the code found in the chunks below into the codechunk of your practice Markdown document. Feel free to play around, rename variables and explore. Making mistakes is the best way to learn.
+To code alongside the tutorial you can copy and paste the code found below into the codechunk sof your practice Markdown document. Feel free to play around, rename variables and explore. Making mistakes is the best way to learn.
 
 ## Describing Data
 
@@ -214,7 +214,7 @@ Let's make it more colourful
 ```{r}
 
 p + geom_boxplot(stat="boxplot", aes(fill=Species))+ # here we modify the code a little to make the plot colourful
-  scale_fill_manual(values = c("#00AFBB", "#E7B800", "#FC4E07"))
+  scale_fill_manual(values = c("#00AFBB", "#E7B800", "#FC4E07")) # here we add our colous with RGB codes
 
 ```
 
