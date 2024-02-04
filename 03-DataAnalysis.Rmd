@@ -14,6 +14,17 @@ To code alongside the tutorial you can copy and paste the code found below into 
 
 The first step before analyzing any new dataset is to describe and visualize it.
 
+Packages you'll need:
+
+```{r}
+library(ggpubr)
+library(ggstatsplot)
+library(DataExplorer)
+library(lme4)
+
+```
+
+
 You will use the commands in this section to add a summary table and histogram of your outcome variable to your final document. I will list each step needed to add a histogram to your final paper in the "Putting it all Together" tutorial at the very end.
 
 **First, lets practice.**
@@ -102,6 +113,8 @@ In the Environment pane of your workspace (to the right), you will see the objec
 For a prettier descriptive table of all the continuous variables in your df including little histograms:
 
 ```{r}
+
+library(modelsummary)
 
 summary <- datasummary_skim(df) # a function that shows some descriptives of the numerical data in your df
 
