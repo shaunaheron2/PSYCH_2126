@@ -90,7 +90,7 @@ remotes::install_github("shaunaheron2/psych2126template")
 
 Load the packages we just installed by adding them to the library chunk of your R Markdown document. Hint: copy and paste the code below. You can also load them by adding the code to your console window.
 
-```{r}
+```{r, warning=FALSE, message=FALSE}
 
 library(tidyverse) # powerful data wrangling tool
 library(here)

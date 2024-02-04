@@ -195,7 +195,7 @@ There is a lot more interesting stuff in the correlation matrix, but to avoid co
 
 ### Boxplots
 
-Before we run an Anova or a linear regression, let's see visualize the differences between groups. For this data, a boxplot is our best bet.
+Before we run an Anova or a linear regression, let's visualize the empirical differences between groups. For this data, a boxplot is our best bet.
 
 We'll use the ggplot package.
 
@@ -281,7 +281,7 @@ results
 
 # Putting it all together
 
-This will show you how to complete your final document containing your analysis and writeup then how to render it as a pdf.
+This final step will show you how to complete your final document containing your analysis and writeup then how to render it as a pdf.
 
 ## Learning More
 

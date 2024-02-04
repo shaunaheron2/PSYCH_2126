@@ -52,8 +52,6 @@
 <link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
 <link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
 <script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
-<script src="libs/kePrint-0.0.1/kePrint.js"></script>
-<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
 
 
 <style type="text/css">
@@ -142,7 +140,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="toc-logo"><a href="./"><img src="images/logo.png"></a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introduction</a>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> url: your book url like https://bookdown.org/yihui/bookdown</a>
 <ul>
 <li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#goals"><i class="fa fa-check"></i><b>1.1</b> Goals</a></li>
 <li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#what-can-r-do"><i class="fa fa-check"></i><b>1.2</b> What can R do?</a></li>
@@ -182,10 +180,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4.2.2" data-path="data-analysis-in-r.html"><a href="data-analysis-in-r.html#factorial-anova"><i class="fa fa-check"></i><b>4.2.2</b> Factorial ANOVA</a></li>
 <li class="chapter" data-level="4.2.3" data-path="data-analysis-in-r.html"><a href="data-analysis-in-r.html#visualize-results"><i class="fa fa-check"></i><b>4.2.3</b> Visualize Results</a></li>
 </ul></li>
-</ul></li>
-<li class="chapter" data-level="5" data-path="putting-it-all-together.html"><a href="putting-it-all-together.html"><i class="fa fa-check"></i><b>5</b> Putting it all together</a>
-<ul>
-<li class="chapter" data-level="5.1" data-path="putting-it-all-together.html"><a href="putting-it-all-together.html#learning-more"><i class="fa fa-check"></i><b>5.1</b> Learning More</a></li>
+<li class="chapter" data-level="4.3" data-path="data-analysis-in-r.html"><a href="data-analysis-in-r.html#learning-more"><i class="fa fa-check"></i><b>4.3</b> Learning More</a></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
@@ -278,59 +273,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Once packages are installed, click “Session” then Restart R” (in the top menu of R Studio) to refresh your workspace.</li>
 </ul>
 <p>Load the packages we just installed by adding them to the library chunk of your R Markdown document. Hint: copy and paste the code below. You can also load them by adding the code to your console window.</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="Intro.html#cb3-1" tabindex="-1"></a><span class="fu">library</span>(tidyverse) <span class="co"># powerful data wrangling tool</span></span></code></pre></div>
-<pre><code>## ── Attaching core tidyverse packages ─────────────────────────────────────────────────── tidyverse 2.0.0 ──
-## ✔ dplyr     1.1.4     ✔ readr     2.1.5
-## ✔ forcats   1.0.0     ✔ stringr   1.5.1
-## ✔ ggplot2   3.4.4     ✔ tibble    3.2.1
-## ✔ lubridate 1.9.3     ✔ tidyr     1.3.1
-## ✔ purrr     1.0.2     
-## ── Conflicts ───────────────────────────────────────────────────────────────────── tidyverse_conflicts() ──
-## ✖ dplyr::filter() masks stats::filter()
-## ✖ dplyr::lag()    masks stats::lag()
-## ℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors</code></pre>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="Intro.html#cb5-1" tabindex="-1"></a><span class="fu">library</span>(here)</span></code></pre></div>
-<pre><code>## here() starts at D:/documents/Research_Methods_Guidebook</code></pre>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="Intro.html#cb7-1" tabindex="-1"></a><span class="fu">library</span>(dlookr) <span class="co"># powerful data exploration tool</span></span></code></pre></div>
-<pre><code>## Registered S3 method overwritten by &#39;dlookr&#39;:
-##   method         from  
-##   plot.transform scales
-## 
-## Attaching package: &#39;dlookr&#39;
-## 
-## The following object is masked from &#39;package:tidyr&#39;:
-## 
-##     extract
-## 
-## The following object is masked from &#39;package:base&#39;:
-## 
-##     transform</code></pre>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="Intro.html#cb9-1" tabindex="-1"></a><span class="fu">library</span>(papaja)</span></code></pre></div>
-<pre><code>## Loading required package: tinylabels</code></pre>
-<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="Intro.html#cb11-1" tabindex="-1"></a><span class="fu">library</span>(base)</span>
-<span id="cb11-2"><a href="Intro.html#cb11-2" tabindex="-1"></a><span class="fu">library</span>(psych)</span></code></pre></div>
-<pre><code>## 
-## Attaching package: &#39;psych&#39;
-## 
-## The following object is masked from &#39;package:dlookr&#39;:
-## 
-##     describe
-## 
-## The following objects are masked from &#39;package:ggplot2&#39;:
-## 
-##     %+%, alpha</code></pre>
-<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="Intro.html#cb13-1" tabindex="-1"></a><span class="fu">library</span>(DataExplorer) <span class="co"># used to explore data</span></span>
-<span id="cb13-2"><a href="Intro.html#cb13-2" tabindex="-1"></a><span class="fu">library</span>(ggplot2) <span class="co"># powerful plotting app</span></span>
-<span id="cb13-3"><a href="Intro.html#cb13-3" tabindex="-1"></a><span class="fu">library</span>(sjPlot) <span class="co"># this is for plotting </span></span></code></pre></div>
-<pre><code>## Install package &quot;strengejacke&quot; from GitHub (`devtools::install_github(&quot;strengejacke/strengejacke&quot;)`) to load all sj-packages at once!</code></pre>
-<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="Intro.html#cb15-1" tabindex="-1"></a><span class="fu">library</span>(psych2126template) <span class="co"># this is our template</span></span>
-<span id="cb15-2"><a href="Intro.html#cb15-2" tabindex="-1"></a><span class="fu">library</span>(modelsummary)</span></code></pre></div>
-<pre><code>## 
-## Attaching package: &#39;modelsummary&#39;
-## 
-## The following object is masked from &#39;package:psych&#39;:
-## 
-##     SD</code></pre>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="Intro.html#cb3-1" tabindex="-1"></a><span class="fu">library</span>(tidyverse) <span class="co"># powerful data wrangling tool</span></span>
+<span id="cb3-2"><a href="Intro.html#cb3-2" tabindex="-1"></a><span class="fu">library</span>(here)</span>
+<span id="cb3-3"><a href="Intro.html#cb3-3" tabindex="-1"></a><span class="fu">library</span>(dlookr) <span class="co"># powerful data exploration tool</span></span>
+<span id="cb3-4"><a href="Intro.html#cb3-4" tabindex="-1"></a><span class="fu">library</span>(papaja)</span>
+<span id="cb3-5"><a href="Intro.html#cb3-5" tabindex="-1"></a><span class="fu">library</span>(base)</span>
+<span id="cb3-6"><a href="Intro.html#cb3-6" tabindex="-1"></a><span class="fu">library</span>(psych)</span>
+<span id="cb3-7"><a href="Intro.html#cb3-7" tabindex="-1"></a><span class="fu">library</span>(DataExplorer) <span class="co"># used to explore data</span></span>
+<span id="cb3-8"><a href="Intro.html#cb3-8" tabindex="-1"></a><span class="fu">library</span>(ggplot2) <span class="co"># powerful plotting app</span></span>
+<span id="cb3-9"><a href="Intro.html#cb3-9" tabindex="-1"></a><span class="fu">library</span>(sjPlot) <span class="co"># this is for plotting </span></span>
+<span id="cb3-10"><a href="Intro.html#cb3-10" tabindex="-1"></a><span class="fu">library</span>(psych2126template) <span class="co"># this is our template</span></span>
+<span id="cb3-11"><a href="Intro.html#cb3-11" tabindex="-1"></a><span class="fu">library</span>(modelsummary)</span></code></pre></div>
 </div>
 </div>
 <div id="r-markdown" class="section level2 hasAnchor" number="3.2">
@@ -367,9 +320,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="lightbulb">
 <p>Nick has a different file structure. He is not working from a project, but <em>you will be</em> if you followed Andy’s instructions above. This means your workspace already knows where the working directory is–its your project folder (which will be off your documents folder if you put it here like I suggested). Just ignore where he puts his files, but everything else is good to follow :)</p>
 </div>
-<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="Intro.html#cb17-1" tabindex="-1"></a><span class="co"># install.packages(&quot;papaja&quot;) # remove the hashtag at the beginning of this line and run the code to install papaja if you haven&#39;t already (see above)</span></span>
-<span id="cb17-2"><a href="Intro.html#cb17-2" tabindex="-1"></a></span>
-<span id="cb17-3"><a href="Intro.html#cb17-3" tabindex="-1"></a><span class="fu">library</span>(papaja)</span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="Intro.html#cb4-1" tabindex="-1"></a><span class="co"># install.packages(&quot;papaja&quot;) # remove the hashtag at the beginning of this line and run the code to install papaja if you haven&#39;t already (see above)</span></span>
+<span id="cb4-2"><a href="Intro.html#cb4-2" tabindex="-1"></a></span>
+<span id="cb4-3"><a href="Intro.html#cb4-3" tabindex="-1"></a><span class="fu">library</span>(papaja)</span></code></pre></div>
 <div class="fyi">
 <p>Nick refers to his console at the bottom of the screen, if you followed Andy’s workspace setup it will be on the right side of your screen.</p>
 </div>
