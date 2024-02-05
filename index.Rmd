@@ -1,5 +1,5 @@
 ---
-title: "PSYCH 2126: Term Assignment"
+title: "PSYCH 2127: Term Assignment"
 author: "S. Heron for Dr. Emond's Psych Class"
 date: "`r Sys.Date()`"
 site: bookdown::bookdown_site
