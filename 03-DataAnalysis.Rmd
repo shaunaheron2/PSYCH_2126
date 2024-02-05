@@ -50,7 +50,7 @@ df
 
 Woah, kinda messy. Do these strings of numbers tell us anything about the flowers we just measured? Not really. What we need to do is *describe* the data.
 
-There are a wide variety of measures that one might want to calculate here. Means, medians, ranges, quartiles, standard deviations, skewness, etc. There are too many of these functions to cover in this tutorial, so let's discuss the most common statistics that you will need to report.
+There are a variety of statistics you might want to calculate here. Means, medians, ranges, quartiles, standard deviations, skewness, etc. There are too many of these functions to cover in this tutorial, so let's discuss the most common statistics that you will need to report.
 
 -   `mean()` calculates the arithmetic mean.
 
