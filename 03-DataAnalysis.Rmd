@@ -16,7 +16,7 @@ The first step before analyzing any new dataset is to describe and visualize it.
 
 Packages you'll need:
 
-```{r}
+```{r, warning=FALSE, message=FALSE}
 library(ggpubr)
 library(ggstatsplot)
 library(DataExplorer)
