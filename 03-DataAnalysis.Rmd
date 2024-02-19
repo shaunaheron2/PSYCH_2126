@@ -425,12 +425,121 @@ res.aov2
 ```
 ### Two-Way ANOVA
 
-```{r}
+A two-way ANOVA is used to evaluate simultaneously the effect of two different grouping variables on a continuous outcome variable. Other synonyms are: two factorial design, factorial anova or two-way between-subjects ANOVA.
 
-#https://www.datanovia.com/en/lessons/anova-in-r/
+We'll use the build in ToothGrowth data frame to look at the Effect of Vitamin C on Tooth Growth in Guinea Pigs.
+
+```{r, warning=FALSE, message=FALSE}
+
+# Let's grab the toothgrowth data and put it in an object called "df" (dataframe)
+
+df <- ToothGrowth
+
+df$dose <- as.factor(df$dose)
 
 ```
 
+What does the data look like? Let's just look at the first few rows:
+
+```{r,  warning=FALSE, message=FALSE}
+head(df)
+```
+We can see a length variable (len) which is the outcome, a supplement variable (whether they received Vitamin C or Orange Juice) and the dose given (.5, 1, or 2).
+
+We have 2 IVs (dose and vitamin C or OJ) and one DV, toothlength (len).
+
+Let's compute some quick descriptive statistics:
+
+```{r, warning=FALSE, message=FALSE}
+
+df %>% # our dataframe and pipe command which tells R that everything that follows should be run on the df dataframe
+  group_by(supp, dose) %>% # we want the stats computed in each group
+  get_summary_stats(len, type = "mean_sd") # we want the mean and sd of toothlength in each group
+
+```
+
+Already we can see that at a dose of .5, average tooth length between OJ and VC methods was different. But is it significantly different? Let's visualize it too:
+
+```{r, warning=FALSE, message=FALSE}
+bxp <- ggboxplot(
+  df, x = "dose", y = "len",
+  color = "supp", palette = "jco"
+  )
+bxp
+```
+
+We'll skip the normality assumption tests for now, suffice it to say you WOULD have to conduct them in a real experiment as above.
+
+For now, let's run the two-way anova:
+
+```{r, warning=FALSE, message=FALSE}
+
+#https://www.datanovia.com/en/lessons/anova-in-r/
+
+res.aov <- anova_test(len ~ dose * supp, data=df)
+res.aov
+
+```
+
+Here we find a significant main effect of Vitamin C type on tooth length as well as a significant effect of supplement type on tooth length. However, most important, we see a significant interaction between dose and supplement type on tooth length. But how do we know where these differences are?
+
+Let's check if the simple main effect of Vitamin C type (OJ versus VC) was significant at all dosages:
+
+```{r, warning=FALSE, message=FALSE}
+
+model <- lm(len ~ dose * supp, data=df)
+
+df %>%
+  group_by(dose) %>%
+  anova_test(len ~ supp, error = model)
+
+```
+
+Here we see that the effect of treatment type was only significant at dosages of .5 and 1, but not 2. In other words, there was a statistically significant difference in mean tooth length between treatment types at dosages of .5 F(1, 56) = 8.266, p<.001, and 1 F(1, 56) = 10.546	, p<.001, but at the highest dosage, difference between treatment types was not significant F(1, 56)=0.002, p=1.
+
+Sometimes an interaction plot makes it easier to see what is going on:
+
+```{r, warning=FALSE, message=FALSE}
+plot_model(type="int", model)
+```
+
+In the plot we can see that tooth length was higher in the OJ group compared to the VC group at low doses (dosages of .5 and 1), but the disappears at doses greater than 1. 
+
+```{r, warning=FALSE, message=FALSE, echo=FALSE}
+
+# pairwise comparisons
+library(emmeans)
+library(gt)
+
+pwc <- df %>% 
+  group_by(dose) %>%
+  emmeans_test(len ~ supp, p.adjust.method = "bonferroni") 
+pwc
+
+
+```
+
+```{r, warning=FALSE, message=FALSE}
+# Visualization: box plots with p-values
+pwc <- pwc %>% add_xy_position(x = "dose")
+bxp +
+  stat_pvalue_manual(pwc) +
+  labs(
+    subtitle = get_test_label(res.aov, detailed = TRUE),
+    caption = get_pwc_label(pwc)
+    )
+```
+
+
+Report
+
+A two-way ANOVA was conducted to examine the effects of Vitamin C and dosage on toothlength. 
+
+Residual analysis was performed to test for the assumptions of the two-way ANOVA. Outliers were assessed by box plot method, normality was assessed using Shapiro-Wilk’s normality test and homogeneity of variances was assessed by Levene’s test. There were no extreme outliers, residuals were normally distributed (p > 0.05) and there was homogeneity of variances (p > 0.05).
+
+There was a statistically significant interaction between dosage and treatment type (vitamin C or OJ), F(1, 56) = 5.33, p = 0.001, eta2[g] = 0.09.
+
+The effect of treatment type was significant at dosages of .5 and 1, but not 2. In other words, there was a statistically significant difference in mean tooth length between treatment types at dosages of .5 F(1, 56) = 8.266, p<.001, and 1 F(1, 56) = 10.546	, p<.001, but at dosages more than 1, difference between treatment types were not significant F(1, 56)=0.002, p=1.
 
 # Putting it all together
 
