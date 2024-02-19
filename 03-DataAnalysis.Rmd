@@ -294,19 +294,15 @@ The ANOVA test makes the following assumptions about the data:
 
 Before computing ANOVA test, you need to perform some preliminary tests to check if the assumptions are met.
 
-Note that, if the above assumptions are not met there are a non-parametric alternative (Kruskal-Wallis test) to the one-way ANOVA.
+:::fyi
+I will be giving you nice, normally distributed data for this assignment, so you will not have to worry about these tests. However, you will have to conduct these tests for a real research project, like your thesis.
+:::
 
-Unfortunately, there are no non-parametric alternatives to the two-way and the three-way ANOVA. Thus, in the situation where the assumptions are not met, you could consider running the two-way/three-way ANOVA on the transformed and non-transformed data to see if there are any meaningful differences.
-
-If both tests lead you to the same conclusions, you might not choose to transform the outcome variable and carry on with the two-way/three-way ANOVA on the original data.
-
-It’s also possible to perform robust ANOVA test using the WRS2 R package.
-
-No matter your choice, you should report what you did in your results.
+Note that, if the above assumptions are not met there are a non-parametric alternative (Kruskal-Wallis test) to the one-way ANOVA. It’s also possible to perform robust ANOVA test using the WRS2 R package. No matter your choice, you should report what you did in your results.
 
 Load required packages:
 
-Your first steps would be to calculate the mean and sd generally and within each group, but we did that above. Now we'll check our assumptions.
+Your first steps would be to calculate the mean and standard deviation generally and within each group, but we did that above. Next I'll walk you through how to test assumptions--though in your current assignment you don't have to worry about this. 
 
 ```{r, message=FALSE, warning=FALSE}
 library(tidyverse)
@@ -332,7 +328,9 @@ The normality assumption can be checked by using one of the following two approa
 
 #### Check normality
 
-Check normality assumption by analyzing the model residuals. QQ plot and Shapiro-Wilk test of normality are used. QQ plot draws the correlation between a given data and the normal distribution.
+The following is how you would check the normality assumption by analyzing model residuals (the difference between what the model predicts and what the actual data show). Remember, this isn't necessary for your assignment but would be necessary for any real experiment you conduct so I'll just walk you through anyway. This won't be on your final exam :)
+
+QQ plot and Shapiro-Wilk test of normality are used. QQ plot draws the correlation between a given data and the normal distribution.
 
 ```{r}
 # Build the linear model
@@ -342,6 +340,7 @@ ggqqplot(residuals(model))
 
 # Compute Shapiro-Wilk test of normality
 shapiro_test(residuals(model))
+
 ```
 
 In the QQ plot, as all the points fall approximately along the reference line, we can assume normality. This conclusion is supported by the Shapiro-Wilk test. The p-value is not significant (p = 0.13), so we can assume normality.
