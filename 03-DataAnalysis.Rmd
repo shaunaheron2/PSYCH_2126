@@ -1,12 +1,12 @@
 # Data Analysis in R
 
-While you're waiting to for your data from Shauna (remember to send you experiment design to Shauna so that she can create some data for you), lets practice basic data analysis in R with some pre-loaded datasets.
+While you're waiting to for your data from Shauna (remember to send you experiment design to Shauna so that she can create some data for you), lets practice basic data analysis in R with some pre-loaded datasets. If you find this part overwhelming, I can walk you through the steps in the upcoming lab I will hold mid-March. I'd like it if you tried some of these exercises, however, so you have at least some experience poking around R.
 
-The tutorials that follow aren't meant to teach you statistics, you have Dr. Emond and probably a textbook for that. Instead, I will teach you how to conduct the analyses you've learned about in R rather than SPSS. Refer to your textbook or other online resources for the underlying theory. 
+Also: the tutorials that follow aren't meant to teach you statistics, you have Dr. Emond and probably a textbook for that. Instead, I will teach you how to conduct the analyses you've learned about in R rather than SPSS. Refer to your textbook or other online resources for the underlying theory. 
 
 I recommend following along with the tutorial in a basic R markdown document. See the **R Markdown** section if you don't remember how to start a new document. Hint, File –\> New File –\> R Markdown –\> Click Okay then Save via the little disk icon above. Name it something like Practice 1.
 
-To code alongside the tutorial you can copy and paste the code found below into the codechunk sof your practice Markdown document. Feel free to play around, rename variables and explore. Making mistakes is the best way to learn.
+To follow along with the tutorial you can copy and paste the code found below into the codechunk sof your practice Markdown document. Feel free to play around, rename variables and explore. Making mistakes is the best way to learn.
 
 ## Describing Data
 
@@ -435,7 +435,9 @@ res.aov2
 
 # Putting it all together
 
-This final step will show you how to complete your final document containing your analysis and writeup then how to render it as a pdf.
+:::fyi
+Don't stress it if you get stuck on the R portion of the assignment. 2-3 weeks before the assignment is due I will host a lab where I will walk you through the steps needed to conduct your analyses in R and finally to export it as an APA formatted pdf. You'll be receiving an alert and an invite to the lab sometime during reading week (the lab itself won't be until March).
+:::
 
 ## Learning More
 

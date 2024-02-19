@@ -18,7 +18,7 @@ knitr::include_graphics("images/KT.webp")
 
 Your first job is to:
 
-1.  Find **one** of K&T's original research papers with Google Scholar or the [Laurentian Omni library](https://omni.laurentian.ca/discovery/search?vid=01OCUL_LU:OMNI&lang=en "Laurentian Library") with a theory/hypothesis that you can follow from the original paper through subsequent papers until today. **Your aim is to find at least 9 studies that build on and test that theory.**
+1.  Find one of K&T's original research papers with Google Scholar or the [Laurentian Omni library](https://omni.laurentian.ca/discovery/search?vid=01OCUL_LU:OMNI&lang=en "Laurentian Library") with a theory/hypothesis that you can follow from the original paper through subsequent papers until today. **Your aim is to find at least 9 studies that build on and test that theory.**
 
 ::: fyi
 Do not choose an obscure theory that only 2 people have heard about. You won't garner extra marks for this. For the purposes of this exercise, the theory or hypothesis you choose should be **well tested**.
@@ -31,6 +31,10 @@ The point of this exercise is to get familiar with how a theory and the question
 ```{r, echo=FALSE, out.width="100%", fig.align="center"}
 #knitr::include_graphics("images/kevinback.jfif")
 ```
+
+::: {#.puzzle}
+Note: Many of T&K's original research papers mention multiple theories, biases, effects and heuristics. I recommend picking only one of these in your search for more recent studies and especially when designing your own study. For example, maybe you're interested in the representativeness heuristic. Your search terms might be "testing the representativeness heuristic experimental". The subsequent papers you find don't have to mention all of the effects that K&T looked at. You want one. Find out how other researchers have tested the effect (e.g. what was their DV? what materials did they use to test it–a questionnaire, a quiz, etc). What have they found out so far? How could I tweak their methods slightly to make it my own? Don't reinvent the wheel here!
+:::
 
 ## Stage 2: Study Design {#Part2}
 
