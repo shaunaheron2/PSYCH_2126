@@ -23,21 +23,17 @@ If you have your design ready (or have questions) and would like your data, plea
 
 [shaunapsych\@gmail.com](mailto:shaunapsych@gmail.com){.email}
 
-I was hoping to create your datasets this weekend and then host a lab where I could walk you through the next steps in R (in person), but until we have a better idea of what is happening with wifi and internet access at the school, we have to sit tight. Hopefully, we'll know more this week. Keep an eye out here for more info.
+I was hoping to create your data sets this weekend and then host a lab where I could walk you through the next steps in R (in person), but until we have a better idea of what is happening with WiFi and internet access at the school, we have to sit tight. Hopefully, we'll know more this week. Keep an eye out here for more info.
 
-In the meantime, continue working on your assignment in Word. The writeup is the most time consuming part, so get that taken care of (intro, methods, etc.) first. That way the only step left is the analysis and a quick writeup of your results. Once you've sent your design to me, get R installed and try some of the tutorials. For those who feel comfortable foraying into R, feel free to complete the analysis and next steps yourself (once you get some data from me), and email if you run into trouble.
+In the meantime, continue working on your assignment in Word. The writeup is the most time consuming part, so get that taken care of (intro, methods, etc.) first. That way the only step left is the analysis and a quick write-up of your results. Once you've sent your design to me, get R installed and try some of the tutorials. For those who feel comfortable foraying into R, feel free to complete the analysis and next steps yourself (once you get some data from me), and email if you run into trouble.
 
-Regardless, I will hold a lab–whether in person or over Zoom sometime over the next couple of weeks. Stay tuned for more details.
+Regardless, I will hold a lab preferrably in person but potentially over Zoom sometime in the next couple of weeks. Stay tuned for more details.
 
 Until then, don't stress out! We got this.
 
 Shauna
 
-::: {style="width:480px"}
-<iframe allow="fullscreen" frameBorder="0" height="270" src="https://giphy.com/embed/L7Lm7JSWSRkW5Vvjjg/video" width="480">
-
-</iframe>
-:::
+![We got 'dis.](images/developpeuse.webp){width="524"}
 
 # Introduction
 
