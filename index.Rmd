@@ -13,6 +13,32 @@ link-citations: yes
 github-repo: rstudio/bookdown-demo
 ---
 
+# Update: March 2, 2024
+
+![](images/internetdown.gif)
+
+Hi class, due to the unfortunate, ongoing internet/email/D2l disruption at Laurentian, we may have to change things up a bit. As of this morning I still don't have access to my LU email--though I tried changing my password it didn't seem to work.
+
+If you have your design ready (or have questions) and would like your data, please email me your design at the address below. I will need your IVs, DV, sample size, as well as your units of measure. For example, your measure might be 10 questions, each with a 5-point Likert response option or maybe your DV is a count of how many times a participant laughs. These are the things I'd need to know. Other than that, no formatting or citations are needed. Just enough information that I know what your data would look like.
+
+[shaunapsych\@gmail.com](mailto:shaunapsych@gmail.com){.email}
+
+I was hoping to create your datasets this weekend and then host a lab where I could walk you through the next steps in R (in person), but until we have a better idea of what is happening with wifi and internet access at the school, we have to sit tight. Hopefully, we'll know more this week. Keep an eye out here for more info.
+
+In the meantime, continue working on your assignment in Word. The writeup is the most time consuming part, so get that taken care of (intro, methods, etc.) first. That way the only step left is the analysis and a quick writeup of your results. Once you've sent your design to me, get R installed and try some of the tutorials. For those who feel comfortable foraying into R, feel free to complete the analysis and next steps yourself (once you get some data from me), and email if you run into trouble.
+
+Regardless, I will hold a lab–whether in person or over Zoom sometime over the next couple of weeks. Stay tuned for more details.
+
+Until then, don't stress out! We got this.
+
+Shauna
+
+::: {style="width:480px"}
+<iframe allow="fullscreen" frameBorder="0" height="270" src="https://giphy.com/embed/L7Lm7JSWSRkW5Vvjjg/video" width="480">
+
+</iframe>
+:::
+
 # Introduction
 
 This guidebook will walk you through all of the steps necessary to complete your term assignment. Get ready, because you are embarking on a journey... from the safe GUI point-and-click world of SPSS to the code-based Thunderdome of R.

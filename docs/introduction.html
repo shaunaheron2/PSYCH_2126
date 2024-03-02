@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 2 Introduction | PSYCH 2127: Term Assignment</title>
+  <meta name="description" content="Writing reproducible research." />
+  <meta name="generator" content="bookdown 0.37 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 2 Introduction | PSYCH 2127: Term Assignment" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:description" content="Writing reproducible research." />
+  <meta name="github-repo" content="rstudio/bookdown-demo" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 2 Introduction | PSYCH 2127: Term Assignment" />
+  
+  <meta name="twitter:description" content="Writing reproducible research." />
+  
+
+<meta name="author" content="S. Heron for Dr. Emond’s Psych Class" />
+
+
+<meta name="date" content="2024-03-02" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="index.html"/>
+<link rel="next" href="cross.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="toc-logo"><a href="./"><img src="images/logo.png"></a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Update: March 2, 2024</a></li>
+<li class="chapter" data-level="2" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i><b>2</b> Introduction</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="introduction.html"><a href="introduction.html#goals"><i class="fa fa-check"></i><b>2.1</b> Goals</a></li>
+<li class="chapter" data-level="2.2" data-path="introduction.html"><a href="introduction.html#what-can-r-do"><i class="fa fa-check"></i><b>2.2</b> What can R do?</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="cross.html"><a href="cross.html"><i class="fa fa-check"></i><b>3</b> The Assignment</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="cross.html"><a href="cross.html#meet-kahneman-tversky"><i class="fa fa-check"></i><b>3.1</b> Meet Kahneman &amp; Tversky</a></li>
+<li class="chapter" data-level="3.2" data-path="cross.html"><a href="cross.html#Part1"><i class="fa fa-check"></i><b>3.2</b> Stage 1: Literature Review</a></li>
+<li class="chapter" data-level="3.3" data-path="cross.html"><a href="cross.html#Part2"><i class="fa fa-check"></i><b>3.3</b> Stage 2: Study Design</a></li>
+<li class="chapter" data-level="3.4" data-path="cross.html"><a href="cross.html#stage-3-r-analysis-writeup"><i class="fa fa-check"></i><b>3.4</b> Stage 3: R Analysis &amp; Writeup</a></li>
+<li class="chapter" data-level="3.5" data-path="cross.html"><a href="cross.html#assignment-checklist"><i class="fa fa-check"></i><b>3.5</b> Assignment Checklist</a></li>
+<li class="chapter" data-level="3.6" data-path="cross.html"><a href="cross.html#word-count-formatting"><i class="fa fa-check"></i><b>3.6</b> Word Count &amp; Formatting</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="Intro.html"><a href="Intro.html"><i class="fa fa-check"></i><b>4</b> R Tutorials</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="Intro.html"><a href="Intro.html#getting-started"><i class="fa fa-check"></i><b>4.1</b> Getting Started</a>
+<ul>
+<li class="chapter" data-level="4.1.1" data-path="Intro.html"><a href="Intro.html#installing-r-r-studio"><i class="fa fa-check"></i><b>4.1.1</b> Installing R &amp; R Studio</a></li>
+<li class="chapter" data-level="4.1.2" data-path="Intro.html"><a href="Intro.html#customizing-your-workspace"><i class="fa fa-check"></i><b>4.1.2</b> Customizing your workspace</a></li>
+<li class="chapter" data-level="4.1.3" data-path="Intro.html"><a href="Intro.html#create-your-project"><i class="fa fa-check"></i><b>4.1.3</b> Create your project</a></li>
+<li class="chapter" data-level="4.1.4" data-path="Intro.html"><a href="Intro.html#install-packages"><i class="fa fa-check"></i><b>4.1.4</b> Install Packages</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="Intro.html"><a href="Intro.html#r-markdown"><i class="fa fa-check"></i><b>4.2</b> R Markdown</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="data-analysis-in-r.html"><a href="data-analysis-in-r.html"><i class="fa fa-check"></i><b>5</b> Data Analysis in R</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="data-analysis-in-r.html"><a href="data-analysis-in-r.html#describing-data"><i class="fa fa-check"></i><b>5.1</b> Describing Data</a>
+<ul>
+<li class="chapter" data-level="5.1.1" data-path="data-analysis-in-r.html"><a href="data-analysis-in-r.html#descriptive-table"><i class="fa fa-check"></i><b>5.1.1</b> Descriptive Table</a></li>
+<li class="chapter" data-level="5.1.2" data-path="data-analysis-in-r.html"><a href="data-analysis-in-r.html#histograms"><i class="fa fa-check"></i><b>5.1.2</b> Histograms</a></li>
+<li class="chapter" data-level="5.1.3" data-path="data-analysis-in-r.html"><a href="data-analysis-in-r.html#correlations"><i class="fa fa-check"></i><b>5.1.3</b> Correlations</a></li>
+<li class="chapter" data-level="5.1.4" data-path="data-analysis-in-r.html"><a href="data-analysis-in-r.html#boxplots"><i class="fa fa-check"></i><b>5.1.4</b> Boxplots</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="data-analysis-in-r.html"><a href="data-analysis-in-r.html#statistical-tests"><i class="fa fa-check"></i><b>5.2</b> Statistical Tests</a>
+<ul>
+<li class="chapter" data-level="5.2.1" data-path="data-analysis-in-r.html"><a href="data-analysis-in-r.html#t-tests"><i class="fa fa-check"></i><b>5.2.1</b> T-Tests</a></li>
+<li class="chapter" data-level="5.2.2" data-path="data-analysis-in-r.html"><a href="data-analysis-in-r.html#one-way-anova"><i class="fa fa-check"></i><b>5.2.2</b> One-Way ANOVA</a></li>
+<li class="chapter" data-level="5.2.3" data-path="data-analysis-in-r.html"><a href="data-analysis-in-r.html#two-way-anova"><i class="fa fa-check"></i><b>5.2.3</b> Two-Way ANOVA</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="putting-it-all-together.html"><a href="putting-it-all-together.html"><i class="fa fa-check"></i><b>6</b> Putting it all together</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="putting-it-all-together.html"><a href="putting-it-all-together.html#learning-more"><i class="fa fa-check"></i><b>6.1</b> Learning More</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">PSYCH 2127: Term Assignment</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="introduction" class="section level1 hasAnchor" number="2">
+<h1><span class="header-section-number">Chapter 2</span> Introduction<a href="introduction.html#introduction" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>This guidebook will walk you through all of the steps necessary to complete your term assignment. Get ready, because you are embarking on a journey… from the safe GUI point-and-click world of SPSS to the code-based Thunderdome of R.</p>
+<p><strong>Where we’re going…</strong></p>
+<p><img src="images/WhyR.jpg" width="100%" style="display: block; margin: auto;" /></p>
+<div id="goals" class="section level2 hasAnchor" number="2.1">
+<h2><span class="header-section-number">2.1</span> Goals<a href="introduction.html#goals" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>The goal of the assignment is twofold: First, to give you the opportunity to flex what you are learning in class, and two, to introduce you R Statistical Software; a game-changer in any future research endeavors.</p>
+<p><strong>This guide is meant as a companion to your assignment.</strong> It is not meant to be an in depth course on R, as that would be several entire courses on its own, but by the end you <em>will</em> have had a small taste of R and its capabilities. And who knows, it might ignite a spark of curiosity that jump starts a desire to learn more.</p>
+<p><strong>By the end of this assignment</strong>, you will have read a bunch of interesting research papers, designed a mini study based on a theory of your choice and completed some analyses and a full write up in R that you will hand in. Your paper will include everything a person would need to reproduce your experiment from start to finish. Don’t worry about HOW we’ll do this yet, <strong>just know that you will</strong>.</p>
+</div>
+<div id="what-can-r-do" class="section level2 hasAnchor" number="2.2">
+<h2><span class="header-section-number">2.2</span> What can R do?<a href="introduction.html#what-can-r-do" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Disclaimer: I do NOT work for R. I just love it.</p>
+<ul>
+<li>Advanced statistical analyses without paying for packages (it’s open source!)</li>
+<li>The best <a href="https://r-graph-gallery.com/">data visualization</a> capabilities of ANY statistical software</li>
+<li>Reproducible research is made easy, an integral partner of <a href="https://www.apa.org/monitor/2021/11/career-open-science">Open Science research</a></li>
+<li>Thousands of <a href="https://bookdown.org/mikemahoney218/IDEAR/introduction-to-r.html">free online resources</a> to learn anything you don’t know</li>
+<li>Did I say its open source.. ?</li>
+<li>Make gorgeous <a href="https://rmarkdown.rstudio.com/gallery.html">publication-ready papers</a> and books with inline analyses</li>
+<li>Make gorgeous slideshows with analyses and text all in one document</li>
+<li>Make gorgeous websites (This website you’re reading is made 100% in R)</li>
+<li>Juice up your resume (researchers with R skills are a HUGE asset and hard to come by)</li>
+<li>Help you understand data better because the analysis isn’t happening behind a graphic user interface</li>
+<li>Ramp up your street cred 1000%.</li>
+</ul>
+<p><img src="images/WhyR2.jpg" width="95%" style="display: block; margin: auto;" /></p>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="cross.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/USERNAME/REPO/edit/BRANCH/index.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["_main.pdf", "_main.epub"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "section"
+}
+});
+});
+</script>
+
+</body>
+
+</html>
