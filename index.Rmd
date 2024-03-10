@@ -15,19 +15,21 @@ github-repo: rstudio/bookdown-demo
 
 # Update: March 2, 2024
 
-![](images/internetdown.gif)
+Hi class, 
 
-Hi class, due to the unfortunate, ongoing internet/email/D2l disruption at Laurentian, we may have to change things up a bit. As of this morning I still don't have access to my LU email--though I tried changing my password it didn't seem to work.
+My LU email is back up so please send your research design to my lu address (see below) and I'll get your data to you. I will need:
 
-If you have your design ready (or have questions) and would like your data, please email me your design at the address below. I will need your IVs, DV, sample size, as well as your units of measure. For example, your measure might be 10 questions, each with a 5-point Likert response option or maybe your DV is a count of how many times a participant laughs. These are the things I'd need to know. Other than that, no formatting or citations are needed. Just enough information that I know what your data would look like.
+- Your IVs
+- DV (outcome) as well as units of measure
+- sample size
 
-[shaunapsych\@gmail.com](mailto:shaunapsych@gmail.com){.email}
+For example, your DV might be 10 questions, each with a 5-point Likert response option or maybe your DV is a count of how many times a participant laughs. These are the things I need to know to make your data. Other than that, no formatting or citations are required. Just enough information that I know what your data would look like.
 
-I was hoping to create your data sets this weekend and then host a lab where I could walk you through the next steps in R (in person), but until we have a better idea of what is happening with WiFi and internet access at the school, we have to sit tight. Hopefully, we'll know more this week. Keep an eye out here for more info.
+[shaunapsych\@gmail.com](mailto:sheron@laurentian.ca){.email}
 
-In the meantime, continue working on your assignment in Word. The writeup is the most time consuming part, so get that taken care of (intro, methods, etc.) first. That way the only step left is the analysis and a quick write-up of your results. Once you've sent your design to me, get R installed and try some of the tutorials. For those who feel comfortable foraying into R, feel free to complete the analysis and next steps yourself (once you get some data from me), and email if you run into trouble.
+Dr. Emond and I are talking on Monday about setting up a date to meet, will send out an email to everyone once I know what the options are. In the meantime, continue working on your assignment in Word. The writeup is the most time consuming part, so get that taken care of (intro, methods, etc.) first. That way the only step left is the analysis and a quick write-up of your results. Once you've sent your design to me, get R installed and try some of the tutorials. For those who feel comfortable foraying into R, feel free to complete the analysis and next steps yourself (once you get some data from me), and email if you run into trouble.
 
-Regardless, I will hold a lab preferrably in person but potentially over Zoom sometime in the next couple of weeks. Stay tuned for more details.
+Regardless, I will hold a lab preferrably in person but potentially over Zoom soon. Stay tuned for more details.
 
 Until then, don't stress out! We got this.
 
