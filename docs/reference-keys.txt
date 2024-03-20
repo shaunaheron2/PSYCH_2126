@@ -40,3 +40,16 @@ visualize-results
 two-way-anova
 putting-it-all-together
 learning-more
+lab-1-putting-it-all-together
+r-and-case-sensitivity
+r-markdown-and-quarto
+what-goes-where
+packages
+loading-data
+visualizing-data
+analyzing-data
+visualizing-your-results
+zotero-citations
+the-final-render
+reproducible-research
+learning-more-1
