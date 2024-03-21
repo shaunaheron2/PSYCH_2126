@@ -13,9 +13,15 @@ link-citations: yes
 github-repo: rstudio/bookdown-demo
 ---
 
-# Update: March 2, 2024
+# Update: March 21, 2024
 
 Hi class, 
+
+I've added a new section called Lab 1 for tomorrow. I also included another template if the first one I shared isn't working. R upgraded markdown since I shared it initially so depending on the version of R Studio you have, you could run into problems with it.
+
+There are instructions for installing a new template under the Lab 1 heading but if its too confusing, don't fret. I'll walk you through it on Friday. 
+
+## Old Updates
 
 My LU email is back up so please send your research design to my lu address (see below) and I'll get your data to you. I will need:
 

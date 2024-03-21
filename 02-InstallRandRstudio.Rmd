@@ -2,7 +2,7 @@
 
 ## Getting Started
 
-First things first: why R? The reason we want to learn R, is that it allows us to great reproducible resarch
+First things first: why R? The reason we want to learn R, is that it allows us to great reproducible research
 
 To get started, we will follow along with [Andy Field's](https://www.statisticsadventure.com/) brilliant tutorials which will walk us through:
 

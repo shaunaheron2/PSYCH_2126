@@ -1,46 +1,56 @@
 # Lab 1: Putting it all Together
 
-## If my template isn't working - Option 2
+## My template isn't working!
 
-Hi class, some of you may find that the template I create isn't working. Unfortunately, R made some changes that impacted the template depending on which version of R Studio you have installed. As a result, there could be some issues. That being said, there is a new APA format now which is actually MUCH easier to use. Follow the instructions below step by step to run it.
+Hi class, some of you may find that the custom template isn't working. Unfortunately, R made some changes that impacted the template, depending on which version of R Studio you have installed. As a result, there could be some issues. That being said, there is a new APA format now which is actually MUCH easier to use. Follow the instructions below step by step to run it.
+
+**If you have trouble with this don't worry because I'll walk you through it on Friday.**
 
 1.  Open R Studio
 
-2.  In the Console to the right, click on `Terminal` (should be top right)
+2.  Create a new Project. Like before you'll choose `New Directory`. Call it Assignment2. Now select `Quarto Project` from the next screen.
 
-3.  In the terminal copy and paste the following: `quarto use template wjschne/apaquarto` . You may have to hold CTRL-SHIFT-V to paste it or right click and paste because the usual CTR-V doesn't work in terminal. Once you paste it in click enter, then Y for yes and type APA to create an APA folder for your paper.
+3.  Once the project is loaded, in the **Console panel**, type `install.packages("quarto")` .
 
-4.  Once installed, click on the file tab (to the right), and you'll see several files. Next download the file linked here:
+4.  Now, from the **Console**, open the **`Terminal`** panel (should be top right)
 
-    ```         
-    xfun::embed_file('images/PretendThesis.qmd')
-    ```
+5.  In the terminal panel, copy and paste the following: `quarto use template wjschne/apaquarto` . You may have to hold CTRL-SHIFT-V to paste it or right click and paste because the usual CTR-V doesn't work in terminal. You could even just type it out. Once you paste it in click enter, then Y for the trust check and type APA to create an APA folder for your paper. The APA folder will be inside the Assignment2 folder you just made.
 
-and add the file to the same APA folder.
+6.  Once installed, click on the file tab (to the right), and you'll see several files and an APA folder. Click to open the APA folder.
 
-## R and Case Sensitivity
+7.   Now you're going to download a new template. [DOWNLOAD THIS FILE.](https://github.com/shaunaheron2/PSYCH_2126/blob/fe6f7aa33520f635def9ce4f68a0bc7f9cfe9c16/images/PretendThesis.qmd) The file is called "PretendThesis.qmd". The link will take you to github (it might look scary but its not), just click **ctrl-shift-s** once you load it to download it automatically. You can also click the 3 little dots at the far right and select download. Save it to your downloads folder.
 
-## R Markdown and Quarto
+8.  Once downloaded, place the file in the same APA folder you just created. Just use Finder in Windows or Apple OS to do this.
 
-<https://quarto.org/docs/blog/posts/2023-05-22-quarto-for-academics/>
+9.  Once it's in the proper place, you'll look on your Files tab in R Studio again and click on it–it's called "PretendThesis.qmd," remember?
 
-## What goes where?
+10. It should open. **Click Render** (where knit used to be using R Markdown) to see it rendered. We'll go through filling this out in our lab on Friday. Here is the [manual for the template](https://wjschne.github.io/apaquarto/) in case you'd like to see what it's capable of.
 
-## Packages
+```{r, eval=FALSE, include=FALSE}
+R and Case Sensitivity
 
-## Loading data
+R Markdown and Quarto
 
-## Visualizing data
+https://quarto.org/docs/blog/posts/2023-05-22-quarto-for-academics/
 
-## Analyzing data
+What goes where?
 
-## Visualizing Your Results
+Packages
 
-## Zotero & Citations
+Loading data
 
-## The Final Render
+Visualizing data
 
-## Reproducible Research
+Analyzing data
+
+Visualizing Your Results
+
+Zotero & Citations
+
+The Final Render
+
+Reproducible Research
+```
 
 # Learning More
 
