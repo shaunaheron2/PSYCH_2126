@@ -18,7 +18,7 @@ Hi class, some of you may find that the custom template isn't working. Unfortuna
 
 6.  Once installed, click on the file tab (to the right), and you'll see several files and an APA folder. Click to open the APA folder.
 
-7.   Now you're going to download a new template. [DOWNLOAD THIS FILE.](https://github.com/shaunaheron2/PSYCH_2126/blob/fe6f7aa33520f635def9ce4f68a0bc7f9cfe9c16/images/PretendThesis.qmd) The file is called "PretendThesis.qmd". The link will take you to github (it might look scary but its not), just click **ctrl-shift-s** once you load it to download it automatically. You can also click the 3 little dots at the far right and select download. Save it to your downloads folder.
+7.  Now you're going to download a new template. [DOWNLOAD THIS FILE.](https://github.com/shaunaheron2/PSYCH_2126/blob/fe6f7aa33520f635def9ce4f68a0bc7f9cfe9c16/images/PretendThesis.qmd) The file is called "PretendThesis.qmd". The link will take you to github (it might look scary but its not), just click **ctrl-shift-s** once you load it to download it automatically. You can also click the 3 little dots at the far right and select download. Save it to your downloads folder.
 
 8.  Once downloaded, place the file in the same APA folder you just created. Just use Finder in Windows or Apple OS to do this.
 
@@ -53,6 +53,8 @@ Reproducible Research
 ```
 
 # Learning More
+
+[Writing a reproducible research paper with OSF and Quarto](https://osf.io/preprints/osf/ur4xn)
 
 -   [Papaja Manual](https://frederikaust.com/papaja_man/reporting.html)
 
