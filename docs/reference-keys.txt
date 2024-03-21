@@ -41,6 +41,7 @@ two-way-anova
 putting-it-all-together
 learning-more
 lab-1-putting-it-all-together
+if-my-template-isnt-working---option-2
 r-and-case-sensitivity
 r-markdown-and-quarto
 what-goes-where

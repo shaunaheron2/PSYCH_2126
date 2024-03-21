@@ -142,4 +142,3 @@ Follow along with Nick to learn about Papaja and to customize the template.
 ::: fyi
 Nick refers to his console at the bottom of the screen, if you followed Andy's workspace setup it will be on the right side of your screen.
 :::
-

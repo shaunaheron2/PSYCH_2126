@@ -1,0 +1,237 @@
+---
+title: "Title of your paper goes here"
+# If blank, the running header is the title in upper case.
+shorttitle: "PSYCH 2127 - Scientific Method / Analysis II"
+# Set names and affiliations.
+# It is nice to specify everyone's orcid, if possible.
+# There can be only one corresponding author, but declaring one is optional.
+author:
+  - name: Your Name Here
+    # Roles are optional. 
+    # Select from the CRediT: Contributor Roles Taxonomy https://credit.niso.org/
+    # conceptualization, data curation, formal Analysis, funding acquisition, investigation, 
+    # methodology, project administration, resources, software, supervision, validation, 
+    # visualization, writing, editing
+    affiliations:
+      - id: id1
+        name: "Laurentian University"
+        group: Undergrad Psychology Program
+        department: Dr. Emond
+abstract: "One or two sentences providing a **basic introduction** to the field,  comprehensible to a scientist in any discipline.
+  Two to three sentences of **more detailed background**, comprehensible  to scientists in related disciplines.
+  One sentence clearly stating the **general problem** being addressed by  this particular study.
+  One sentence summarizing the main result (with the words **here we show** or their equivalent).
+  Two or three sentences explaining what the **main result** reveals in direct comparison to what was thought to be the case previously, or how the  main result adds to previous knowledge.
+  One or two sentences to put the results into a more **general context**.
+  Two or three sentences to provide a **broader perspective**, readily comprehensible to a scientist in any discipline."
+# Put as many keywords at you like, separated by commmas (e.g., [reliability, validity, generalizability])
+keywords: [cognitive bias, representativeness heuristic, keyword3]
+# If true, tables and figures are mingled with the text instead of listed at the end of the document.
+floatsintext: false
+# Numbered lines (.pdf and .docx only)
+numbered-lines: false
+# File with references
+bibliography: bibliography.bib
+# Suppress title page
+suppress-title-page: false
+# Masks references that appear in the masked-citations list
+mask: false
+lang: en
+language:
+  citation-last-author-separator: "and"
+  title-block-author-note: "Author Note"
+format:
+  apaquarto-pdf: default
+---
+
+```{r}
+#| label: setup
+#| include: false
+
+# HERE IS WHERE YOU WILL ADD ANY EXTRA PACKAGES YOU NEED.
+# Copy and paste any packages from the original Markdown file you played with into here.
+# Remember, a package can't be loaded if it is not installed.
+
+library(tidyverse)
+library(DataExplorer)
+library(sjPlot)
+library(ggplot2)
+library(ggstatsplot)
+library(modelsummary)
+#library(aov)
+library(lme4)
+library(ggpubr)
+library(rstatix)
+
+# To install packages run the following code in the console pane:
+
+# install.packages("packagenamehere")
+library(conflicted)
+library(flextable)
+library(ftExtra)
+library(officer)
+library(knitr)
+
+conflicts_prefer(dplyr::filter, .quiet = TRUE)
+conflicts_prefer(flextable::separate_header, .quiet = TRUE)
+```
+
+This is my introductory paragraph. The title will be placed above it automatically. *Do not start with an introductory heading* (e.g., "Introduction"). The title acts as your Level 1 heading for the introduction.
+
+Here you will add your **brief** literature review which should include a bit of background citing the papers you read in your initial research. You will also state your purpose, your hypotheses and justifications for them.
+
+You can copy and paste your write up for these sections from Word or Google Docs directly into R Markdown. You can also write directly in R Markdown like I do, but I recommend the former in the beginning. Baby steps!
+
+## Hypotheses, Aims, and Objectives
+
+The last paragraph of the introduction usually states the specific hypotheses of the study, often in a way that links them to the research design.
+
+# Method
+
+General remarks on method. Here you will report your study design, including sample size, independent and dependent variable(s) and any other important bits.
+
+## Participants
+
+Who are they? How were they recruited? Report criteria for participant inclusion and exclusion. Perhaps some basic demographic stats are in order. A table is a great way to avoid repetition in statistical reporting.
+
+## Measures
+
+This section can also be titled **Materials** or **Apparatus**. Whatever tools, equipment, or measurement devices used in the study should be described.
+
+### Measure A
+
+Describe Measure A.
+
+### Measure B
+
+Describe Measure B.
+
+## Procedure
+
+What did participants do?
+
+How are the data going to be analyzed?
+
+# Results
+
+## Descriptive Statistics
+
+Here we describe the basic characteristics of our primary variables (see @tbl-table01 and @tbl-table02)
+
+```{r, echo=FALSE, warning=FALSE, message=FALSE}
+#| label: tbl-table01 # this labels the table Table 2
+#| tbl-cap: "Descriptive Statistics Option 2"
+#| ft.align: left
+#| apa-note: A note below the table
+# Here you will conduct your analyses. I will give you detailed instructions on what analyses/packages to use for your specific analyses. I will send this with your data.
+
+# Here are a couple of example that you can delete once you have your own analyses.
+
+# https://www.datanovia.com/en/lessons/anova-in-r/ <- in depth tutorial
+
+# let's load the iris data for now but for your study you'll add the data I sent you. Place that data in the same folder as this document (the APA folder of your project) then type df <- read.csv("mydata.csv")
+
+df <- data.frame(PlantGrowth) # we'll pretend this plantgrowth data is your data for now
+
+# here's a little descriptive table of your groups and means within each group
+
+df %>% group_by(group) %>% 
+  summarise(n=n(), mean=mean(weight)) %>%  
+  flextable()
+
+
+# Another summary table
+```
+
+```{r}
+#| label: tbl-table02 # this labels the table Table 2
+#| tbl-cap: Descriptive Statistics
+#| ft.align: left
+#| apa-note: A note below the table
+
+
+df %>%
+  group_by(group) %>%
+  get_summary_stats(weight, type = "mean_sd") %>% flextable() %>% theme_apa()
+
+```
+
+```{r, echo=FALSE, warning=FALSE, message=FALSE, fig.height=4}
+#| label: fig-histogram01 # this labels the table Table 2
+#| fig-cap: "Histogram of Outcome"
+#| ft.align: left
+#| apa-note: A note below the figure
+
+hist(df$weight, xlab="Weight", ylab="Frequency", main=" ") # here is a histogram of your outcome
+
+```
+
+```{r}
+#| include: FALSE
+#| echo: FALSE
+
+library(report)
+
+contrasts(df$group) <- contr.sum(3) # set sum contrasts to mimic aov
+
+# Compute the analysis of variance
+res.aov <- aov(weight ~ group, data = df)
+# Summary of the analysis
+summary(res.aov)
+
+report(res.aov)
+TukeyHSD(res.aov)
+
+library(multcomp)
+summary(glht(res.aov, linfct = mcp(group = "Tukey")))
+
+```
+
+```{r, fig.height=4}
+#| echo: FALSE
+#| label: fig-outcome02
+#| fig-cap: "The effect of treatment 1 and 2 on weight compared to control"
+#| ft.align: left
+#| apa-note: A note
+
+contrasts(df$group) <- contr.sum(3)
+
+df %>% 
+  ggplot(aes(x=group, y=weight, colour=group))+
+  geom_point()+ 
+  geom_boxplot(stat="boxplot")
+
+```
+
+The main effect of the treatment was statistically significant and large (F(2, 27) = 4.85, p = 0.016; Eta2 = 0.26, 95% CI \[0.04, 1.00\]). However, post hoc comparisons reveal that while plant growth was higher in treatment 2 compared to treatment 1 (p \<.016), the effect was not significantly better than no treatment at all (p=.3909) (See @fig-outcome02)
+
+<!-- Add Additional Sections as Needed -->
+
+# Discussion
+
+Describe results in non-statistical terms. <!-- Add sections as needed. -->
+
+## Limitations and Future Directions
+
+Every study has limitations. Based on this study, some additional steps might include...
+
+## Conclusion
+
+Let's sum this up.
+
+# References
+
+## Citations
+
+See [here](https://quarto.org/docs/authoring/footnotes-and-citations.html) for instructions on setting up citations and references.
+
+A parenthetical citation requires square brackets [@CameronTrivedi2013]. This reference was in my bibliography file. An in-text citation is done like so: @CameronTrivedi2013.
+
+See [here](https://wjschne.github.io/apaquarto/writing.html#references) for explanations, examples, and citation features exclusive to apaquarto like masked citations (citations masked for peer review) and possessive citations (e.g., "@schneider2012cattell ['s] idea seemed reasonable at the time.")
+
+<!-- References will auto-populate in the refs div below -->
+
+::: {#refs}
+:::
+
+<!-- Delete Appendix if not needed. -->

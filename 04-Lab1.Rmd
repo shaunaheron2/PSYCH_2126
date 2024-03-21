@@ -1,10 +1,28 @@
 # Lab 1: Putting it all Together
 
+## If my template isn't working - Option 2
+
+Hi class, some of you may find that the template I create isn't working. Unfortunately, R made some changes that impacted the template depending on which version of R Studio you have installed. As a result, there could be some issues. That being said, there is a new APA format now which is actually MUCH easier to use. Follow the instructions below step by step to run it.
+
+1.  Open R Studio
+
+2.  In the Console to the right, click on `Terminal` (should be top right)
+
+3.  In the terminal copy and paste the following: `quarto use template wjschne/apaquarto` . You may have to hold CTRL-SHIFT-V to paste it or right click and paste because the usual CTR-V doesn't work in terminal. Once you paste it in click enter, then Y for yes and type APA to create an APA folder for your paper.
+
+4.  Once installed, click on the file tab (to the right), and you'll see several files. Next download the file linked here:
+
+    ```         
+    xfun::embed_file('images/PretendThesis.qmd')
+    ```
+
+and add the file to the same APA folder.
+
 ## R and Case Sensitivity
 
 ## R Markdown and Quarto
 
-https://quarto.org/docs/blog/posts/2023-05-22-quarto-for-academics/
+<https://quarto.org/docs/blog/posts/2023-05-22-quarto-for-academics/>
 
 ## What goes where?
 
