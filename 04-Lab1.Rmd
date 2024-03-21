@@ -56,8 +56,6 @@ Reproducible Research
 
 [Writing a reproducible research paper with OSF and Quarto](https://osf.io/preprints/osf/ur4xn)
 
--   [Papaja Manual](https://frederikaust.com/papaja_man/reporting.html)
-
 The material we will cover in this short assignment will only give you a taste of what R is capable of. For advanced operations, you will need to learn more.
 
 The best way to become more proficient with R, like any tool, is to actively use it. I learned R from the internet out of frustration with the limitations of SPSS. Though there was lots of trial and error and mistakes at first, over time I got better and better, and had to look up code less and less.
