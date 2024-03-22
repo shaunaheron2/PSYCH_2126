@@ -1,6 +1,14 @@
 # Lab 1: Putting it all Together
 
-## My template isn't working!
+## APA template tutorial that I linked in the zoom chat
+
+I recommend following along with the video-lab I'm uploading to D2l and using this website if you want more info on different things you can do with the template:
+
+<https://wjschne.github.io/apaquarto/installation.html>
+
+The file that I customized (see the video for where to put it or following the instructions below under "installing the new APA template": [DOWNLOAD THIS FILE.](https://github.com/shaunaheron2/PSYCH_2126/blob/fe6f7aa33520f635def9ce4f68a0bc7f9cfe9c16/images/PretendThesis.qmd)
+
+## Installing the new APA template
 
 Hi class, some of you may find that the custom template isn't working. Unfortunately, R made some changes that impacted the template, depending on which version of R Studio you have installed. As a result, there could be some issues. That being said, there is a new APA format now which is actually MUCH easier to use. Follow the instructions below step by step to run it.
 
