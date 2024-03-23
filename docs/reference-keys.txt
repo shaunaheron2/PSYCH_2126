@@ -39,10 +39,8 @@ post-hoc-tests
 reporting-the-results
 visualize-results
 two-way-anova
-putting-it-all-together
 learning-more
 lab-1-putting-it-all-together
 apa-template-tutorial-that-i-linked-in-the-zoom-chat
-lab-video
 installing-the-new-apa-template
 learning-more-1

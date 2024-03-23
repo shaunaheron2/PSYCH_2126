@@ -68,7 +68,7 @@ Next, we will follow along with the [Install Packages tutorial](https://milton-t
 
 <!-- -->
 
--   Install the following packages as well by copy and pasting the code below to your **console** and hitting return.
+-   Install the following packages as well by copying and pasting the code below to your **console** and hitting return.
 
 ```{r, eval=FALSE}
     
@@ -108,7 +108,7 @@ library(modelsummary)
 ## R Markdown
 
 ::: fyi
-Be sure that you've already installed Papaja and have it loaded in your environment before working along with the tutorial.
+NOTE: You can still follow along with the R Markdown tutorial to get a feel for how Markdown works, but when it comes to your final paper, instead of installing the template I share above, you will install the newer template you can find instructions for in the [Lab 1: Putting it All Together](https://shaunaheron2.github.io/PSYCH_2126/lab-1-putting-it-all-together.html#apa-template-tutorial-that-i-linked-in-the-zoom-chat) section as there have been a few changes to R since writing it and it wasn't working for some people.
 :::
 
 In this step Andy will walk you through the basics of R Markdown. Be sure you completed the previous steps under **Getting Started**.

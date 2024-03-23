@@ -541,15 +541,12 @@ There was a statistically significant interaction between dosage and treatment t
 
 The effect of treatment type was significant at dosages of .5 and 1, but not 2. In other words, there was a statistically significant difference in mean tooth length between treatment types at dosages of .5 F(1, 56) = 8.266, p<.001, and 1 F(1, 56) = 10.546	, p<.001, but at dosages more than 1, difference between treatment types were not significant F(1, 56)=0.002, p=1.
 
-# Putting it all together
-
 :::fyi
 Don't stress it if you get stuck on the R portion of the assignment. 2-3 weeks before the assignment is due I will host a lab where I will walk you through the steps needed to conduct your analyses in R and finally to export it as an APA formatted pdf. You'll be receiving an alert and an invite to the lab sometime during reading week (the lab itself won't be until March).
 :::
 
 ## Learning More
 
--   [Papaja Manual](https://frederikaust.com/papaja_man/reporting.html)
 
 The material we will cover in this short assignment will only give you a taste of what R is capable of. For advanced operations, you will need to learn more.
 
