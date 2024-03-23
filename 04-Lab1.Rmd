@@ -8,9 +8,15 @@ I recommend following along with the video-lab I'm uploading to D2l and using th
 
 The file that I customized (see the video for where to put it or following the instructions below under "installing the new APA template": [DOWNLOAD THIS FILE.](https://github.com/shaunaheron2/PSYCH_2126/blob/fe6f7aa33520f635def9ce4f68a0bc7f9cfe9c16/images/PretendThesis.qmd)
 
+## Lab Video
+
+-   [**Lab 1**](https://youtu.be/8NtuEt50tu8)
+
+-   [**Lab 2**](https://youtu.be/QmIMq-fuvCw)
+
 ## Installing the new APA template
 
-Hi class, some of you may find that the custom template isn't working. Unfortunately, R made some changes that impacted the template, depending on which version of R Studio you have installed. As a result, there could be some issues. That being said, there is a new APA format now which is actually MUCH easier to use. Follow the instructions below step by step to run it.
+Hi class, some of you may find that the custom template isn't working. Unfortunately, R made some changes that impacted the template, depending on which version of R Studio you have installed. As a result, there could be some issues. That being said, there is a new APA format now that is MUCH easier to use. Follow the instructions below (and watch the Lab videos step by step.
 
 **If you have trouble with this don't worry because I'll walk you through it on Friday.**
 
@@ -22,7 +28,7 @@ Hi class, some of you may find that the custom template isn't working. Unfortuna
 
 4.  Now, from the **Console**, open the **`Terminal`** panel (should be top right)
 
-5.  In the terminal panel, copy and paste the following: `quarto use template wjschne/apaquarto` . You may have to hold CTRL-SHIFT-V to paste it or right click and paste because the usual CTR-V doesn't work in terminal. You could even just type it out. Once you paste it in click enter, then Y for the trust check and type APA to create an APA folder for your paper. The APA folder will be inside the Assignment2 folder you just made.
+5.  In the **Terminal** panel, copy and paste the following: `quarto use template wjschne/apaquarto` . You may have to hold CTRL-SHIFT-V to paste it or right click and paste because the usual CTR-V doesn't work in terminal. You could even just type it out. Once you paste it in click enter, then Y for the trust check and type APA to create an APA folder for your paper. The APA folder will be inside the Assignment2 folder you just made.
 
 6.  Once installed, click on the file tab (to the right), and you'll see several files and an APA folder. Click to open the APA folder.
 

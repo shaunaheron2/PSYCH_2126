@@ -42,5 +42,7 @@ two-way-anova
 putting-it-all-together
 learning-more
 lab-1-putting-it-all-together
-my-template-isnt-working
+apa-template-tutorial-that-i-linked-in-the-zoom-chat
+lab-video
+installing-the-new-apa-template
 learning-more-1
