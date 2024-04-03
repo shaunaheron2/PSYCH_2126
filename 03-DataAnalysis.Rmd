@@ -154,7 +154,9 @@ Histograms are a great way to check your outcome variable for normality. Remembe
 
 ```{r}
 
-plot_histogram(df)
+hist <- plot_histogram(df)
+
+hist # now let's look at it
 
 ```
 
